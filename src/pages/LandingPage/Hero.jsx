@@ -5,7 +5,7 @@ import contributors from "../../images/contributors.webp";
 
 const Hero = () => {
   return (
-    <section className="relative overflow-hidden min-h-screen bg-[#f8fafc]">
+    <section className="relative overflow-hidden  bg-[#f8fafc]">
       {/* Blue Blur */}
       <div className="absolute top-10 left-10 w-[350px] h-[350px] bg-[#1E3A8A] opacity-30 blur-[120px] rounded-full"></div>
 
