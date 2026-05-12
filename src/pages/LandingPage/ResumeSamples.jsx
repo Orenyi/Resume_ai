@@ -1,47 +1,63 @@
 import { useState } from "react";
+import { MdBusinessCenter } from "react-icons/md";
+import { LuDatabase } from "react-icons/lu";
+import { IoPersonSharp } from "react-icons/io5";
+import { RiComputerLine } from "react-icons/ri";
+import { FaRegChartBar } from "react-icons/fa";
+import { GiTeacher } from "react-icons/gi";
+import { BsAirplaneEngines } from "react-icons/bs";
+import { BsFiles } from "react-icons/bs";
+import BusinessAnalyst from "../../images/BusinessAnalyst.webp";
+import DataScientist from "../../images/DataScientist.webp";
+import ProductManager from "../../images/ProductManager.webp";
+import SoftwareEngineer from "../../images/SoftwareEngineer.webp";
+import Sales from "../../images/Sales.webp";
+import Teacher from "../../images/Teacher.webp";
+import Engineer from "../../images/Engineer.webp";
+import Accounting from "../../images/Accounting.webp";
 
 const primary = "#1e3a8a";
 
 const jobs = [
   {
     label: "Business Analyst",
-    icon: "📊",
-    img: "https://picsum.photos/seed/analyst/600/800",
+    icon: <MdBusinessCenter />,
+    img: BusinessAnalyst,
   },
   {
     label: "Data Scientist",
-    icon: "🧬",
-    img: "https://picsum.photos/seed/datascience/600/800",
+    icon: <LuDatabase />,
+    img: DataScientist,
   },
   {
     label: "Product Manager",
-    icon: "👤",
-    img: "https://picsum.photos/seed/product/600/800",
+    icon: <IoPersonSharp />,
+    img: ProductManager,
   },
   {
     label: "Software Engineer",
-    icon: "💻",
-    img: "https://picsum.photos/seed/software/600/800",
+    icon: <RiComputerLine />,
+    img: SoftwareEngineer,
   },
   {
     label: "Sales",
-    icon: "💼",
-    img: "https://picsum.photos/seed/sales/600/800",
+    icon: <FaRegChartBar />,
+    img: Sales,
   },
   {
     label: "Teacher",
-    icon: "✏️",
-    img: "https://picsum.photos/seed/teacher/600/800",
+    icon: <GiTeacher />,
+    img: Teacher,
   },
   {
     label: "Engineer",
-    icon: "⚙️",
-    img: "https://picsum.photos/seed/engineer/600/800",
+    icon: <BsAirplaneEngines />,
+    img: Engineer,
   },
   {
     label: "Accounting",
-    icon: "📁",
-    img: "https://picsum.photos/seed/accounting/600/800",
+    icon: <BsFiles />,
+    img: Accounting,
   },
 ];
 
@@ -49,13 +65,13 @@ export default function ResumeSamples() {
   const [active, setActive] = useState(jobs[4]);
 
   return (
-    <section className="bg-[#f2f4f6] py-16">
+    <section className="bg-[#f2f4f6] py-28">
       <div className="px-4 md:px-6 xl:px-10 max-w-[90rem] mx-auto">
         <div className="flex flex-col lg:flex-row gap-10 items-start">
           {/* Left */}
           <div className="w-full lg:w-[42%] flex flex-col gap-6">
             <div>
-              <h2 className="text-[30px] md:text-[36px] font-bold text-gray-900 leading-tight mb-4">
+              <h2 className="text-[30px] md:text-[36px] lg:text-[40px] font-bold text-gray-900 leading-tight mb-6">
                 Resume examples tailored for your job and experience
               </h2>
               <p className="text-gray-500 text-[16px] leading-relaxed">
@@ -98,13 +114,13 @@ export default function ResumeSamples() {
           </div>
 
           {/* Right — image preview */}
-          <div className="w-full lg:w-[58%] lg:sticky lg:top-8">
+          <div className="w-full lg:w-[40%] lg:sticky lg:top-8">
             <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
               <img
                 key={active.label}
                 src={active.img}
                 alt={`${active.label} resume example`}
-                className="w-full h-auto object-cover"
+                className="w-full object-cover"
                 style={{ animation: "fadeIn 0.3s ease" }}
               />
               <style>{`@keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }`}</style>
