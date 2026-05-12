@@ -10,8 +10,8 @@ import live_preview from "../../images/live_preview.webp";
 
 const Results = () => {
   return (
-    <section className=" bg-[#f2f4f6] py-16">
-      <div className="px-4 md:px-6 lg:px-6 xl:px-10 max-w-[90rem] mx-auto">
+    <section className=" bg-[#f2f4f6] py-16 lg:py-28">
+      <div className="px-4 md:px-6 lg:px-6 xl:px-10 max-w-[85rem] mx-auto">
         <h2 className="text-[25px] md:text-[30px] lg:text-[40px] font-semibold leading-snug text-center">
           Engineered for Results
         </h2>

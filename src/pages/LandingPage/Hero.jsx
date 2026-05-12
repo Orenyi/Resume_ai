@@ -18,7 +18,7 @@ const Hero = () => {
       to-[#0D9488] opacity-20 blur-[140px] rounded-full"
       ></div>
 
-      <div className="relative z-10 mt-16 px-4 md:px-6 lg:px-6 xl:px-10 max-w-[90rem] mx-auto">
+      <div className="relative z-10 mt-16 px-4 md:px-6 lg:px-6 xl:px-10 max-w-[85rem] mx-auto">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-x-10">
           {/* ------- hero left -------------- */}
           <div className="flex flex-col ">
