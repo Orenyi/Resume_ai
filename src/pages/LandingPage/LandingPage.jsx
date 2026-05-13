@@ -3,14 +3,16 @@ import Hero from "./Hero";
 import Results from "./Results";
 import ResumeSamples from "./ResumeSamples";
 import Trusted from "./Trusted";
+import Testimonials from "./Testimonials";
 
 const LandingPage = () => {
   return (
     <section>
       <Hero />
       <Results />
-      <ResumeSamples />
       <Trusted />
+      <ResumeSamples />
+      <Testimonials />
     </section>
   );
 };
