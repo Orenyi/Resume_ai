@@ -73,7 +73,7 @@ export default function ResumeSamples() {
 
   return (
     <div className="w-full max-w-[100vw] overflow-x-hidden bg-[#f2f4f6] py-16 lg:py-28">
-      <div className="w-full max-w-[1360px] mx-auto px-6 box-border">
+      <div className="w-full max-w-[85rem] mx-auto px-6 box-border">
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.1fr] gap-12 w-full">
           {/* LEFT */}
           <div className="flex flex-col min-w-0 w-full">

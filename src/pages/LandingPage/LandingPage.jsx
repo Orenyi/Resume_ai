@@ -2,6 +2,7 @@ import React from "react";
 import Hero from "./Hero";
 import Results from "./Results";
 import ResumeSamples from "./ResumeSamples";
+import Trusted from "./Trusted";
 
 const LandingPage = () => {
   return (
@@ -9,6 +10,7 @@ const LandingPage = () => {
       <Hero />
       <Results />
       <ResumeSamples />
+      <Trusted />
     </section>
   );
 };
