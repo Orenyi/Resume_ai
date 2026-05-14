@@ -9,6 +9,29 @@
     "social": "Fachleute diesen Monat eingestellt",
     "socialCount": "10.000+"
   },
+  "testimonials": {
+    "badge": "Bewertet mit 4/5 von über 1.000 Nutzern",
+    "heading": "Lobende Worte von anderen über unsere Präsenz.",
+    "subtitle": "Entdecke, warum Teams, Gründer und Fachleute unserer kreativen Expertise vertrauen, um ihre Marken zu stärken."
+  },
+  "samples": {
+    "heading": "Lebenslauf-Beispiele für deinen Beruf und deine Erfahrung",
+    "subtitle": "Unsere Experten haben über 1.200 detaillierte Ressourcen erstellt und 9.000+ Bewerbungen analysiert — jede auf den aktuellen Arbeitsmarkt zugeschnitten.",
+    "browse": "Beispiele ansehen",
+    "jobs": {
+      "businessAnalyst": "Business Analyst",
+      "dataScientist": "Data Scientist",
+      "productManager": "Produktmanager",
+      "softwareEngineer": "Software-Ingenieur",
+      "sales": "Vertrieb",
+      "teacher": "Lehrer",
+      "engineer": "Ingenieur",
+      "accounting": "Buchhaltung"
+    }
+  },
+  "trusted": {
+    "label": "Vertraut von Mitarbeitern bei"
+  },
   "results": {
     "heading": "Entwickelt für Ergebnisse",
     "subtitle": "Unsere spezialisierten KI-Tools übernehmen die komplexen Teile des Lebenslaufschreibens, damit du dich auf deine nächste Chance konzentrieren kannst.",
@@ -31,5 +54,56 @@
       "desc": "Ein-Klick-Export in ein perfekt formatiertes PDF. Keine Randenfehler oder defekten Layouts mehr.",
       "btn": "Jetzt exportieren"
     }
+  },
+  "faq": {
+    "heading": "Häufig gestellte Fragen",
+    "subtitle": "Alles, was du über die Erstellung professioneller, ATS-optimierter Lebensläufe mit unserer KI-gestützten Plattform wissen musst.",
+    "questions": {
+      "q1": {
+        "question": "Wie nutze ich den KI-Lebenslauf-Builder kostenlos?",
+        "answer": "Erstelle einfach ein kostenloses Konto und unsere KI erstellt sofort einen professionellen Lebenslauf für dich."
+      },
+      "q2": {
+        "question": "Was unterscheidet diesen Lebenslauf-Builder von anderen?",
+        "answer": "Unsere Plattform nutzt fortschrittliche KI zur Optimierung deiner Inhalte und ATS-Analyse in Echtzeit."
+      },
+      "q3": {
+        "question": "Was ist ein ATS-Score und warum ist er wichtig?",
+        "answer": "ATS steht für Applicant Tracking System — eine Software, die Lebensläufe automatisch filtert."
+      },
+      "q4": {
+        "question": "Kann die KI meinen Lebenslauf komplett neu schreiben?",
+        "answer": "Ja. Du kannst deinen bestehenden Lebenslauf einfügen oder deine Daten eingeben und die KI erstellt professionelle Inhalte."
+      },
+      "q5": {
+        "question": "Welche Lebenslauf-Formate und Vorlagen gibt es?",
+        "answer": "Wir bieten mehrere professionelle und vollständig anpassbare Vorlagen an."
+      },
+      "q6": {
+        "question": "Kann ich meinen Lebenslauf als PDF exportieren?",
+        "answer": "Ja. Du kannst sofort ein perfekt formatiertes PDF herunterladen."
+      },
+      "q7": {
+        "question": "Sind meine persönlichen Daten sicher?",
+        "answer": "Ja. Alle Daten werden verschlüsselt gespeichert und niemals verkauft."
+      },
+      "q8": {
+        "question": "Kann ich mehrere Versionen meines Lebenslaufs erstellen?",
+        "answer": "Ja. Du kannst mehrere Versionen speichern und verwalten."
+      },
+      "q9": {
+        "question": "Kann ich meinen Lebenslauf als Online-Portfolio veröffentlichen?",
+        "answer": "Ja. Jeder Nutzer erhält einen öffentlichen Link zum Teilen seines Portfolios."
+      }
+    }
+  },
+  "navbar": {
+    "dashboard": "Dashboard",
+    "about": "Über uns",
+    "resume": "Lebenslauf",
+    "templates": "Vorlagen",
+    "contact": "Kontakt",
+    "signin": "Anmelden",
+    "getStarted": "Loslegen"
   }
 }

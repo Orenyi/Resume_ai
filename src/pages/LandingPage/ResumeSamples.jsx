@@ -1,4 +1,5 @@
 import { useState, useRef } from "react";
+import { useTranslation } from "react-i18next";
 import { MdBusinessCenter } from "react-icons/md";
 import { LuDatabase } from "react-icons/lu";
 import { IoPersonSharp } from "react-icons/io5";
@@ -18,51 +19,20 @@ import Accounting from "../../images/Accounting.webp";
 
 const primary = "#1e3a8a";
 
-const jobs = [
-  {
-    label: "Business Analyst",
-    icon: <MdBusinessCenter />,
-    img: BusinessAnalyst,
-  },
-  {
-    label: "Data Scientist",
-    icon: <LuDatabase />,
-    img: DataScientist,
-  },
-  {
-    label: "Product Manager",
-    icon: <IoPersonSharp />,
-    img: ProductManager,
-  },
-  {
-    label: "Software Engineer",
-    icon: <RiComputerLine />,
-    img: SoftwareEngineer,
-  },
-  {
-    label: "Sales",
-    icon: <FaRegChartBar />,
-    img: Sales,
-  },
-  {
-    label: "Teacher",
-    icon: <GiTeacher />,
-    img: Teacher,
-  },
-  {
-    label: "Engineer",
-    icon: <BsAirplaneEngines />,
-    img: Engineer,
-  },
-  {
-    label: "Accounting",
-    icon: <BsFiles />,
-    img: Accounting,
-  },
+const jobKeys = [
+  { key: "businessAnalyst", icon: <MdBusinessCenter />, img: BusinessAnalyst },
+  { key: "dataScientist", icon: <LuDatabase />, img: DataScientist },
+  { key: "productManager", icon: <IoPersonSharp />, img: ProductManager },
+  { key: "softwareEngineer", icon: <RiComputerLine />, img: SoftwareEngineer },
+  { key: "sales", icon: <FaRegChartBar />, img: Sales },
+  { key: "teacher", icon: <GiTeacher />, img: Teacher },
+  { key: "engineer", icon: <BsAirplaneEngines />, img: Engineer },
+  { key: "accounting", icon: <BsFiles />, img: Accounting },
 ];
 
 export default function ResumeSamples() {
-  const [active, setActive] = useState(jobs[4]);
+  const { t } = useTranslation();
+  const [activeKey, setActiveKey] = useState("sales");
   const scrollRef = useRef(null);
 
   const scroll = (dir) =>
@@ -71,27 +41,25 @@ export default function ResumeSamples() {
       behavior: "smooth",
     });
 
+  const activeJob = jobKeys.find((j) => j.key === activeKey);
+
   return (
     <div className="w-full max-w-[100vw] overflow-x-hidden bg-[#f2f4f6] py-16 lg:py-28">
       <div className="w-full max-w-[85rem] mx-auto px-6 box-border">
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.1fr] gap-12 w-full">
           {/* LEFT */}
           <div className="flex flex-col min-w-0 w-full">
-            {/* Heading */}
-            <h2 className="text-[25px] md:text-[30px] lg:text-[40px] font-semibold  text-gray-900 mb-5">
-              Resume examples tailored for your job and experience
+            <h2 className="text-[25px] md:text-[30px] lg:text-[40px] font-semibold text-gray-900 mb-5">
+              {t("samples.heading")}
             </h2>
             <p className="text-base leading-8 text-gray-500 mb-5">
-              Our expert career specialists have crafted over 1,200 detailed
-              resume resources and analyzed 9,000+ applications across multiple
-              industries and experience levels — each tailored to meet today's
-              competitive job market.
+              {t("samples.subtitle")}
             </p>
             <button
               className="inline-flex items-center gap-1.5 text-sm font-semibold w-fit"
               style={{ color: primary }}
             >
-              Browse Examples{" "}
+              {t("samples.browse")}
               <span className="transition-transform group-hover:translate-x-1">
                 →
               </span>
@@ -111,12 +79,12 @@ export default function ResumeSamples() {
                   ref={scrollRef}
                   className="flex-1 min-w-0 flex gap-2 overflow-x-auto overflow-y-hidden pb-1.5 [scroll-behavior:smooth] [-webkit-overflow-scrolling:touch] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
                 >
-                  {jobs.map((job) => {
-                    const isActive = active.label === job.label;
+                  {jobKeys.map((job) => {
+                    const isActive = activeKey === job.key;
                     return (
                       <button
-                        key={job.label}
-                        onClick={() => setActive(job)}
+                        key={job.key}
+                        onClick={() => setActiveKey(job.key)}
                         className="shrink-0 inline-flex items-center gap-2 px-4 py-2.5 rounded-full text-[13px] font-medium whitespace-nowrap border transition-all duration-200 cursor-pointer"
                         style={{
                           background: isActive ? primary : "#fff",
@@ -125,7 +93,7 @@ export default function ResumeSamples() {
                         }}
                       >
                         <span>{job.icon}</span>
-                        {job.label}
+                        {t(`samples.jobs.${job.key}`)}
                       </button>
                     );
                   })}
@@ -147,9 +115,9 @@ export default function ResumeSamples() {
                 />
                 <div className="relative rounded-3xl overflow-hidden border border-gray-200 shadow-xl bg-white">
                   <img
-                    key={active.label}
-                    src={active.img}
-                    alt={active.label}
+                    key={activeKey}
+                    src={activeJob.img}
+                    alt={t(`samples.jobs.${activeKey}`)}
                     className="w-full h-auto block"
                   />
                 </div>
@@ -158,12 +126,12 @@ export default function ResumeSamples() {
 
             {/* DESKTOP pills */}
             <div className="hidden lg:grid grid-cols-2 gap-3 mt-8 w-full">
-              {jobs.map((job) => {
-                const isActive = active.label === job.label;
+              {jobKeys.map((job) => {
+                const isActive = activeKey === job.key;
                 return (
                   <button
-                    key={job.label}
-                    onClick={() => setActive(job)}
+                    key={job.key}
+                    onClick={() => setActiveKey(job.key)}
                     className="flex items-center gap-3.5 px-[18px] py-3.5 rounded-2xl border text-sm font-medium text-left cursor-pointer transition-all duration-200"
                     style={{
                       background: isActive ? primary : "#fff",
@@ -175,7 +143,7 @@ export default function ResumeSamples() {
                     }}
                   >
                     <span className="text-xl">{job.icon}</span>
-                    {job.label}
+                    {t(`samples.jobs.${job.key}`)}
                   </button>
                 );
               })}
@@ -190,9 +158,9 @@ export default function ResumeSamples() {
             />
             <div className="relative rounded-3xl overflow-hidden border border-gray-200 shadow-xl bg-white">
               <img
-                key={active.label}
-                src={active.img}
-                alt={active.label}
+                key={activeKey}
+                src={activeJob.img}
+                alt={t(`samples.jobs.${activeKey}`)}
                 className="w-full h-auto block"
               />
             </div>

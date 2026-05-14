@@ -1,7 +1,7 @@
 export const navLinks = [
-  { id: 1, label: "Dashboard", href: "/dashboard" },
-  { id: 2, label: "Templates", href: "/templates" },
-  { id: 3, label: "About", href: "/about" },
+  { id: 1, label: "navbar.dashboard", href: "/dashboard" },
+  { id: 2, label: "navbar.templates", href: "/templates" },
+  { id: 3, label: "navbar.about", href: "/about" },
 ];
 
 export const languages = [

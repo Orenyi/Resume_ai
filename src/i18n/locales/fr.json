@@ -9,6 +9,29 @@
     "social": "professionnels recrutés ce mois-ci",
     "socialCount": "10 000+"
   },
+  "testimonials": {
+    "badge": "Noté 4/5 par plus de 1 000 utilisateurs",
+    "heading": "Des mots d'éloge de la part de nos utilisateurs.",
+    "subtitle": "Découvrez pourquoi des équipes, fondateurs et professionnels font confiance à notre expertise créative pour valoriser leurs marques."
+  },
+  "samples": {
+    "heading": "Exemples de CV adaptés à votre métier et expérience",
+    "subtitle": "Nos spécialistes ont créé plus de 1 200 ressources détaillées et analysé 9 000+ candidatures dans plusieurs secteurs — chacune adaptée au marché actuel.",
+    "browse": "Voir les exemples",
+    "jobs": {
+      "businessAnalyst": "Analyste d'affaires",
+      "dataScientist": "Data Scientist",
+      "productManager": "Chef de produit",
+      "softwareEngineer": "Ingénieur logiciel",
+      "sales": "Ventes",
+      "teacher": "Enseignant",
+      "engineer": "Ingénieur",
+      "accounting": "Comptabilité"
+    }
+  },
+  "trusted": {
+    "label": "Approuvé par les employés de"
+  },
   "results": {
     "heading": "Conçu pour les résultats",
     "subtitle": "Nos outils IA spécialisés gèrent les parties complexes de la rédaction de CV afin que vous puissiez vous concentrer sur votre prochaine opportunité.",
@@ -31,5 +54,56 @@
       "desc": "Exportez en un clic vers un PDF parfaitement formaté. Fini les erreurs de marge ou les mises en page cassées.",
       "btn": "Essayer l'export"
     }
+  },
+  "faq": {
+    "heading": "Questions fréquemment posées",
+    "subtitle": "Tout ce que vous devez savoir pour créer des CV professionnels et optimisés ATS avec notre plateforme alimentée par l'IA.",
+    "questions": {
+      "q1": {
+        "question": "Comment utiliser gratuitement le créateur de CV IA ?",
+        "answer": "Créez simplement un compte gratuit, ajoutez vos informations personnelles, expériences, études et compétences, et notre IA générera instantanément un CV professionnel. Vous pouvez télécharger votre CV gratuitement en PDF."
+      },
+      "q2": {
+        "question": "Qu'est-ce qui différencie ce créateur de CV des autres ?",
+        "answer": "Notre outil utilise une IA avancée pour réécrire vos points clés, suggérer des mots-clés pertinents et analyser votre CV selon les systèmes ATS en temps réel."
+      },
+      "q3": {
+        "question": "Qu'est-ce qu'un score ATS et pourquoi est-ce important ?",
+        "answer": "ATS signifie Applicant Tracking System — un logiciel utilisé par les employeurs pour filtrer les CV avant qu'un humain ne les lise."
+      },
+      "q4": {
+        "question": "L'IA peut-elle réécrire mon CV depuis zéro ?",
+        "answer": "Oui. Vous pouvez coller votre CV existant ou remplir vos informations et laisser l'IA générer des résumés et expériences professionnelles."
+      },
+      "q5": {
+        "question": "Quels formats et modèles de CV sont disponibles ?",
+        "answer": "Nous proposons plusieurs modèles professionnels allant du minimaliste au créatif, entièrement personnalisables."
+      },
+      "q6": {
+        "question": "Puis-je exporter mon CV en PDF ?",
+        "answer": "Absolument. Téléchargez instantanément un PDF parfaitement formaté en un clic."
+      },
+      "q7": {
+        "question": "Mes données personnelles sont-elles sécurisées ?",
+        "answer": "Oui. Toutes vos données sont chiffrées et nous ne les vendons jamais à des tiers."
+      },
+      "q8": {
+        "question": "Puis-je créer plusieurs versions de mon CV ?",
+        "answer": "Oui. Vous pouvez créer, enregistrer, dupliquer et gérer plusieurs versions depuis votre tableau de bord."
+      },
+      "q9": {
+        "question": "Puis-je publier mon CV comme portfolio en ligne ?",
+        "answer": "Oui. Chaque utilisateur reçoit un lien public partageable pour présenter ses projets, compétences et CV."
+      }
+    }
+  },
+  "navbar": {
+    "dashboard": "tableau de bord",
+    "about": "À propos",
+    "resume": "CV",
+    "templates": "Modèles",
+    "contact": "Contact",
+    "signin": "Se connecter",
+    "getStarted": "Commencer"
   }
 }

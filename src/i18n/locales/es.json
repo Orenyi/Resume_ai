@@ -9,6 +9,29 @@
     "social": "profesionales contratados este mes",
     "socialCount": "10.000+"
   },
+  "testimonials": {
+    "badge": "Valorado 4/5 por más de 1.000 usuarios",
+    "heading": "Palabras de elogio de otros sobre nuestra presencia.",
+    "subtitle": "Descubre por qué equipos, fundadores y profesionales confían en nuestra experiencia creativa para elevar sus marcas."
+  },
+  "samples": {
+    "heading": "Ejemplos de currículum adaptados a tu trabajo y experiencia",
+    "subtitle": "Nuestros especialistas han creado más de 1.200 recursos detallados y analizado 9.000+ solicitudes en múltiples sectores — cada uno adaptado al mercado laboral actual.",
+    "browse": "Ver ejemplos",
+    "jobs": {
+      "businessAnalyst": "Analista de negocio",
+      "dataScientist": "Científico de datos",
+      "productManager": "Gerente de producto",
+      "softwareEngineer": "Ingeniero de software",
+      "sales": "Ventas",
+      "teacher": "Profesor",
+      "engineer": "Ingeniero",
+      "accounting": "Contabilidad"
+    }
+  },
+  "trusted": {
+    "label": "Con la confianza de empleados en"
+  },
   "results": {
     "heading": "Diseñado para resultados",
     "subtitle": "Nuestras herramientas de IA especializadas manejan las partes complejas de la redacción del currículum para que puedas enfocarte en tu próxima oportunidad.",
@@ -31,5 +54,56 @@
       "desc": "Exportación con un clic a un PDF perfectamente formateado. Sin errores de márgenes ni diseños rotos.",
       "btn": "Probar exportación"
     }
+  },
+  "faq": {
+    "heading": "Preguntas frecuentes",
+    "subtitle": "Todo lo que necesitas saber sobre la creación de currículums profesionales y optimizados para ATS con nuestra plataforma impulsada por IA.",
+    "questions": {
+      "q1": {
+        "question": "¿Cómo uso gratis el creador de currículums con IA?",
+        "answer": "Simplemente crea una cuenta gratuita, añade tus datos y nuestra IA generará un currículum profesional al instante."
+      },
+      "q2": {
+        "question": "¿Qué hace diferente a este creador de currículums?",
+        "answer": "Nuestra plataforma usa IA avanzada para reescribir puntos clave, sugerir palabras clave y analizar tu currículum para ATS en tiempo real."
+      },
+      "q3": {
+        "question": "¿Qué es una puntuación ATS y por qué importa?",
+        "answer": "ATS significa Applicant Tracking System, un software usado por empresas para filtrar currículums automáticamente."
+      },
+      "q4": {
+        "question": "¿La IA puede reescribir mi currículum desde cero?",
+        "answer": "Sí. Puedes pegar tu currículum actual o completar tus datos y la IA generará contenido profesional."
+      },
+      "q5": {
+        "question": "¿Qué formatos y plantillas están disponibles?",
+        "answer": "Ofrecemos múltiples plantillas profesionales totalmente personalizables."
+      },
+      "q6": {
+        "question": "¿Puedo exportar mi currículum en PDF?",
+        "answer": "Sí. Puedes descargar un PDF perfectamente formateado con un solo clic."
+      },
+      "q7": {
+        "question": "¿Mis datos personales están seguros?",
+        "answer": "Sí. Toda tu información está cifrada y nunca vendemos tus datos."
+      },
+      "q8": {
+        "question": "¿Puedo crear múltiples versiones de mi currículum?",
+        "answer": "Sí. Puedes crear, guardar y administrar varias versiones desde tu panel."
+      },
+      "q9": {
+        "question": "¿Puedo publicar mi currículum como portafolio online?",
+        "answer": "Sí. Cada usuario recibe un enlace público compartible para mostrar proyectos y habilidades."
+      }
+    }
+  },
+  "navbar": {
+    "dashboard": "Panel de control",
+    "about": "Acerca de",
+    "resume": "Currículum",
+    "templates": "Plantillas",
+    "contact": "Contacto",
+    "signin": "Iniciar sesión",
+    "getStarted": "Comenzar"
   }
 }

@@ -9,6 +9,29 @@
     "social": "professionals hired this month",
     "socialCount": "10,000+"
   },
+  "testimonials": {
+    "badge": "Rated 4/5 by over 1k+ users",
+    "heading": "Words of praise from others about our presence.",
+    "subtitle": "Discover why teams, founders, and professionals trust our creative expertise to elevate their brands and digital experiences."
+  },
+  "samples": {
+    "heading": "Resume examples tailored for your job and experience",
+    "subtitle": "Our expert career specialists have crafted over 1,200 detailed resume resources and analyzed 9,000+ applications across multiple industries and experience levels — each tailored to meet today's competitive job market.",
+    "browse": "Browse Examples",
+    "jobs": {
+      "businessAnalyst": "Business Analyst",
+      "dataScientist": "Data Scientist",
+      "productManager": "Product Manager",
+      "softwareEngineer": "Software Engineer",
+      "sales": "Sales",
+      "teacher": "Teacher",
+      "engineer": "Engineer",
+      "accounting": "Accounting"
+    }
+  },
+  "trusted": {
+    "label": "Trusted by employees at"
+  },
   "results": {
     "heading": "Engineered for Results",
     "subtitle": "Our specialized AI tools handle the complex parts of resume writing so you can focus on your next big opportunity.",
@@ -31,5 +54,56 @@
       "desc": "One-click export to a perfectly formatted PDF. No more margin errors or broken layouts when you send your application.",
       "btn": "Try Export Now"
     }
+  },
+  "faq": {
+    "heading": "Frequently Asked Questions",
+    "subtitle": "Everything you need to know about building professional, ATS-friendly resumes with our AI-powered platform.",
+    "questions": {
+      "q1": {
+        "question": "How do I use the AI Resume Builder for free?",
+        "answer": "Simply create an account for free, add your personal details, work experience, education, and skills, and our AI will instantly generate a polished, professional resume for you. You can download your resume as a PDF completely free — no hidden charges or subscriptions."
+      },
+      "q2": {
+        "question": "What makes this resume builder different from others?",
+        "answer": "Our builder uses advanced AI to rewrite your bullet points, suggest relevant keywords, and score your resume against ATS systems — all in real time. Most builders just give you a template. We give you an intelligent writing assistant."
+      },
+      "q3": {
+        "question": "What is an ATS score and why does it matter?",
+        "answer": "ATS stands for Applicant Tracking System — software used by employers to filter resumes before a human ever reads them. Our ATS score checker analyses your resume against the job description and tells you exactly how to improve your chances of passing the filter."
+      },
+      "q4": {
+        "question": "Can the AI rewrite my resume from scratch?",
+        "answer": "Yes. You can paste your existing resume or fill in your details and let the AI generate professional summaries, experience bullet points, and skill suggestions tailored to your target job title and industry."
+      },
+      "q5": {
+        "question": "What resume formats and templates are available?",
+        "answer": "We offer multiple professionally designed templates ranging from minimal and modern to creative. Every template is fully customisable — you can change fonts, colours, and section order to match your personal style."
+      },
+      "q6": {
+        "question": "Can I export my resume as a PDF?",
+        "answer": "Absolutely. Once you are happy with your resume, click the Export button and download a pixel-perfect PDF instantly. The formatting is preserved exactly as you see it in the live preview."
+      },
+      "q7": {
+        "question": "Is my personal data safe on this platform?",
+        "answer": "Yes. We take data privacy seriously. All your information is encrypted in transit and at rest. We never sell your data to third parties. You can delete your account and all associated data at any time from your settings."
+      },
+      "q8": {
+        "question": "Can I create multiple versions of my resume?",
+        "answer": "Yes. Your dashboard lets you create, save, rename, duplicate, and manage multiple resume versions. This is perfect for tailoring your resume to different roles or industries without starting over each time."
+      },
+      "q9": {
+        "question": "Can I publish my resume as an online portfolio link?",
+        "answer": "Yes. Every user gets a shareable public portfolio link at a unique URL. You can include your projects, skills, and resume in one place and share it directly with recruiters or add it to your LinkedIn profile."
+      }
+    }
+  },
+  "navbar": {
+    "dashboard": "Dashboard",
+    "about": "About",
+    "resume": "Resume",
+    "templates": "Templates",
+    "contact": "Contact",
+    "signin": "Sign In",
+    "getStarted": "Get Started"
   }
 }

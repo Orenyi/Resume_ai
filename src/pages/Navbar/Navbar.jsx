@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { navLinks } from "../../assets/navData";
 import LanguageSwitcher from "./LanguageSwitcher";
 import MobileMenu from "./MobileMenu";
 import logo from "../../images/logo.png";
 
 const Navbar = () => {
+  const { t } = useTranslation();
+
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeLang, setActiveLang] = useState("en");
@@ -54,7 +57,7 @@ const Navbar = () => {
               >
                 {({ isActive }) => (
                   <>
-                    {link.label}
+                    {t(link.label)}
                     {/* Active underline */}
                     {isActive && (
                       <span className="absolute bottom-0 left-4 right-4 h-[2px] bg-[#1e3a8a] rounded-full" />
@@ -77,7 +80,7 @@ const Navbar = () => {
               className="text-[14px] bg-transparent text-black py-2 px-4 rounded-lg border border-black 
                 hover:bg-[var(--color-secondary)] hover:text-white hover:border-none transition-colors duration-300 "
             >
-              Sign In
+              {t("navbar.signin")}
             </NavLink>
 
             <NavLink
@@ -85,7 +88,7 @@ const Navbar = () => {
               className="text-[14px]  bg-[var(--color-primary)] text-white py-2 px-4 rounded-lg hover:bg-[var(--color-secondary)]
                transition-colors duration-300"
             >
-              Get Started
+              {t("navbar.getStarted")}
             </NavLink>
           </div>
 

@@ -1,4 +1,5 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import Google from "../../images/logo/Google_logo.svg";
 import Meta from "../../images/logo/Meta_logo.svg";
 import Amazon from "../../images/logo/Amazon_logo.svg";
@@ -12,59 +13,28 @@ import Uber from "../../images/logo/Uber_logo.png";
 import Figma from "../../images/logo/Figma_logo.svg";
 
 const logos = [
-  {
-    name: "Google",
-    src: Google,
-  },
-  {
-    name: "Meta",
-    src: Meta,
-  },
-  {
-    name: "Amazon",
-    src: Amazon,
-  },
-  {
-    name: "Airbnb",
-    src: Airbnb,
-  },
-  {
-    name: "Microsoft",
-    src: Microsoft,
-  },
-  {
-    name: "Spotify",
-    src: Spotify,
-  },
-  {
-    name: "Slack",
-    src: Slack,
-  },
-  {
-    name: "Netflix",
-    src: Netflix,
-  },
-  {
-    name: "LinkedIn",
-    src: LinkedIn,
-  },
-  {
-    name: "Uber",
-    src: Uber,
-  },
-  {
-    name: "Figma",
-    src: Figma,
-  },
+  { name: "Google", src: Google },
+  { name: "Meta", src: Meta },
+  { name: "Amazon", src: Amazon },
+  { name: "Airbnb", src: Airbnb },
+  { name: "Microsoft", src: Microsoft },
+  { name: "Spotify", src: Spotify },
+  { name: "Slack", src: Slack },
+  { name: "Netflix", src: Netflix },
+  { name: "LinkedIn", src: LinkedIn },
+  { name: "Uber", src: Uber },
+  { name: "Figma", src: Figma },
 ];
 
 const Trusted = () => {
+  const { t } = useTranslation();
+
   return (
     <section className="bg-[#f2f4f6] py-16 lg:py-28 overflow-hidden">
       {/* TEXT CONTAINER ONLY */}
       <div className="px-4 md:px-6 lg:px-6 xl:px-10 max-w-[85rem] mx-auto">
         <h4 className="text-center text-[14px] font-normal tracking-[0.25em] text-black uppercase mb-12">
-          Trusted by employees at
+          {t("trusted.label")}
         </h4>
       </div>
 
@@ -86,19 +56,7 @@ const Trusted = () => {
               <img
                 src={logo.src}
                 alt={logo.name}
-                className="
-              h-8 
-              w-auto
-              object-contain
-              select-none
-              grayscale
-              opacity-30
-              transition-all
-              duration-500
-              group-hover:grayscale-0
-              group-hover:opacity-100
-              group-hover:cursor-pointer
-            "
+                className="h-8 w-auto object-contain select-none grayscale opacity-30 transition-all duration-500 group-hover:grayscale-0 group-hover:opacity-100 group-hover:cursor-pointer"
               />
             </div>
           ))}

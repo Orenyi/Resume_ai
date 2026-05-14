@@ -1,4 +1,5 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import { FaStar } from "react-icons/fa";
 import {
   testimonialsRow1,
@@ -12,7 +13,7 @@ const TestimonialCard = ({ name, role, text }) => {
         p-7 shadow-sm transition-all duration-500 hover:cursor-pointer"
     >
       {/* QUOTE */}
-      <div className="text-5xl leading-none text-[var(--color-primary)]">“</div>
+      <div className="text-5xl leading-none text-[var(--color-primary)]">"</div>
 
       {/* TEXT */}
       <p className="mt-3 text-[15px] leading-8 text-gray-600">{text}</p>
@@ -20,7 +21,6 @@ const TestimonialCard = ({ name, role, text }) => {
       {/* USER */}
       <div className="mt-6 border-t border-gray-100 pt-5">
         <h4 className="text-[15px] font-semibold text-gray-900">{name}</h4>
-
         <p className="mt-1 text-sm text-gray-400">{role}</p>
       </div>
     </div>
@@ -43,9 +43,7 @@ const MarqueeRow = ({ items, direction = "left", speed = "35s" }) => {
             ? "animate-marquee-left"
             : "animate-marquee-right"
         }`}
-        style={{
-          animationDuration: speed,
-        }}
+        style={{ animationDuration: speed }}
       >
         {[...items, ...items].map((item, index) => (
           <TestimonialCard
@@ -61,6 +59,8 @@ const MarqueeRow = ({ items, direction = "left", speed = "35s" }) => {
 };
 
 const Testimonials = () => {
+  const { t } = useTranslation();
+
   return (
     <section className="overflow-hidden bg-[#f2f4f6] py-16 lg:py-24">
       {/* TOP CONTENT */}
@@ -69,19 +69,17 @@ const Testimonials = () => {
         <div className="mb-6 flex justify-center">
           <div className="inline-flex items-center gap-2 rounded-full bg-blue-900 px-5 py-2 text-xs font-medium text-white shadow-lg shadow-blue-900/20">
             <FaStar className="text-[10px]" />
-            Rated 4/5 by over 1k+ users
+            {t("testimonials.badge")}
           </div>
         </div>
 
         {/* HEADING */}
         <div className="mx-auto max-w-3xl text-center">
           <h2 className="text-[32px] font-bold leading-tight tracking-tight text-gray-900 md:text-[42px] lg:text-[52px]">
-            Words of praise from others about our presence.
+            {t("testimonials.heading")}
           </h2>
-
           <p className="mt-5 text-base leading-8 text-gray-500">
-            Discover why teams, founders, and professionals trust our creative
-            expertise to elevate their brands and digital experiences.
+            {t("testimonials.subtitle")}
           </p>
         </div>
       </div>
@@ -89,7 +87,6 @@ const Testimonials = () => {
       {/* TESTIMONIAL ROWS */}
       <div className="mt-14 space-y-5">
         <MarqueeRow items={testimonialsRow1} direction="left" speed="35s" />
-
         <MarqueeRow items={testimonialsRow2} direction="right" speed="35s" />
       </div>
     </section>

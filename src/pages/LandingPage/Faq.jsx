@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { FiPlus } from "react-icons/fi";
 
 import { faqData } from "../../assets/faqData";
@@ -74,6 +75,8 @@ const FaqItem = ({ question, answer, isOpen, onToggle }) => {
 };
 
 const Faq = () => {
+  const { t } = useTranslation();
+
   const [openId, setOpenId] = useState(1);
 
   const toggleFaq = (id) => {
@@ -86,12 +89,11 @@ const Faq = () => {
         {/* HEADING */}
         <div className="max-w-3xl text-center">
           <h2 className="mt-6 text-[32px] font-bold leading-tight tracking-tight text-gray-900 md:text-[44px] lg:text-[56px]">
-            Frequently Asked Questions
+            {t("faq.heading")}
           </h2>
 
           <p className="mt-5 text-base leading-8 text-gray-500 md:text-lg">
-            Everything you need to know about building professional,
-            ATS-friendly resumes with our AI-powered platform.
+            {t("faq.subtitle")}
           </p>
         </div>
 
@@ -100,8 +102,8 @@ const Faq = () => {
           {faqData.map((item) => (
             <FaqItem
               key={item.id}
-              question={item.question}
-              answer={item.answer}
+              question={t(item.question)}
+              answer={t(item.answer)}
               isOpen={openId === item.id}
               onToggle={() => toggleFaq(item.id)}
             />
