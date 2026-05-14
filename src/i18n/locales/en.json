@@ -1,0 +1,35 @@
+{
+  "hero": {
+    "badge": "Next-Gen Career Intelligence",
+    "title": "Build a Resume That Lands the Job in",
+    "titleHighlight": "Minutes",
+    "subtitle": "Harness the power of AI to craft a professional, ATS-optimized resume in minutes. Stand out to recruiters with expert phrasing and precision design.",
+    "buildBtn": "Build from Scratch",
+    "watchBtn": "Watch Demo",
+    "social": "professionals hired this month",
+    "socialCount": "10,000+"
+  },
+  "results": {
+    "heading": "Engineered for Results",
+    "subtitle": "Our specialized AI tools handle the complex parts of resume writing so you can focus on your next big opportunity.",
+    "aiRewrite": {
+      "title": "AI Rewrite Suggestions",
+      "desc": "Transform basic bullet points into high-impact professional achievements using industry-specific keywords.",
+      "check1": "Context-aware action verbs",
+      "check2": "Quantifiable impact metrics"
+    },
+    "ats": {
+      "title": "ATS Score Checker",
+      "desc": "Instantly check if your resume passes the automated filters used by 99% of Fortune 500 companies and action verbs, optimized for ATS and recruiter appeal."
+    },
+    "preview": {
+      "title": "Live Preview",
+      "desc": "See your changes in real-time on a pixel-perfect, professionally designed document."
+    },
+    "pdf": {
+      "title": "Export to PDF",
+      "desc": "One-click export to a perfectly formatted PDF. No more margin errors or broken layouts when you send your application.",
+      "btn": "Try Export Now"
+    }
+  }
+}

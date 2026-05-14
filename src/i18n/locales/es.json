@@ -1,0 +1,35 @@
+{
+  "hero": {
+    "badge": "Inteligencia profesional de nueva generación",
+    "title": "Crea un currículum que consiga el trabajo en",
+    "titleHighlight": "Minutos",
+    "subtitle": "Aprovecha el poder de la IA para crear un currículum profesional y optimizado para ATS en minutos. Destaca ante los reclutadores.",
+    "buildBtn": "Crear desde cero",
+    "watchBtn": "Ver demo",
+    "social": "profesionales contratados este mes",
+    "socialCount": "10.000+"
+  },
+  "results": {
+    "heading": "Diseñado para resultados",
+    "subtitle": "Nuestras herramientas de IA especializadas manejan las partes complejas de la redacción del currículum para que puedas enfocarte en tu próxima oportunidad.",
+    "aiRewrite": {
+      "title": "Sugerencias de reescritura con IA",
+      "desc": "Transforma puntos básicos en logros profesionales de alto impacto usando palabras clave específicas del sector.",
+      "check1": "Verbos de acción contextuales",
+      "check2": "Métricas de impacto cuantificables"
+    },
+    "ats": {
+      "title": "Verificador de puntuación ATS",
+      "desc": "Comprueba al instante si tu currículum supera los filtros automatizados utilizados por el 99% de las empresas del Fortune 500, optimizado para ATS y reclutadores."
+    },
+    "preview": {
+      "title": "Vista previa en vivo",
+      "desc": "Ve tus cambios en tiempo real en un documento con diseño profesional y pixel perfect."
+    },
+    "pdf": {
+      "title": "Exportar a PDF",
+      "desc": "Exportación con un clic a un PDF perfectamente formateado. Sin errores de márgenes ni diseños rotos.",
+      "btn": "Probar exportación"
+    }
+  }
+}

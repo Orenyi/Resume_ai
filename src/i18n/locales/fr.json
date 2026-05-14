@@ -1,0 +1,35 @@
+{
+  "hero": {
+    "badge": "Intelligence de carrière nouvelle génération",
+    "title": "Créez un CV qui décroche le poste en",
+    "titleHighlight": "Minutes",
+    "subtitle": "Exploitez la puissance de l'IA pour créer un CV professionnel et optimisé ATS en quelques minutes. Démarquez-vous auprès des recruteurs.",
+    "buildBtn": "Créer de zéro",
+    "watchBtn": "Voir la démo",
+    "social": "professionnels recrutés ce mois-ci",
+    "socialCount": "10 000+"
+  },
+  "results": {
+    "heading": "Conçu pour les résultats",
+    "subtitle": "Nos outils IA spécialisés gèrent les parties complexes de la rédaction de CV afin que vous puissiez vous concentrer sur votre prochaine opportunité.",
+    "aiRewrite": {
+      "title": "Suggestions de réécriture IA",
+      "desc": "Transformez des points basiques en réalisations professionnelles à fort impact grâce à des mots-clés spécifiques au secteur.",
+      "check1": "Verbes d'action contextuels",
+      "check2": "Métriques d'impact quantifiables"
+    },
+    "ats": {
+      "title": "Vérificateur de score ATS",
+      "desc": "Vérifiez instantanément si votre CV passe les filtres automatisés utilisés par 99 % des entreprises du Fortune 500, optimisé pour les ATS et les recruteurs."
+    },
+    "preview": {
+      "title": "Aperçu en direct",
+      "desc": "Visualisez vos modifications en temps réel sur un document au design professionnel et pixel perfect."
+    },
+    "pdf": {
+      "title": "Exporter en PDF",
+      "desc": "Exportez en un clic vers un PDF parfaitement formaté. Fini les erreurs de marge ou les mises en page cassées.",
+      "btn": "Essayer l'export"
+    }
+  }
+}

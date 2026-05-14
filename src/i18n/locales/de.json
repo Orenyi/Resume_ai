@@ -1,0 +1,35 @@
+{
+  "hero": {
+    "badge": "KI-gestützte Karriereintelligenz",
+    "title": "Erstelle einen Lebenslauf, der den Job sichert – in",
+    "titleHighlight": "Minuten",
+    "subtitle": "Nutze die Kraft der KI, um in Minuten einen professionellen, ATS-optimierten Lebenslauf zu erstellen. Hebe dich bei Recruitern ab.",
+    "buildBtn": "Von Grund auf erstellen",
+    "watchBtn": "Demo ansehen",
+    "social": "Fachleute diesen Monat eingestellt",
+    "socialCount": "10.000+"
+  },
+  "results": {
+    "heading": "Entwickelt für Ergebnisse",
+    "subtitle": "Unsere spezialisierten KI-Tools übernehmen die komplexen Teile des Lebenslaufschreibens, damit du dich auf deine nächste Chance konzentrieren kannst.",
+    "aiRewrite": {
+      "title": "KI-Umschreibungsvorschläge",
+      "desc": "Verwandle einfache Stichpunkte in wirkungsvolle berufliche Erfolge mit branchenspezifischen Schlüsselwörtern.",
+      "check1": "Kontextbezogene Aktionsverben",
+      "check2": "Quantifizierbare Wirkungsmetriken"
+    },
+    "ats": {
+      "title": "ATS-Score-Prüfer",
+      "desc": "Überprüfe sofort, ob dein Lebenslauf die automatisierten Filter von 99 % der Fortune-500-Unternehmen besteht, optimiert für ATS und Recruiter."
+    },
+    "preview": {
+      "title": "Live-Vorschau",
+      "desc": "Sieh deine Änderungen in Echtzeit in einem pixelgenauen, professionell gestalteten Dokument."
+    },
+    "pdf": {
+      "title": "Als PDF exportieren",
+      "desc": "Ein-Klick-Export in ein perfekt formatiertes PDF. Keine Randenfehler oder defekten Layouts mehr.",
+      "btn": "Jetzt exportieren"
+    }
+  }
+}
