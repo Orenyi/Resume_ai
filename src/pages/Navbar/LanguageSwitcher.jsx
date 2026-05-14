@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
+import i18n from "../../i18n";
 import { languages } from "../../assets/navData";
 
 const LanguageSwitcher = ({ activeLang, setActiveLang }) => {
@@ -46,6 +47,7 @@ const LanguageSwitcher = ({ activeLang, setActiveLang }) => {
               key={lang.code}
               onClick={() => {
                 setActiveLang(lang.code);
+                i18n.changeLanguage(lang.code);
                 setOpen(false);
               }}
               className={`w-full flex items-center gap-3 px-4 py-2.5 text-sm transition-colors
