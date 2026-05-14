@@ -4,6 +4,7 @@ import Results from "./Results";
 import ResumeSamples from "./ResumeSamples";
 import Trusted from "./Trusted";
 import Testimonials from "./Testimonials";
+import Faq from "./Faq";
 
 const LandingPage = () => {
   return (
@@ -13,6 +14,7 @@ const LandingPage = () => {
       <Trusted />
       <ResumeSamples />
       <Testimonials />
+      <Faq />
     </section>
   );
 };

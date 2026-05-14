@@ -62,7 +62,7 @@ const MarqueeRow = ({ items, direction = "left", speed = "35s" }) => {
 
 const Testimonials = () => {
   return (
-    <section className="overflow-hidden bg-[#f2f4f6] py-16 lg:py-28">
+    <section className="overflow-hidden bg-[#f2f4f6] py-16 lg:py-24">
       {/* TOP CONTENT */}
       <div className="mx-auto max-w-7xl px-5 lg:px-8">
         {/* BADGE */}
