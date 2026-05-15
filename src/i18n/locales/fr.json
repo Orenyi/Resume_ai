@@ -105,5 +105,20 @@
     "contact": "Contact",
     "signin": "Se connecter",
     "getStarted": "Commencer"
+  },
+  "footer": {
+    "description": "ResumeAI aide les professionnels à créer des CV modernes et optimisés ATS grâce à une technologie d'intelligence artificielle avancée. Créez des CV remarquables et augmentez vos chances d'être recruté.",
+    "quickLinks": "Liens rapides",
+    "home": "Accueil",
+    "about": "À propos",
+    "dashboard": "Tableau de bord",
+    "templates": "Modèles",
+    "legal": "Légal",
+    "privacy": "Politique de confidentialité",
+    "terms": "Conditions d'utilisation",
+    "careers": "Carrières",
+    "support": "Support",
+    "copy": "© 2026 ResumeAI. L'évolution professionnelle optimisée.",
+    "bottomText": "Conçu pour vous aider à décrocher votre prochaine opportunité plus rapidement."
   }
 }

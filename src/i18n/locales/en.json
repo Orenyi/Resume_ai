@@ -105,5 +105,20 @@
     "contact": "Contact",
     "signin": "Sign In",
     "getStarted": "Get Started"
+  },
+  "footer": {
+    "description": "ResumeAI helps professionals create modern, ATS-optimized resumes powered by intelligent AI technology. Build standout resumes, improve your chances of getting hired, and present your skills with confidence — all in minutes.",
+    "quickLinks": "Quick Links",
+    "home": "Home",
+    "about": "About",
+    "dashboard": "Dashboard",
+    "templates": "Templates",
+    "legal": "Legal",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "careers": "Careers",
+    "support": "Support",
+    "copy": "© 2026 ResumeAI. Professional Career Advancement Engineered.",
+    "bottomText": "Designed to help you land your next opportunity faster."
   }
 }

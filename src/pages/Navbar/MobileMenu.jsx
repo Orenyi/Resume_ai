@@ -1,5 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 import { navLinks } from "../../assets/navData";
 
@@ -8,6 +9,8 @@ import LanguageSwitcher from "./LanguageSwitcher";
 import logo from "../../images/logo.png";
 
 const MobileMenu = ({ isOpen, onClose, activeLang, setActiveLang }) => {
+  const { t } = useTranslation();
+
   return (
     <>
       {/* BACKDROP */}
@@ -120,7 +123,7 @@ const MobileMenu = ({ isOpen, onClose, activeLang, setActiveLang }) => {
               `
               }
             >
-              {link.label}
+              {t(link.label)}
             </NavLink>
           ))}
         </nav>
@@ -160,7 +163,7 @@ const MobileMenu = ({ isOpen, onClose, activeLang, setActiveLang }) => {
                 active:scale-[0.98]
               "
             >
-              Sign In
+              {t("navbar.signin")}
             </NavLink>
 
             {/* GET STARTED */}
@@ -183,7 +186,7 @@ const MobileMenu = ({ isOpen, onClose, activeLang, setActiveLang }) => {
                 active:scale-[0.98]
               "
             >
-              Get Started
+              {t("navbar.getStarted")}
             </NavLink>
           </div>
         </div>

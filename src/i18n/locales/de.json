@@ -105,5 +105,20 @@
     "contact": "Kontakt",
     "signin": "Anmelden",
     "getStarted": "Loslegen"
+  },
+  "footer": {
+    "description": "ResumeAI hilft Fachkräften dabei, moderne und ATS-optimierte Lebensläufe mit intelligenter KI-Technologie zu erstellen. Hebe dich von Recruitern ab und erhöhe deine Chancen auf deinen Traumjob.",
+    "quickLinks": "Schnellzugriff",
+    "home": "Startseite",
+    "about": "Über uns",
+    "dashboard": "Dashboard",
+    "templates": "Vorlagen",
+    "legal": "Rechtliches",
+    "privacy": "Datenschutzrichtlinie",
+    "terms": "Nutzungsbedingungen",
+    "careers": "Karriere",
+    "support": "Support",
+    "copy": "© 2026 ResumeAI. Professionelle Karriereentwicklung neu gedacht.",
+    "bottomText": "Entwickelt, um dir schneller zu deiner nächsten Chance zu verhelfen."
   }
 }

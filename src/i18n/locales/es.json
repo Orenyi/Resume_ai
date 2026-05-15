@@ -105,5 +105,20 @@
     "contact": "Contacto",
     "signin": "Iniciar sesión",
     "getStarted": "Comenzar"
+  },
+  "footer": {
+    "description": "ResumeAI ayuda a los profesionales a crear currículums modernos y optimizados para ATS impulsados por inteligencia artificial avanzada. Destaca entre los reclutadores y consigue trabajo más rápido.",
+    "quickLinks": "Enlaces rápidos",
+    "home": "Inicio",
+    "about": "Acerca de",
+    "dashboard": "Panel",
+    "templates": "Plantillas",
+    "legal": "Legal",
+    "privacy": "Política de privacidad",
+    "terms": "Términos de servicio",
+    "careers": "Carreras",
+    "support": "Soporte",
+    "copy": "© 2026 ResumeAI. Avance profesional impulsado.",
+    "bottomText": "Diseñado para ayudarte a conseguir tu próxima oportunidad más rápido."
   }
 }
