@@ -28,21 +28,24 @@ const Footer = () => {
             <div className="mt-8 flex items-center gap-4">
               <a
                 href="#"
-                className="flex h-11 w-11 items-center justify-center rounded-full border border-white/20 bg-white/10 text-lg text-white transition-all duration-300 hover:bg-white hover:text-[var(--color-primary)]"
+                className="flex h-8 w-8 items-center justify-center rounded-md border border-white/20 bg-white/10 text-lg
+                 text-white transition-all duration-300 hover:bg-[var(--color-secondary)] hover:border-none"
               >
                 <FaTwitter />
               </a>
 
               <a
                 href="#"
-                className="flex h-11 w-11 items-center justify-center rounded-full border border-white/20 bg-white/10 text-lg text-white transition-all duration-300 hover:bg-white hover:text-[var(--color-primary)]"
+                className="flex h-8 w-8 items-center justify-center rounded-md border border-white/20 bg-white/10 text-lg
+                 text-white transition-all duration-300 hover:bg-[var(--color-secondary)] hover:border-none"
               >
                 <FaLinkedinIn />
               </a>
 
               <a
                 href="#"
-                className="flex h-11 w-11 items-center justify-center rounded-full border border-white/20 bg-white/10 text-lg text-white transition-all duration-300 hover:bg-white hover:text-[var(--color-primary)]"
+                className="flex h-8 w-8 items-center justify-center rounded-md border border-white/20 bg-white/10 text-lg
+                 text-white transition-all duration-300 hover:bg-[var(--color-secondary)] hover:border-none"
               >
                 <FaInstagram />
               </a>
@@ -58,7 +61,7 @@ const Footer = () => {
             <div className="mt-6 flex flex-col gap-4 text-[15px] text-white/80">
               <NavLink
                 to="/"
-                className="transition-colors duration-300 hover:text-white"
+                className="transition-colors duration-300 hover:text-"
               >
                 {t("footer.home")}
               </NavLink>
