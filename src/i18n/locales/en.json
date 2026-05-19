@@ -120,5 +120,19 @@
     "support": "Support",
     "copy": "© 2026 ResumeAI. Professional Career Advancement Engineered.",
     "bottomText": "Designed to help you land your next opportunity faster."
+  },
+  "auth": {
+    "createAccount": "Create your account",
+    "welcomeBack": "Welcome back",
+    "continueGoogle": "Continue with Google",
+    "or": "or",
+    "email": "Email address",
+    "password": "Password",
+    "pleaseWait": "Please wait...",
+    "createBtn": "Create Account",
+    "signIn": "Sign In",
+    "signUp": "Sign Up",
+    "haveAccount": "Already have an account?",
+    "noAccount": "Don't have an account?"
   }
 }

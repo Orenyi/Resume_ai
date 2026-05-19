@@ -120,5 +120,19 @@
     "support": "Support",
     "copy": "© 2026 ResumeAI. L'évolution professionnelle optimisée.",
     "bottomText": "Conçu pour vous aider à décrocher votre prochaine opportunité plus rapidement."
+  },
+  "auth": {
+    "createAccount": "Créez votre compte",
+    "welcomeBack": "Bon retour",
+    "continueGoogle": "Continuer avec Google",
+    "or": "ou",
+    "email": "Adresse e-mail",
+    "password": "Mot de passe",
+    "pleaseWait": "Veuillez patienter...",
+    "createBtn": "Créer un compte",
+    "signIn": "Se connecter",
+    "signUp": "S'inscrire",
+    "haveAccount": "Vous avez déjà un compte ?",
+    "noAccount": "Vous n'avez pas de compte ?"
   }
 }

@@ -120,5 +120,19 @@
     "support": "Support",
     "copy": "© 2026 ResumeAI. Professionelle Karriereentwicklung neu gedacht.",
     "bottomText": "Entwickelt, um dir schneller zu deiner nächsten Chance zu verhelfen."
+  },
+  "auth": {
+    "createAccount": "Konto erstellen",
+    "welcomeBack": "Willkommen zurück",
+    "continueGoogle": "Mit Google fortfahren",
+    "or": "oder",
+    "email": "E-Mail-Adresse",
+    "password": "Passwort",
+    "pleaseWait": "Bitte warten...",
+    "createBtn": "Konto erstellen",
+    "signIn": "Anmelden",
+    "signUp": "Registrieren",
+    "haveAccount": "Hast du bereits ein Konto?",
+    "noAccount": "Hast du noch kein Konto?"
   }
 }

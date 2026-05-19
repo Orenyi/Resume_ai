@@ -5,9 +5,11 @@ import { navLinks } from "../../assets/navData";
 import LanguageSwitcher from "./LanguageSwitcher";
 import MobileMenu from "./MobileMenu";
 import logo from "../../images/logo.png";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   const { t } = useTranslation();
+  const navigate = useNavigate();
 
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -75,13 +77,13 @@ const Navbar = () => {
               setActiveLang={setActiveLang}
             />
 
-            <NavLink
-              to="/signin"
+            <button
+              onClick={() => navigate("/auth")}
               className="text-[14px] bg-transparent text-black py-2 px-4 rounded-lg border border-black 
-                hover:bg-[var(--color-secondary)] hover:text-white hover:border-none transition-colors duration-300 "
+  hover:bg-[var(--color-secondary)] hover:text-white hover:border-none transition-colors duration-300"
             >
               {t("navbar.signin")}
-            </NavLink>
+            </button>
 
             <NavLink
               to="/get-started"
