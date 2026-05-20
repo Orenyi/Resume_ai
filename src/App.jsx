@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import LandingPage from "./pages/LandingPage/LandingPage";
 import AuthPage from "./pages/Auth/AuthPage";
 import Dashboard from "./pages/Dashboard/Dashboard";
@@ -8,6 +8,8 @@ import Navbar from "./pages/Navbar/Navbar";
 import Footer from "./pages/Footer/Footer";
 
 const App = () => {
+  const location = useLocation();
+
   return (
     <BrowserRouter>
       <Navbar />
