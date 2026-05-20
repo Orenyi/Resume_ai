@@ -1,21 +1,29 @@
 import React from "react";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+
 import LandingPage from "./pages/LandingPage/LandingPage";
 import AuthPage from "./pages/Auth/AuthPage";
 import Dashboard from "./pages/Dashboard/Dashboard";
+
 import ProtectedRoute from "./components/ProtectedRoute";
+
 import Navbar from "./pages/Navbar/Navbar";
 import Footer from "./pages/Footer/Footer";
 
-const App = () => {
+const AppContent = () => {
   const location = useLocation();
 
+  const isDashboard = location.pathname.startsWith("/dashboard");
+
   return (
-    <BrowserRouter>
-      <Navbar />
+    <>
+      {!isDashboard && <Navbar />}
+
       <Routes>
         <Route path="/" element={<LandingPage />} />
+
         <Route path="/auth" element={<AuthPage />} />
+
         <Route
           path="/dashboard"
           element={
@@ -25,7 +33,16 @@ const App = () => {
           }
         />
       </Routes>
-      <Footer />
+
+      {!isDashboard && <Footer />}
+    </>
+  );
+};
+
+const App = () => {
+  return (
+    <BrowserRouter>
+      <AppContent />
     </BrowserRouter>
   );
 };

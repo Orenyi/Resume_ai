@@ -1,42 +1,3 @@
-// import { useAuth } from "../../context/AuthContext";
-// import { supabase } from "../../lib/supabaseClient";
-// import { useNavigate } from "react-router-dom";
-
-// const Dashboard = () => {
-//   const { user } = useAuth();
-//   const navigate = useNavigate();
-
-//   const handleLogout = async () => {
-//     await supabase.auth.signOut();
-//     navigate("/");
-//   };
-
-//   return (
-//     <section className="min-h-screen flex flex-col items-center justify-center bg-gray-50">
-//       <div className="bg-white rounded-2xl shadow-lg p-8 w-full max-w-md text-center">
-//         <h1
-//           className="text-2xl font-bold mb-2"
-//           style={{ color: "var(--color-primary)" }}
-//         >
-//           Welcome to your Dashboard 🎉
-//         </h1>
-//         <p className="text-gray-500 text-sm mb-6">{user?.email}</p>
-//         <button
-//           onClick={handleLogout}
-//           className="px-6 py-3 rounded-xl text-white font-semibold"
-//           style={{ backgroundColor: "var(--color-primary)" }}
-//         >
-//           Sign Out
-//         </button>
-//       </div>
-//     </section>
-//   );
-// };
-
-// export default Dashboard;
-
-// ---------------------- claude own ------------------------
-
 import React from "react";
 import Sidebar from "../../components/Sidebar";
 import Topbar from "../../components/Topbar";
@@ -48,10 +9,13 @@ import QuickActionsWidget from "../../components/QuickActionsWidget";
 import ActivityFeed from "../../components/ActivityFeed";
 import useResumes from "../../hooks/useResumes";
 import useDashboardStore from "../../store/dashboardStore";
+import useDashboardStats from "../../hooks/useDashboardStats";
 
 const Dashboard = () => {
   const { resumes } = useResumes();
   const { sidebarOpen } = useDashboardStore();
+  const { stats, loading } = useDashboardStats();
+
   return (
     <section className="min-h-screen bg-[#f8fafc]">
       <Sidebar />
@@ -64,20 +28,27 @@ const Dashboard = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 mt-8">
             <StatCard
               title="Total Resumes"
-              value={resumes.length}
+              value={stats.totalResumes}
               subtitle="Professional resumes"
             />
+
             <StatCard
               title="ATS Average"
-              value="88%"
+              value={`${stats.averageATS}%`}
               subtitle="Strong optimization"
             />
+
             <StatCard
               title="Templates"
-              value="12"
+              value={stats.totalTemplates}
               subtitle="Modern templates"
             />
-            <StatCard title="Downloads" value="24" subtitle="PDF exports" />
+
+            <StatCard
+              title="Downloads"
+              value={stats.totalDownloads}
+              subtitle="PDF exports"
+            />
           </div>
           <div className="mt-10">
             <ResumeSection resumes={resumes} />

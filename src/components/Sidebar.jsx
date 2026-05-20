@@ -13,7 +13,7 @@ import logo from "../images/logo.png";
 import useDashboardStore from "../store/dashboardStore";
 import { useAuth } from "../context/AuthContext";
 import { supabase } from "../lib/supabaseClient";
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 const navItems = [
   {
@@ -81,7 +81,9 @@ const Sidebar = () => {
           {/* Logo Section */}
           <div className="flex items-center justify-between px-5 py-6 border-b border-gray-100">
             <div className="flex items-center gap-3 overflow-hidden">
-              <img src={logo} alt="logo" className="w-32 object-contain" />
+              <NavLink to="/">
+                <img src={logo} alt="logo" className="w-32 object-contain" />
+              </NavLink>
             </div>
 
             <button onClick={closeMobileSidebar} className="lg:hidden">
