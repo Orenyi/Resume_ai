@@ -15,6 +15,19 @@ const ResumeCard = ({ resume }) => {
         downloads: (resume.downloads || 0) + 1,
       })
       .eq("id", resume.id);
+
+    // Get current user
+    const {
+      data: { user },
+    } = await supabase.auth.getUser();
+
+    // Save activity
+    await supabase.from("resume_activity").insert({
+      user_id: user.id,
+      resume_id: resume.id,
+      title: resume.title,
+      action: "Resume downloaded",
+    });
   };
 
   return (
