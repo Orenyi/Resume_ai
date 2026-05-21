@@ -1,8 +1,22 @@
 import React from "react";
 import { Document, Page } from "react-pdf";
 import { FiEdit2, FiTrash2 } from "react-icons/fi";
+import { supabase } from "../lib/supabaseClient";
 
 const ResumeCard = ({ resume }) => {
+  const handleDownload = async () => {
+    // Open PDF
+    window.open(resume.pdf_url, "_blank");
+
+    // Increase download count
+    await supabase
+      .from("resumes")
+      .update({
+        downloads: (resume.downloads || 0) + 1,
+      })
+      .eq("id", resume.id);
+  };
+
   return (
     <section className="bg-white rounded-2xl border border-gray-200 overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 group">
       <div className="relative h-[300px] overflow-hidden bg-gray-100">
@@ -35,7 +49,12 @@ const ResumeCard = ({ resume }) => {
             ATS {resume.ats_score}%
           </span>
 
-          <span className="text-sm text-gray-500">PDF</span>
+          <button
+            onClick={handleDownload}
+            className="text-sm bg-[var(--color-primary)] text-white px-4 py-2 rounded-lg hover:opacity-90 transition-all duration-300"
+          >
+            Download
+          </button>
         </div>
       </div>
     </section>

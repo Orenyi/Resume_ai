@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import LandingPage from "./pages/LandingPage/LandingPage";
 import AuthPage from "./pages/Auth/AuthPage";
 import Dashboard from "./pages/Dashboard/Dashboard";
+import ScrollToTop from "./components/ScrollToTop";
 
 import ProtectedRoute from "./components/ProtectedRoute";
 
@@ -42,6 +43,8 @@ const AppContent = () => {
 const App = () => {
   return (
     <BrowserRouter>
+      <ScrollToTop />
+
       <AppContent />
     </BrowserRouter>
   );
