@@ -19,18 +19,22 @@ const navItems = [
   {
     name: "Dashboard",
     icon: <RiDashboardLine />,
+    path: "/dashboard",
   },
   {
     name: "Templates",
     icon: <HiOutlineDocumentText />,
+    path: "/templates",
   },
   {
     name: "Resumes",
     icon: <RiFileList3Line />,
+    path: "/resumes",
   },
   {
     name: "Settings",
     icon: <RiSettings3Line />,
+    path: "/settings",
   },
 ];
 
@@ -94,10 +98,17 @@ const Sidebar = () => {
           {/* Navigation */}
           <div className="flex-1 px-3 py-6 space-y-2">
             {navItems.map((item, index) => (
-              <button
+              <NavLink
                 key={index}
-                className="w-full flex items-center gap-4 px-4 py-3 rounded-xl text-gray-700 hover:bg-gray-100 
-                transition-all duration-300"
+                to={item.path}
+                className={({ isActive }) =>
+                  `w-full flex items-center gap-4 px-4 py-3 rounded-xl transition-all duration-300
+        ${
+          isActive
+            ? "bg-[var(--color-primary)] text-white"
+            : "text-gray-700 hover:bg-gray-100"
+        }`
+                }
               >
                 <span className="text-xl">{item.icon}</span>
 
@@ -106,7 +117,7 @@ const Sidebar = () => {
                     {item.name}
                   </span>
                 )}
-              </button>
+              </NavLink>
             ))}
           </div>
 
