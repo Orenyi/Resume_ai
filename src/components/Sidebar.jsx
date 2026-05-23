@@ -24,17 +24,17 @@ const navItems = [
   {
     name: "Templates",
     icon: <HiOutlineDocumentText />,
-    path: "/templates",
+    path: "/dashboard/templates",
   },
   {
     name: "Resumes",
     icon: <RiFileList3Line />,
-    path: "/resumes",
+    path: "/dashboard/resumes",
   },
   {
     name: "Settings",
     icon: <RiSettings3Line />,
-    path: "/settings",
+    path: "/dashboard/settings",
   },
 ];
 
@@ -101,13 +101,15 @@ const Sidebar = () => {
               <NavLink
                 key={index}
                 to={item.path}
+                end={item.path === "/dashboard"}
+                onClick={closeMobileSidebar}
                 className={({ isActive }) =>
                   `w-full flex items-center gap-4 px-4 py-3 rounded-xl transition-all duration-300
-        ${
-          isActive
-            ? "bg-[var(--color-primary)] text-white"
-            : "text-gray-700 hover:bg-gray-100"
-        }`
+                ${
+                  isActive
+                    ? "bg-[var(--color-primary)] text-white"
+                    : "text-gray-700 hover:bg-gray-100"
+                }`
                 }
               >
                 <span className="text-xl">{item.icon}</span>

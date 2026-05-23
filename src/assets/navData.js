@@ -1,6 +1,6 @@
 export const navLinks = [
   { id: 1, label: "navbar.dashboard", href: "/dashboard" },
-  { id: 2, label: "navbar.templates", href: "/templates" },
+  { id: 2, label: "navbar.templates", href: "/dashboard/templates" },
   { id: 3, label: "navbar.about", href: "/about" },
 ];
 

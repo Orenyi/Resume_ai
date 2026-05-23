@@ -3,11 +3,15 @@ import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 
 import LandingPage from "./pages/LandingPage/LandingPage";
 import AuthPage from "./pages/Auth/AuthPage";
+
 import Dashboard from "./pages/Dashboard/Dashboard";
 import Templates from "./pages/Templates/Templates";
-import ScrollToTop from "./components/ScrollToTop";
+import Resumes from "./pages/Resumes/Resumes";
+import Settings from "./pages/Settings/Settings";
+import ResumeBuilder from "./pages/ResumeBuilder/ResumeBuilder";
 
 import ProtectedRoute from "./components/ProtectedRoute";
+import ScrollToTop from "./components/ScrollToTop";
 
 import Navbar from "./pages/Navbar/Navbar";
 import Footer from "./pages/Footer/Footer";
@@ -15,18 +19,18 @@ import Footer from "./pages/Footer/Footer";
 const AppContent = () => {
   const location = useLocation();
 
-  const isDashboard = location.pathname.startsWith("/dashboard");
-  const isTemplate = location.pathname.startsWith("/templates");
+  const isDashboardPage = location.pathname.startsWith("/dashboard");
 
   return (
     <>
-      {!isDashboard && !isTemplate && <Navbar />}
+      {!isDashboardPage && <Navbar />}
 
       <Routes>
+        {/* Public Routes */}
         <Route path="/" element={<LandingPage />} />
-
         <Route path="/auth" element={<AuthPage />} />
 
+        {/* Protected Dashboard Routes */}
         <Route
           path="/dashboard"
           element={
@@ -35,10 +39,45 @@ const AppContent = () => {
             </ProtectedRoute>
           }
         />
-        <Route path="/templates" element={<Templates />} />
+
+        <Route
+          path="/dashboard/templates"
+          element={
+            <ProtectedRoute>
+              <Templates />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/dashboard/resumes"
+          element={
+            <ProtectedRoute>
+              <Resumes />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/dashboard/settings"
+          element={
+            <ProtectedRoute>
+              <Settings />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/dashboard/resumes/:resumeId/edit"
+          element={
+            <ProtectedRoute>
+              <ResumeBuilder />
+            </ProtectedRoute>
+          }
+        />
       </Routes>
 
-      {!isDashboard && !isTemplate && <Footer />}
+      {!isDashboardPage && <Footer />}
     </>
   );
 };
@@ -47,7 +86,6 @@ const App = () => {
   return (
     <BrowserRouter>
       <ScrollToTop />
-
       <AppContent />
     </BrowserRouter>
   );
