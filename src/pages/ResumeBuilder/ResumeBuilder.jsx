@@ -4,19 +4,45 @@ import Sidebar from "../../components/Sidebar";
 import Topbar from "../../components/Topbar";
 import useDashboardStore from "../../store/dashboardStore";
 import resumeService from "../../services/resumeService";
+import useResumeBuilderStore from "../../store/resumeBuilderStore";
+
+import BuilderSteps from "../../components/ResumeBuilder/BuilderSteps";
+import PersonalInfoForm from "../../components/ResumeBuilder/ContactForm
+import SummaryForm from "../../components/ResumeBuilder/SummaryForm";
+import ExperienceForm from "../../components/ResumeBuilder/ExperienceForm";
+import EducationForm from "../../components/ResumeBuilder/EducationForm";
+import SkillsForm from "../../components/ResumeBuilder/SkillsForm";
+import LivePreview from "../../components/ResumeBuilder/LivePreview";
 
 const ResumeBuilder = () => {
   const { sidebarOpen } = useDashboardStore();
   const { resumeId } = useParams();
 
+  const {
+    resumeData,
+    setResumeData,
+    currentStep,
+    setCurrentStep,
+    nextStep,
+    prevStep,
+    setSelectedTemplate,
+  } = useResumeBuilderStore();
+
   const [resume, setResume] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [saving, setSaving] = useState(false);
 
   useEffect(() => {
     const fetchResume = async () => {
       try {
         const data = await resumeService.getResumeById(resumeId);
+
         setResume(data);
+        setSelectedTemplate(data.templates);
+
+        if (data.resume_data && Object.keys(data.resume_data).length > 0) {
+          setResumeData(data.resume_data);
+        }
       } catch (error) {
         console.log("Resume fetch error:", error.message);
       } finally {
@@ -25,7 +51,27 @@ const ResumeBuilder = () => {
     };
 
     fetchResume();
-  }, [resumeId]);
+  }, [resumeId, setResumeData, setSelectedTemplate]);
+
+  const handleSave = async () => {
+    try {
+      setSaving(true);
+      await resumeService.updateResumeData(resumeId, resumeData);
+    } catch (error) {
+      console.log("Save error:", error.message);
+    } finally {
+      setSaving(false);
+    }
+  };
+
+  const renderStep = () => {
+    if (currentStep === 0) return <PersonalInfoForm />;
+    if (currentStep === 1) return <SummaryForm />;
+    if (currentStep === 2) return <ExperienceForm />;
+    if (currentStep === 3) return <EducationForm />;
+    if (currentStep === 4) return <SkillsForm />;
+    return <PersonalInfoForm />;
+  };
 
   return (
     <section className="min-h-screen bg-[#f8fafc]">
@@ -43,55 +89,66 @@ const ResumeBuilder = () => {
               Loading resume builder...
             </section>
           ) : (
-            <section className="grid grid-cols-1 xl:grid-cols-[1fr_520px] gap-8">
-              <div className="bg-white rounded-3xl border border-gray-200 p-6">
-                <h1 className="text-2xl font-bold text-slate-900">
-                  Edit Resume
-                </h1>
+            <>
+              <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+                <div>
+                  <h1 className="text-3xl font-bold text-slate-900">
+                    Resume Builder
+                  </h1>
 
-                <p className="text-gray-500 mt-2">
-                  Template selected:{" "}
-                  <span className="font-semibold text-slate-800">
-                    {resume?.templates?.name?.replaceAll("-", " ")}
-                  </span>
-                </p>
-
-                <div className="mt-8 rounded-2xl border border-dashed border-gray-300 p-8 text-center">
-                  <h2 className="font-bold text-slate-900">
-                    Resume form coming next
-                  </h2>
-
-                  <p className="text-gray-500 mt-2">
-                    This is where the multi-step form will be built.
+                  <p className="text-gray-500 mt-2 capitalize">
+                    Editing: {resume?.templates?.name?.replaceAll("-", " ")}
                   </p>
                 </div>
+
+                <button
+                  onClick={handleSave}
+                  disabled={saving}
+                  className="bg-[var(--color-primary)] text-white px-6 py-3 rounded-2xl font-semibold disabled:opacity-60"
+                >
+                  {saving ? "Saving..." : "Save Resume"}
+                </button>
               </div>
 
-              <div className="bg-white rounded-3xl border border-gray-200 p-6">
-                <h2 className="text-xl font-bold text-slate-900">
-                  Template Preview
-                </h2>
+              <BuilderSteps
+                currentStep={currentStep}
+                setCurrentStep={setCurrentStep}
+              />
 
-                <div className="mt-6 border rounded-2xl overflow-hidden bg-gray-50">
-                  <img
-                    src={resume?.templates?.thumbnail_url}
-                    alt={resume?.templates?.name}
-                    className="w-full object-cover object-top"
-                  />
+              <section className="grid grid-cols-1 xl:grid-cols-[1fr_520px] gap-8">
+                <div className="space-y-6">
+                  {renderStep()}
+
+                  <div className="flex items-center justify-between">
+                    <button
+                      onClick={prevStep}
+                      disabled={currentStep === 0}
+                      className="px-6 py-3 rounded-2xl border border-gray-200 font-semibold disabled:opacity-50"
+                    >
+                      Previous
+                    </button>
+
+                    {currentStep < 4 ? (
+                      <button
+                        onClick={nextStep}
+                        className="px-6 py-3 rounded-2xl bg-[var(--color-primary)] text-white font-semibold"
+                      >
+                        Next
+                      </button>
+                    ) : (
+                      <button
+                        onClick={handleSave}
+                        className="px-6 py-3 rounded-2xl bg-green-600 text-white font-semibold"
+                      >
+                        Save & Finish
+                      </button>
+                    )}
+                  </div>
                 </div>
 
-                {resume?.templates?.pdf_url && (
-                  <a
-                    href={resume.templates.pdf_url}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="mt-5 inline-flex w-full items-center justify-center rounded-2xl bg-[var(--color-primary)] text-white py-3 font-semibold"
-                  >
-                    Open PDF Sample
-                  </a>
-                )}
-              </div>
-            </section>
+                <LivePreview template={resume?.templates} />
+              </section>
+            </>
           )}
         </div>
       </main>

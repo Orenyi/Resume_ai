@@ -70,6 +70,21 @@ const resumeService = {
 
     return data;
   },
+  async updateResumeData(resumeId, resumeData) {
+    const { data, error } = await supabase
+      .from("resumes")
+      .update({
+        resume_data: resumeData,
+        updated_at: new Date().toISOString(),
+      })
+      .eq("id", resumeId)
+      .select()
+      .single();
+
+    if (error) throw error;
+
+    return data;
+  },
 };
 
 export default resumeService;

@@ -85,7 +85,7 @@ const useResumeBuilderStore = create((set) => ({
   setSelectedTemplate: (template) =>
     set({
       selectedTemplate: template,
-    })),
+    }),
 
   resetBuilder: () =>
     set({
