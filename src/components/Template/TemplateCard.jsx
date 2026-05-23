@@ -20,9 +20,6 @@ const TemplateCard = ({ template }) => {
           className="w-full h-[420px] object-cover group-hover:scale-105
             transition-transform duration-500"
         />
-        <div className="absolute top-4 right-4 bg-white rounded-full p-2 shadowmd">
-          <FiStar className="text-gray-600" />
-        </div>
       </div>
       <div className="p-5">
         <div className="flex items-center justify-between gap-3">
