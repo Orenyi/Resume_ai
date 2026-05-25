@@ -9,6 +9,7 @@ const defaultResumeData = {
     location: "",
     website: "",
     linkedin: "",
+    photoUrl: "",
   },
 
   summary: "",

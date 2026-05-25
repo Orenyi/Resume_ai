@@ -75,23 +75,39 @@ const ExperienceForm = () => {
               />
 
               <input
+                type="month"
                 value={item.startDate}
                 onChange={(e) =>
                   updateExperience(index, "startDate", e.target.value)
                 }
-                placeholder="Start Date"
-                className="h-12 rounded-2xl border border-gray-200 px-4 outline-none"
+                className="h-12 rounded-2xl border border-gray-200 px-4 outline-none focus:border-[var(--color-primary)]"
               />
 
               <input
+                type="month"
                 value={item.endDate}
+                disabled={item.current}
                 onChange={(e) =>
                   updateExperience(index, "endDate", e.target.value)
                 }
-                placeholder="End Date"
-                className="h-12 rounded-2xl border border-gray-200 px-4 outline-none"
+                className="h-12 rounded-2xl border border-gray-200 px-4 outline-none focus:border-[var(--color-primary)] disabled:bg-gray-100 disabled:text-gray-400"
               />
             </div>
+            <label className="flex items-center mt-4 gap-3 text-sm font-medium text-slate-700">
+              <input
+                type="checkbox"
+                checked={item.current}
+                onChange={(e) => {
+                  updateExperience(index, "current", e.target.checked);
+
+                  if (e.target.checked) {
+                    updateExperience(index, "endDate", "");
+                  }
+                }}
+                className="h-5 w-5 accent-[var(--color-primary)]"
+              />
+              Currently work here
+            </label>
 
             <textarea
               value={item.description}

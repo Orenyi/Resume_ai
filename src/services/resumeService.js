@@ -34,7 +34,8 @@ const resumeService = {
           career,
           color,
           thumbnail_url,
-          pdf_url
+          pdf_url,
+          layout_key
         )
       `,
       )
@@ -59,7 +60,8 @@ const resumeService = {
           career,
           color,
           thumbnail_url,
-          pdf_url
+          pdf_url,
+          layout_key
         )
       `,
       )

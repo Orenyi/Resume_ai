@@ -73,21 +73,21 @@ const EducationForm = () => {
               />
 
               <input
+                type="month"
                 value={item.startDate}
                 onChange={(e) =>
                   updateEducation(index, "startDate", e.target.value)
                 }
-                placeholder="Start Date"
-                className="h-12 rounded-2xl border border-gray-200 px-4 outline-none"
+                className="h-12 rounded-2xl border border-gray-200 px-4 outline-none focus:border-[var(--color-primary)]"
               />
 
               <input
+                type="month"
                 value={item.endDate}
                 onChange={(e) =>
                   updateEducation(index, "endDate", e.target.value)
                 }
-                placeholder="End Date"
-                className="h-12 rounded-2xl border border-gray-200 px-4 outline-none"
+                className="h-12 rounded-2xl border border-gray-200 px-4 outline-none focus:border-[var(--color-primary)]"
               />
             </div>
 

@@ -1,23 +1,51 @@
 import React from "react";
 
-const steps = ["Personal Info", "Summary", "Experience", "Education", "Skills"];
+const steps = [
+  "Contact",
+  "Experience",
+  "Education",
+  "Skills",
+  "Summary",
+  "Finalize",
+];
 
 const BuilderSteps = ({ currentStep, setCurrentStep }) => {
   return (
-    <section className="bg-white border border-gray-200 rounded-3xl p-4">
-      <div className="flex gap-3 overflow-x-auto">
+    <section className="bg-white rounded-3xl border border-gray-200 px-4 py-5 shadow-sm">
+      <div className="flex items-center overflow-x-auto">
         {steps.map((step, index) => (
           <button
             key={step}
             onClick={() => setCurrentStep(index)}
-            className={`px-5 py-3 rounded-2xl text-sm font-semibold whitespace-nowrap transition-all
-              ${
-                currentStep === index
-                  ? "bg-[var(--color-primary)] text-white"
-                  : "bg-gray-100 text-gray-600 hover:bg-gray-200"
-              }`}
+            className="relative flex min-w-[120px] flex-col items-center gap-3 text-sm font-semibold"
           >
-            {index + 1}. {step}
+            <span
+              className={`${
+                currentStep === index
+                  ? "text-[var(--color-primary)]"
+                  : "text-slate-500"
+              }`}
+            >
+              {step}
+            </span>
+
+            <span
+              className={`h-4 w-4 rounded-full border-2 bg-white ${
+                currentStep >= index
+                  ? "border-[var(--color-primary)]"
+                  : "border-gray-300"
+              }`}
+            />
+
+            {index !== steps.length - 1 && (
+              <span
+                className={`absolute bottom-[7px] left-[70px] h-[2px] w-[100px] ${
+                  currentStep > index
+                    ? "bg-[var(--color-primary)]"
+                    : "bg-gray-200"
+                }`}
+              />
+            )}
           </button>
         ))}
       </div>
