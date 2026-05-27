@@ -36,7 +36,21 @@ const defaultResumeData = {
     },
   ],
 
-  skills: [],
+  skills: [
+    {
+      name: "JavaScript",
+      level: "Professional",
+      rating: 4,
+    },
+  ],
+
+  certifications: [],
+
+  awards: [],
+
+  languages: [],
+
+  interests: [],
 };
 
 const useResumeBuilderStore = create((set) => ({

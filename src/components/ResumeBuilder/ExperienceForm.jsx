@@ -1,5 +1,8 @@
 import React from "react";
 import useResumeBuilderStore from "../../store/resumeBuilderStore";
+import { useState } from "react";
+import { FiZap } from "react-icons/fi";
+import aiService from "../../services/aiService";
 
 const ExperienceForm = () => {
   const { resumeData, updateSection } = useResumeBuilderStore();
@@ -8,6 +11,25 @@ const ExperienceForm = () => {
     const updated = [...resumeData.experience];
     updated[index][field] = value;
     updateSection("experience", updated);
+  };
+
+  const [aiLoadingIndex, setAiLoadingIndex] = useState(null);
+
+  const handleImproveExperience = async (index) => {
+    try {
+      setAiLoadingIndex(index);
+
+      const text = await aiService.improveExperience(
+        resumeData,
+        resumeData.experience[index].description,
+      );
+
+      updateExperience(index, "description", text);
+    } catch (error) {
+      console.log("AI Experience Error:", error.message);
+    } finally {
+      setAiLoadingIndex(null);
+    }
   };
 
   const addExperience = () => {
@@ -109,6 +131,16 @@ const ExperienceForm = () => {
               Currently work here
             </label>
 
+            <button
+              type="button"
+              onClick={() => handleImproveExperience(index)}
+              disabled={aiLoadingIndex === index}
+              className="mt-5 inline-flex items-center gap-2 rounded-2xl bg-[var(--color-primary)] px-5 py-3 text-sm font-semibold text-white disabled:opacity-60"
+            >
+              <FiZap />
+              {aiLoadingIndex === index ? "Improving..." : "Generate with AI"}
+            </button>
+
             <textarea
               value={item.description}
               onChange={(e) =>
@@ -116,7 +148,7 @@ const ExperienceForm = () => {
               }
               placeholder="Describe your responsibilities and achievements..."
               rows="5"
-              className="mt-5 w-full rounded-2xl border border-gray-200 p-4 outline-none"
+              className="mt-3 w-full rounded-2xl border border-gray-200 p-4 outline-none focus:border-[var(--color-primary)]"
             />
 
             {resumeData.experience.length > 1 && (

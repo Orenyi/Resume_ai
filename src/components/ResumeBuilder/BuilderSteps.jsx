@@ -5,6 +5,7 @@ const steps = [
   "Experience",
   "Education",
   "Skills",
+  "Optional",
   "Summary",
   "Finalize",
 ];

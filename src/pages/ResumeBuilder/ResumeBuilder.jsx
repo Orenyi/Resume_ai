@@ -16,6 +16,7 @@ import SkillsForm from "../../components/ResumeBuilder/SkillsForm";
 import SummaryForm from "../../components/ResumeBuilder/SummaryForm";
 import FinalizeStep from "../../components/ResumeBuilder/FinalizeStep";
 import LivePreview from "../../components/ResumeBuilder/LivePreview";
+import OptionalSectionsForm from "../../components/ResumeBuilder/OptionalSectionsForm";
 
 const ResumeBuilder = () => {
   const { sidebarOpen } = useDashboardStore();
