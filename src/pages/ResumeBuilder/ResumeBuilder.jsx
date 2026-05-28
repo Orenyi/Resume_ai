@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { FiGrid, FiSave } from "react-icons/fi";
+import { useReactToPrint } from "react-to-print";
 
 import Sidebar from "../../components/Sidebar";
 import Topbar from "../../components/Topbar";
@@ -17,11 +18,15 @@ import SummaryForm from "../../components/ResumeBuilder/SummaryForm";
 import FinalizeStep from "../../components/ResumeBuilder/FinalizeStep";
 import LivePreview from "../../components/ResumeBuilder/LivePreview";
 import OptionalSectionsForm from "../../components/ResumeBuilder/OptionalSectionsForm";
+import calculateResumeScore from "../../utils/calculateResumeScore";
+import ATSScoreWidget from "../../components/ResumeBuilder/ATSScoreWidget";
 
 const ResumeBuilder = () => {
   const { sidebarOpen } = useDashboardStore();
   const { resumeId } = useParams();
   const navigate = useNavigate();
+
+  const printRef = useRef(null);
 
   const {
     resumeData,
@@ -32,6 +37,11 @@ const ResumeBuilder = () => {
     prevStep,
     setSelectedTemplate,
   } = useResumeBuilderStore();
+
+  const handleExportPDF = useReactToPrint({
+    contentRef: printRef,
+    documentTitle: resumeData?.personal?.fullName || "ResumeAI Resume",
+  });
 
   const [resume, setResume] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -58,6 +68,21 @@ const ResumeBuilder = () => {
     fetchResume();
   }, [resumeId, setResumeData, setSelectedTemplate]);
 
+  useEffect(() => {
+    if (!resume || loading) return;
+
+    const saveTimeout = setTimeout(async () => {
+      try {
+        await resumeService.updateResumeData(resumeId, resumeData);
+        console.log("Draft auto-saved");
+      } catch (error) {
+        console.log("Auto-save error:", error.message);
+      }
+    }, 1500);
+
+    return () => clearTimeout(saveTimeout);
+  }, [resumeData, resume, loading, resumeId]);
+
   const handleSave = async () => {
     try {
       setSaving(true);
@@ -74,11 +99,19 @@ const ResumeBuilder = () => {
     if (currentStep === 1) return <ExperienceForm />;
     if (currentStep === 2) return <EducationForm />;
     if (currentStep === 3) return <SkillsForm />;
-    if (currentStep === 4) return <SummaryForm />;
-    if (currentStep === 5)
-      return <FinalizeStep onSave={handleSave} saving={saving} />;
+    if (currentStep === 4) return <OptionalSectionsForm />;
+    if (currentStep === 5) return <SummaryForm />;
+    if (currentStep === 6)
+      return (
+        <FinalizeStep
+          onSave={handleSave}
+          saving={saving}
+          onExportPDF={handleExportPDF}
+        />
+      );
     return <ContactForm />;
   };
+  const { score, suggestions } = calculateResumeScore(resumeData);
 
   return (
     <section className="min-h-screen bg-[#f3f6fb]">
@@ -109,14 +142,7 @@ const ResumeBuilder = () => {
                 </div>
 
                 <div className="flex flex-wrap items-center gap-3">
-                  <div className="rounded-2xl bg-white px-5 py-3 border border-gray-200 shadow-sm">
-                    <span className="rounded-lg bg-red-100 px-2 py-1 text-sm font-bold text-red-600">
-                      20%
-                    </span>
-                    <span className="ml-2 font-semibold text-slate-700">
-                      Resume score
-                    </span>
-                  </div>
+                  <ATSScoreWidget score={score} suggestions={suggestions} />
 
                   <button
                     onClick={() => navigate("/dashboard/templates")}
@@ -142,7 +168,7 @@ const ResumeBuilder = () => {
                 setCurrentStep={setCurrentStep}
               />
 
-              <section className="grid grid-cols-1 xl:grid-cols-[minmax(0,1fr)_560px] gap-6 items-start">
+              <section className="grid grid-cols-1 gap-6 items-start">
                 <div className="space-y-5">
                   {renderStep()}
 
@@ -155,7 +181,7 @@ const ResumeBuilder = () => {
                       Back
                     </button>
 
-                    {currentStep < 5 ? (
+                    {currentStep < 6 ? (
                       <button
                         onClick={nextStep}
                         className="rounded-2xl bg-[var(--color-primary)] px-8 py-3 font-semibold text-white"
@@ -173,7 +199,7 @@ const ResumeBuilder = () => {
                   </div>
                 </div>
 
-                <LivePreview template={resume?.templates} />
+                <LivePreview ref={printRef} template={resume?.templates} />
               </section>
             </>
           )}

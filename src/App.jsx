@@ -15,6 +15,7 @@ import ScrollToTop from "./components/ScrollToTop";
 
 import Navbar from "./pages/Navbar/Navbar";
 import Footer from "./pages/Footer/Footer";
+import Toast from "./components/Toast";
 
 const AppContent = () => {
   const location = useLocation();
@@ -23,6 +24,7 @@ const AppContent = () => {
 
   return (
     <>
+      <Toast />
       {!isDashboardPage && <Navbar />}
 
       <Routes>

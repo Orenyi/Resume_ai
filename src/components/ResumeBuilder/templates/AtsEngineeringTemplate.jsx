@@ -1,143 +1,265 @@
 import React from "react";
+import { FiMail, FiPhone, FiMapPin, FiGlobe } from "react-icons/fi";
 
 const hasValue = (value) => {
   if (Array.isArray(value)) return value.length > 0;
   return value && value.toString().trim() !== "";
 };
 
+const getItemTitle = (item) => {
+  if (typeof item === "string") return item;
+  return item?.title || item?.name || item?.value || "";
+};
+
+const getItemSubText = (item) => {
+  if (typeof item === "string") return "";
+  return (
+    item?.organization || item?.issuer || item?.level || item?.description || ""
+  );
+};
+
 const SectionTitle = ({ children }) => (
-  <h2 className="mb-2 text-[15px] font-extrabold text-[#008ee6]">{children}</h2>
+  <h2 className="text-blue-500 text-[18px] font-bold mb-5">{children}</h2>
 );
 
 const TimelineSection = ({ title, children }) => (
-  <section className="relative mb-5 pl-5">
-    <span className="absolute left-0 top-1.5 h-3 w-3 rounded-full border-2 border-[#008ee6] bg-white" />
-    <div className="absolute left-[5px] top-5 bottom-0 w-[2px] bg-[#008ee6]" />
+  <section className="relative mb-12 pl-8 avoid-break">
+    <span className="absolute left-0 top-[8px] z-10 h-[14px] w-[14px] rounded-full border-[3px] border-blue-500 bg-white" />
+    <span className="absolute left-[6px] top-[28px] bottom-0 w-[3px] bg-blue-500" />
 
-    <h2 className="mb-2 text-[15px] font-extrabold text-[#008ee6]">{title}</h2>
-
-    <div className="relative z-10">{children}</div>
+    <h2 className="text-blue-500 text-[22px] font-bold mb-4">{title}</h2>
+    <div>{children}</div>
   </section>
 );
 
-const ContactItem = ({ value }) => {
-  if (!hasValue(value)) return null;
-
-  return <span>{value}</span>;
-};
-
 const AtsEngineeringTemplate = ({ resumeData }) => {
-  const { personal, summary, experience, education, skills } = resumeData;
+  const personal = resumeData?.personal || {};
 
-  const filteredExperience = experience.filter(
-    (item) =>
-      hasValue(item.company) ||
-      hasValue(item.role) ||
-      hasValue(item.description),
-  );
+  const filteredSkills =
+    resumeData?.skills?.filter((item) =>
+      typeof item === "string" ? item.trim() : item?.name?.trim(),
+    ) || [];
 
-  const filteredEducation = education.filter(
-    (item) => hasValue(item.school) || hasValue(item.degree),
-  );
+  const filteredExperience =
+    resumeData?.experience?.filter(
+      (item) =>
+        item?.role?.trim() ||
+        item?.company?.trim() ||
+        item?.description?.trim(),
+    ) || [];
+
+  const filteredEducation =
+    resumeData?.education?.filter(
+      (item) => item?.school?.trim() || item?.degree?.trim(),
+    ) || [];
+
+  const filteredCertifications =
+    resumeData?.certifications?.filter((item) =>
+      hasValue(getItemTitle(item)),
+    ) || [];
+
+  const filteredAwards =
+    resumeData?.awards?.filter((item) => hasValue(getItemTitle(item))) || [];
+
+  const filteredLanguages =
+    resumeData?.languages?.filter((item) =>
+      typeof item === "string" ? item.trim() : item?.name?.trim(),
+    ) || [];
+
+  const filteredInterests =
+    resumeData?.interests?.filter((item) => hasValue(getItemTitle(item))) || [];
 
   return (
-    <section className="w-full min-h-[1123px] bg-white text-black font-serif text-[12px] leading-[1.45]">
-      <div className="px-5 pt-5 pb-6">
-        {/* HEADER */}
-        <header className="text-center">
-          {personal.photoUrl && (
+    <div className="w-full bg-white text-black font-serif">
+      <div className="w-full min-h-[1123px] mx-auto bg-white px-8 py-10">
+        <header className="text-center avoid-break">
+          {personal?.photoUrl && (
             <img
               src={personal.photoUrl}
               alt={personal.fullName || "Profile"}
-              className="mx-auto h-[120px] w-[120px] object-cover"
+              className="w-44 h-44 rounded object-cover mx-auto mb-4"
             />
           )}
 
-          <h1 className="mt-3 text-[31px] font-extrabold leading-none">
-            {personal.fullName || "Your Name"}
+          <h1 className="text-[38px] font-bold leading-none">
+            {personal?.fullName || "YOUR NAME"}
           </h1>
 
-          {hasValue(personal.jobTitle) && (
-            <p className="mt-1 text-[13px]">{personal.jobTitle}</p>
+          {personal?.jobTitle && (
+            <p className="text-[18px] mt-2">{personal.jobTitle}</p>
           )}
 
-          <div className="mt-3 flex flex-wrap justify-center gap-x-4 gap-y-1 text-[11px]">
-            <ContactItem value={personal.email} />
-            <ContactItem value={personal.phone} />
-            <ContactItem value={personal.location} />
-            <ContactItem value={personal.website} />
+          <div className="flex flex-wrap justify-center gap-5 mt-4 text-[14px]">
+            {personal?.email && (
+              <div className="flex items-center gap-1">
+                <FiMail />
+                {personal.email}
+              </div>
+            )}
+
+            {personal?.phone && (
+              <div className="flex items-center gap-1">
+                <FiPhone />
+                {personal.phone}
+              </div>
+            )}
+
+            {personal?.location && (
+              <div className="flex items-center gap-1">
+                <FiMapPin />
+                {personal.location}
+              </div>
+            )}
+
+            {personal?.website && (
+              <div className="flex items-center gap-1">
+                <FiGlobe />
+                {personal.website}
+              </div>
+            )}
           </div>
         </header>
 
-        {/* BODY */}
-        <div className="mt-5 grid grid-cols-[35%_65%]">
-          {/* LEFT COLUMN */}
-          <aside className="pr-5">
-            {skills.length > 0 && (
-              <section className="mb-5">
+        <section className="grid grid-cols-[35%_65%] mt-10">
+          <aside className="pr-8">
+            {filteredSkills.length > 0 && (
+              <div className="mb-10 avoid-break">
                 <SectionTitle>Technical Skills</SectionTitle>
 
-                <div className="space-y-3">
-                  {skills.map((skill, index) => (
-                    <div key={index}>
-                      <p className="font-bold text-[12px]">⌁ {skill}</p>
-                      <p className="text-[11px] text-gray-500">Professional</p>
-                      <p className="text-[#008ee6] text-[12px] tracking-[2px]">
-                        ☆ ☆ ☆ ☆ ☆
-                      </p>
+                <div className="space-y-7">
+                  {filteredSkills.map((skill, index) => {
+                    const name = typeof skill === "string" ? skill : skill.name;
+                    const level =
+                      typeof skill === "string" ? "" : skill.level || "";
+                    const rating =
+                      typeof skill === "string" ? 0 : Number(skill.rating) || 0;
+
+                    return (
+                      <div key={index} className="avoid-break">
+                        <h3 className="font-bold text-[14px]">{name}</h3>
+
+                        {level && (
+                          <p className="text-gray-600 text-[11px]">{level}</p>
+                        )}
+
+                        {rating > 0 && (
+                          <div className="flex gap-1 mt-2">
+                            {[1, 2, 3, 4, 5].map((star) => (
+                              <span
+                                key={star}
+                                className={`text-[12px] ${
+                                  star <= rating
+                                    ? "text-blue-500"
+                                    : "text-gray-300"
+                                }`}
+                              >
+                                ★
+                              </span>
+                            ))}
+                          </div>
+                        )}
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
+
+            {filteredCertifications.length > 0 && (
+              <div className="mb-10 avoid-break">
+                <SectionTitle>Certifications</SectionTitle>
+
+                <div className="space-y-5">
+                  {filteredCertifications.map((item, index) => (
+                    <div key={index} className="avoid-break">
+                      <h3 className="font-bold text-[14px]">
+                        {getItemTitle(item)}
+                      </h3>
+
+                      {getItemSubText(item) && (
+                        <p className="text-[11px]">{getItemSubText(item)}</p>
+                      )}
                     </div>
                   ))}
                 </div>
-              </section>
+              </div>
             )}
 
-            <section className="mb-5">
-              <SectionTitle>Certifications</SectionTitle>
-              <p className="font-bold">Available upon request</p>
-            </section>
+            {filteredAwards.length > 0 && (
+              <div className="mb-10 avoid-break">
+                <SectionTitle>Awards & Recognition</SectionTitle>
 
-            <section className="mb-5">
-              <SectionTitle>Awards & Recognition</SectionTitle>
-              <p className="font-bold">Available upon request</p>
-            </section>
+                <div className="space-y-5">
+                  {filteredAwards.map((item, index) => (
+                    <div key={index} className="avoid-break">
+                      <h3 className="font-bold text-[14px]">
+                        {getItemTitle(item)}
+                      </h3>
 
-            <section className="mb-5">
-              <SectionTitle>Languages</SectionTitle>
-              <div className="grid grid-cols-2 gap-3">
-                <div>
-                  <p className="font-bold">English</p>
-                  <p className="text-gray-500">Professional</p>
-                  <p className="text-[#008ee6] tracking-[2px]">☆ ☆ ☆ ☆ ☆</p>
+                      {getItemSubText(item) && (
+                        <p className="text-[11px]">{getItemSubText(item)}</p>
+                      )}
+                    </div>
+                  ))}
                 </div>
               </div>
-            </section>
+            )}
 
-            <section className="mb-5">
-              <SectionTitle>Interests</SectionTitle>
-              <p>Software Development</p>
-              <p>Technology</p>
-              <p>Problem Solving</p>
-            </section>
+            {filteredLanguages.length > 0 && (
+              <div className="mb-10 avoid-break">
+                <SectionTitle>Languages</SectionTitle>
+
+                <div className="space-y-5">
+                  {filteredLanguages.map((item, index) => {
+                    const name = typeof item === "string" ? item : item.name;
+                    const level =
+                      typeof item === "string" ? "" : item.level || "";
+
+                    return (
+                      <div key={index} className="avoid-break">
+                        <h3 className="font-bold text-[14px]">{name}</h3>
+                        {level && (
+                          <p className="text-[11px] text-gray-600">{level}</p>
+                        )}
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
+
+            {filteredInterests.length > 0 && (
+              <div className="avoid-break">
+                <SectionTitle>Interests</SectionTitle>
+
+                <div className="space-y-3">
+                  {filteredInterests.map((item, index) => (
+                    <p key={index} className="font-semibold text-[14px]">
+                      {getItemTitle(item)}
+                    </p>
+                  ))}
+                </div>
+              </div>
+            )}
           </aside>
 
-          {/* RIGHT COLUMN */}
-          <main className="border-l-2 border-[#008ee6] pl-5">
-            {(hasValue(personal.linkedin) || hasValue(personal.website)) && (
+          <main className="">
+            {(personal?.linkedin || personal?.website) && (
               <TimelineSection title="Online Presence">
-                <div className="grid grid-cols-2 gap-4">
-                  {hasValue(personal.linkedin) && (
-                    <div>
-                      <p className="font-bold">LinkedIn</p>
-                      <p className="break-all text-gray-600">
+                <div className="grid grid-cols-2 gap-6">
+                  {personal?.linkedin && (
+                    <div className="avoid-break">
+                      <h3 className="font-bold text-[14px]">LinkedIn</h3>
+                      <p className="text-[11px] break-all">
                         {personal.linkedin}
                       </p>
                     </div>
                   )}
 
-                  {hasValue(personal.website) && (
-                    <div>
-                      <p className="font-bold">Portfolio</p>
-                      <p className="break-all text-gray-600">
+                  {personal?.website && (
+                    <div className="avoid-break">
+                      <h3 className="font-bold text-[14px]">Portfolio</h3>
+                      <p className="text-[11px] break-all">
                         {personal.website}
                       </p>
                     </div>
@@ -146,32 +268,33 @@ const AtsEngineeringTemplate = ({ resumeData }) => {
               </TimelineSection>
             )}
 
-            {hasValue(summary) && (
+            {resumeData?.summary && (
               <TimelineSection title="Professional Summary">
-                <p>{summary}</p>
+                <p className="leading-[2] text-[14px]">{resumeData.summary}</p>
               </TimelineSection>
             )}
 
             {filteredEducation.length > 0 && (
               <TimelineSection title="Education">
-                <div className="space-y-4">
+                <div className="space-y-8">
                   {filteredEducation.map((item, index) => (
-                    <div key={index}>
-                      <div className="flex justify-between gap-4">
+                    <div key={index} className="avoid-break">
+                      <div className="flex justify-between gap-5">
                         <div>
-                          <p className="font-bold">{item.school || "School"}</p>
-                          {hasValue(item.degree) && <p>{item.degree}</p>}
+                          <h3 className="font-bold text-[14px]">
+                            {item.school}
+                          </h3>
+                          <p className="text-[12px]">{item.degree}</p>
                         </div>
 
-                        <div className="text-right text-[11px]">
-                          {(hasValue(item.startDate) ||
-                            hasValue(item.endDate)) && (
+                        <div className="text-right text-[12px]">
+                          {(item.startDate || item.endDate) && (
                             <p>
                               {item.startDate} - {item.endDate}
                             </p>
                           )}
 
-                          {hasValue(item.location) && <p>{item.location}</p>}
+                          {item.location && <p>{item.location}</p>}
                         </div>
                       </div>
                     </div>
@@ -182,22 +305,21 @@ const AtsEngineeringTemplate = ({ resumeData }) => {
 
             {filteredExperience.length > 0 && (
               <TimelineSection title="Professional Experience">
-                <div className="space-y-5">
+                <div className="space-y-10">
                   {filteredExperience.map((item, index) => (
-                    <div key={index}>
-                      <div className="flex justify-between gap-4">
+                    <div key={index} className="avoid-break">
+                      <div className="flex justify-between items-start gap-5">
                         <div>
-                          <p className="font-bold">
-                            {item.company || "Company"}
-                          </p>
-                          {hasValue(item.role) && <p>{item.role}</p>}
+                          <h3 className="font-bold text-[14px]">
+                            {item.company}
+                          </h3>
+                          <p className="text-[12px]">{item.role}</p>
                         </div>
 
-                        <div className="text-right text-[11px]">
-                          {hasValue(item.location) && <p>{item.location}</p>}
+                        <div className="text-right text-[12px]">
+                          {item.location && <p>{item.location}</p>}
 
-                          {(hasValue(item.startDate) ||
-                            hasValue(item.endDate)) && (
+                          {(item.startDate || item.endDate || item.current) && (
                             <p>
                               {item.startDate} -{" "}
                               {item.current ? "Present" : item.endDate}
@@ -206,29 +328,27 @@ const AtsEngineeringTemplate = ({ resumeData }) => {
                         </div>
                       </div>
 
-                      {hasValue(item.description) && (
-                        <ul className="mt-2 list-disc space-y-1 pl-5">
+                      {item.description && (
+                        <div className="mt-5 space-y-3">
                           {item.description
                             .split("\n")
-                            .filter(Boolean)
+                            .filter((line) => line.trim())
                             .map((line, i) => (
-                              <li key={i}>{line.replace(/^[-•]\s*/, "")}</li>
+                              <p key={i} className="text-[14px] leading-[1.9]">
+                                • {line.replace(/^[-•]\s*/, "")}
+                              </p>
                             ))}
-                        </ul>
+                        </div>
                       )}
                     </div>
                   ))}
                 </div>
               </TimelineSection>
             )}
-
-            <TimelineSection title="References">
-              <p className="font-bold">Available upon request</p>
-            </TimelineSection>
           </main>
-        </div>
+        </section>
       </div>
-    </section>
+    </div>
   );
 };
 

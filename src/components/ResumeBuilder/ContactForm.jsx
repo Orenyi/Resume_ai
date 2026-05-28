@@ -1,8 +1,12 @@
 import React from "react";
 import useResumeBuilderStore from "../../store/resumeBuilderStore";
+import { supabase } from "../../lib/supabaseClient";
+import photoUploadService from "../../services/photoUploadService";
+import useToastStore from "../../store/toastStore";
 
 const ContactForm = () => {
   const { resumeData, updatePersonal } = useResumeBuilderStore();
+  const { showToast } = useToastStore();
 
   const fields = [
     {
@@ -49,15 +53,60 @@ const ContactForm = () => {
     },
   ];
 
-  const handleImageUpload = (e) => {
-    const file = e.target.files[0];
+  const MAX_FILE_SIZE = 500 * 1024; // 500KB
 
-    if (!file) return;
+  const handleImageUpload = async (e) => {
+    try {
+      const file = e.target.files[0];
 
-    const imageUrl = URL.createObjectURL(file);
-    updatePersonal("photoUrl", imageUrl);
+      if (!file) return;
+
+      if (file.size > MAX_FILE_SIZE) {
+        showToast({
+          type: "error",
+          title: "Image too large",
+          message: "Please upload a JPG, PNG, or WEBP image below 500KB.",
+        });
+        return;
+      }
+
+      const allowedTypes = ["image/jpeg", "image/png", "image/webp"];
+
+      if (!allowedTypes.includes(file.type)) {
+        showToast({
+          type: "error",
+          title: "Invalid image type",
+          message: "Only JPG, PNG, and WEBP images are supported.",
+        });
+        return;
+      }
+
+      const {
+        data: { user },
+      } = await supabase.auth.getUser();
+
+      if (!user) return;
+
+      const photoUrl = await photoUploadService.uploadProfilePhoto(
+        file,
+        user.id,
+      );
+
+      updatePersonal("photoUrl", photoUrl);
+      showToast({
+        type: "success",
+        title: "Photo uploaded",
+        message: "Your profile photo has been uploaded successfully.",
+      });
+    } catch (error) {
+      console.log("Photo upload error:", error.message);
+      showToast({
+        type: "error",
+        title: "Upload failed",
+        message: "Please try again or choose a smaller image.",
+      });
+    }
   };
-
   return (
     <section className="bg-white rounded-3xl border border-gray-200 p-6 shadow-sm">
       <div>
@@ -81,18 +130,18 @@ const ContactForm = () => {
         </div>
 
         <div>
-          <label className="inline-flex cursor-pointer rounded-2xl bg-[var(--color-primary)] px-5 py-3 text-white font-semibold">
+          <label className="group inline-flex cursor-pointer items-center justify-center rounded-2xl border border-dashed border-gray-300 bg-gray-50 px-5 py-3 text-sm font-semibold text-slate-700 transition hover:border-[var(--color-primary)] hover:bg-blue-50 hover:text-[var(--color-primary)]">
             Upload Photo
             <input
               type="file"
-              accept="image/*"
+              accept="image/jpeg,image/png,image/webp"
               onChange={handleImageUpload}
               className="hidden"
             />
           </label>
 
           <p className="mt-2 text-sm text-slate-400">
-            JPG, PNG or WEBP recommended.
+            JPG, PNG or WEBP. Max size: 500KB.
           </p>
         </div>
       </div>

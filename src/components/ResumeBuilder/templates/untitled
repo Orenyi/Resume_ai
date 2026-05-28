@@ -1,0 +1,319 @@
+import React from "react";
+
+const hasValue = (value) => {
+  if (Array.isArray(value)) return value.length > 0;
+  return value && value.toString().trim() !== "";
+};
+
+const formatDate = (date) => {
+  if (!date) return "";
+
+  const [year, month] = date.split("-");
+
+  const months = [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec",
+  ];
+
+  if (!year || !month) return date;
+
+  return `${months[Number(month) - 1]} ${year}`;
+};
+
+const SectionTitle = ({ children }) => (
+  <h2 className="mb-2 font-sans text-[15px] font-extrabold leading-none text-[#008ee6]">
+    {children}
+  </h2>
+);
+
+const TimelineSection = ({ title, children }) => (
+  <section className="relative mb-5 pl-6">
+    <span className="absolute left-0 top-[2px] z-10 h-[11px] w-[11px] rounded-full border-[2px] border-[#008ee6] bg-white" />
+    <span className="absolute left-[4.5px] top-[16px] bottom-0 w-[1.5px] bg-[#008ee6]" />
+
+    <h2 className="mb-2 font-sans text-[15px] font-extrabold leading-none text-[#008ee6]">
+      {title}
+    </h2>
+
+    <div>{children}</div>
+  </section>
+);
+
+const Stars = ({ rating = 0 }) => (
+  <p className="mt-1 font-sans text-[12px] leading-none tracking-[2px] text-[#008ee6]">
+    {"★ ".repeat(Number(rating) || 0)}
+    {"☆ ".repeat(5 - (Number(rating) || 0))}
+  </p>
+);
+
+const AtsEngineeringTemplate = ({ resumeData }) => {
+  const {
+    personal = {},
+    summary = "",
+    experience = [],
+    education = [],
+    skills = [],
+    certifications = [],
+    awards = [],
+    languages = [],
+    interests = [],
+  } = resumeData || {};
+
+  const filteredExperience = experience.filter(
+    (item) =>
+      hasValue(item.company) ||
+      hasValue(item.role) ||
+      hasValue(item.description),
+  );
+
+  const filteredEducation = education.filter(
+    (item) => hasValue(item.school) || hasValue(item.degree),
+  );
+
+  return (
+    <section className="w-full min-h-[1123px] bg-white px-5 pt-5 pb-8 font-serif text-[12px] leading-[1.42] text-black">
+      {/* Header */}
+      <header className="text-center">
+        {personal.photoUrl && (
+          <img
+            src={personal.photoUrl}
+            alt={personal.fullName || "Profile"}
+            className="mx-auto h-[118px] w-[118px] object-cover"
+          />
+        )}
+
+        <h1 className="mt-3 font-serif text-[31px] font-extrabold leading-none text-black">
+          {personal.fullName || "Your Name"}
+        </h1>
+
+        {hasValue(personal.jobTitle) && (
+          <p className="mt-1 text-[12px] leading-tight">{personal.jobTitle}</p>
+        )}
+
+        <div className="mt-3 flex flex-wrap items-center justify-center gap-x-4 gap-y-1 font-serif text-[11px]">
+          {personal.email && <span>✉ {personal.email}</span>}
+          {personal.phone && <span>☎ {personal.phone}</span>}
+          {personal.location && <span>⌖ {personal.location}</span>}
+          {personal.website && <span>🌐 {personal.website}</span>}
+        </div>
+      </header>
+
+      {/* Body */}
+      <div className="mt-5 grid grid-cols-[35%_65%]">
+        {/* Left column */}
+        <aside className="pr-5">
+          {skills.length > 0 && (
+            <section className="mb-5">
+              <SectionTitle>Technical Skills</SectionTitle>
+
+              <div className="space-y-3">
+                {skills.map((skill, index) => (
+                  <div key={index}>
+                    <p className="font-bold leading-tight">
+                      ⌁ {skill.name || skill}
+                    </p>
+
+                    {skill.level && (
+                      <p className="mt-1 text-[11px] text-gray-500">
+                        {skill.level}
+                      </p>
+                    )}
+
+                    <Stars rating={skill.rating || 4} />
+                  </div>
+                ))}
+              </div>
+            </section>
+          )}
+
+          {certifications.length > 0 && (
+            <section className="mb-5">
+              <SectionTitle>Certifications</SectionTitle>
+
+              <div className="space-y-2">
+                {certifications.map((item, index) => (
+                  <div key={index}>
+                    <p className="font-bold">
+                      {typeof item === "string" ? item : item.title}
+                    </p>
+                    {typeof item !== "string" && item.organization && (
+                      <p className="text-gray-600">{item.organization}</p>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </section>
+          )}
+
+          {awards.length > 0 && (
+            <section className="mb-5">
+              <SectionTitle>Awards & Recognition</SectionTitle>
+
+              <div className="space-y-2">
+                {awards.map((item, index) => (
+                  <div key={index}>
+                    <p className="font-bold">
+                      {typeof item === "string" ? item : item.title}
+                    </p>
+                    {typeof item !== "string" && item.organization && (
+                      <p className="text-gray-600">{item.organization}</p>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </section>
+          )}
+
+          {languages.length > 0 && (
+            <section className="mb-5">
+              <SectionTitle>Languages</SectionTitle>
+
+              <div className="grid grid-cols-2 gap-3">
+                {languages.map((item, index) => (
+                  <div key={index}>
+                    <p className="font-bold">
+                      {typeof item === "string" ? item : item.name}
+                    </p>
+                    {typeof item !== "string" && item.level && (
+                      <p className="text-gray-500">{item.level}</p>
+                    )}
+                    {typeof item !== "string" && (
+                      <Stars rating={item.rating || 4} />
+                    )}
+                  </div>
+                ))}
+              </div>
+            </section>
+          )}
+
+          {interests.length > 0 && (
+            <section className="mb-5">
+              <SectionTitle>Interests</SectionTitle>
+
+              <div className="space-y-2">
+                {interests.map((item, index) => (
+                  <p key={index}>{item}</p>
+                ))}
+              </div>
+            </section>
+          )}
+        </aside>
+
+        {/* Right column */}
+        <main className="border-l-[2px] border-[#008ee6] pl-5">
+          {(personal.linkedin || personal.website) && (
+            <TimelineSection title="Online Presence">
+              <div className="grid grid-cols-2 gap-5">
+                {personal.linkedin && (
+                  <div>
+                    <p className="font-bold">LinkedIn</p>
+                    <p className="break-all text-gray-600">
+                      {personal.linkedin}
+                    </p>
+                  </div>
+                )}
+
+                {personal.website && (
+                  <div>
+                    <p className="font-bold">Portfolio</p>
+                    <p className="break-all text-gray-600">
+                      {personal.website}
+                    </p>
+                  </div>
+                )}
+              </div>
+            </TimelineSection>
+          )}
+
+          {summary && (
+            <TimelineSection title="Professional Summary">
+              <p className="max-w-[440px] leading-[1.45]">{summary}</p>
+            </TimelineSection>
+          )}
+
+          {filteredEducation.length > 0 && (
+            <TimelineSection title="Education">
+              <div className="space-y-4">
+                {filteredEducation.map((item, index) => (
+                  <div key={index}>
+                    <div className="flex justify-between gap-4">
+                      <div>
+                        <p className="font-bold">{item.school || "School"}</p>
+                        {item.degree && <p>{item.degree}</p>}
+                      </div>
+
+                      <div className="text-right text-[11px]">
+                        {(item.startDate || item.endDate) && (
+                          <p>
+                            {formatDate(item.startDate)} -{" "}
+                            {formatDate(item.endDate)}
+                          </p>
+                        )}
+
+                        {item.location && <p>{item.location}</p>}
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </TimelineSection>
+          )}
+
+          {filteredExperience.length > 0 && (
+            <TimelineSection title="Professional Experience">
+              <div className="space-y-5">
+                {filteredExperience.map((item, index) => (
+                  <div key={index}>
+                    <div className="flex justify-between gap-4">
+                      <div>
+                        <p className="font-bold">{item.company || "Company"}</p>
+                        {item.role && <p>{item.role}</p>}
+                      </div>
+
+                      <div className="text-right text-[11px]">
+                        {item.location && <p>{item.location}</p>}
+
+                        {(item.startDate || item.endDate || item.current) && (
+                          <p>
+                            {formatDate(item.startDate)}
+                            {item.startDate && " - "}
+                            {item.current
+                              ? "Present"
+                              : formatDate(item.endDate)}
+                          </p>
+                        )}
+                      </div>
+                    </div>
+
+                    {item.description && (
+                      <ul className="mt-2 list-disc space-y-1 pl-5">
+                        {item.description
+                          .split("\n")
+                          .filter(Boolean)
+                          .map((line, i) => (
+                            <li key={i}>{line.replace(/^[-•]\s*/, "")}</li>
+                          ))}
+                      </ul>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </TimelineSection>
+          )}
+        </main>
+      </div>
+    </section>
+  );
+};
+
+export default AtsEngineeringTemplate;
