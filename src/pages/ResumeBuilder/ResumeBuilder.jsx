@@ -20,6 +20,7 @@ import LivePreview from "../../components/ResumeBuilder/LivePreview";
 import OptionalSectionsForm from "../../components/ResumeBuilder/OptionalSectionsForm";
 import calculateResumeScore from "../../utils/calculateResumeScore";
 import ATSScoreWidget from "../../components/ResumeBuilder/ATSScoreWidget";
+import PreviewJumpButton from "../../components/ResumeBuilder/PreviewJumpButton";
 
 const ResumeBuilder = () => {
   const { sidebarOpen } = useDashboardStore();
@@ -199,11 +200,17 @@ const ResumeBuilder = () => {
                   </div>
                 </div>
 
-                <LivePreview ref={printRef} template={resume?.templates} />
+                <div
+                  id="live-preview-section"
+                  className="hidden md:block relative"
+                >
+                  <LivePreview ref={printRef} template={resume?.templates} />
+                </div>
               </section>
             </>
           )}
         </div>
+        <PreviewJumpButton />
       </main>
     </section>
   );

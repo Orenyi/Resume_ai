@@ -19,10 +19,9 @@ const ExperienceForm = () => {
     try {
       setAiLoadingIndex(index);
 
-      const text = await aiService.improveExperience(
-        resumeData,
-        resumeData.experience[index].description,
-      );
+      const selectedExperience = resumeData.experience[index];
+
+      const text = await aiService.improveExperience(selectedExperience);
 
       updateExperience(index, "description", text);
     } catch (error) {
