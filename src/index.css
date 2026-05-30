@@ -98,6 +98,16 @@ body {
     print-color-adjust: exact !important;
     -webkit-print-color-adjust: exact !important;
   }
+  .ats-purple-sidebar {
+    min-height: 297mm !important;
+    background: #ddd1ee !important;
+    print-color-adjust: exact !important;
+    -webkit-print-color-adjust: exact !important;
+  }
+
+  .ats-purple-template {
+    min-height: 297mm !important;
+  }
 
   @page {
     size: A4;
