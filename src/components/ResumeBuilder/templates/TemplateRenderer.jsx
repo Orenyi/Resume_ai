@@ -6,6 +6,9 @@ import CreativeBlueTemplate from "./CreativeBlueTemplate";
 import AtsPurpleTemplate from "./AtsPurpleTemplate";
 import ModernMarketingBlueTemplate from "./ModernMarketingBlueTemplate";
 import SimpleFinanceTemplate from "./SimpleFinanceTemplate";
+import ModernEngineeringTemplate from "./ModernEngineeringTemplate";
+import CreativeEngineeringGreenTemplate from "./CreativeEngineeringGreenTemplate";
+import AtsDesignBlueTemplate from "./AtsDesignBlueTemplate";
 
 const TemplateRenderer = ({ template, resumeData }) => {
   const templates = {
@@ -16,6 +19,9 @@ const TemplateRenderer = ({ template, resumeData }) => {
     ats_purple: AtsPurpleTemplate,
     modern_marketing_blue: ModernMarketingBlueTemplate,
     simple_finance: SimpleFinanceTemplate,
+    modern_engineering: ModernEngineeringTemplate,
+    creative_engineering_green: CreativeEngineeringGreenTemplate,
+    ats_design_blue: AtsDesignBlueTemplate,
   };
 
   const SelectedTemplate =
