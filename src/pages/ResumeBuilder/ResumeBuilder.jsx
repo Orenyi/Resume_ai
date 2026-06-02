@@ -42,6 +42,21 @@ const ResumeBuilder = () => {
   const handleExportPDF = useReactToPrint({
     contentRef: printRef,
     documentTitle: resumeData?.personal?.fullName || "ResumeAI Resume",
+
+    onAfterPrint: async () => {
+      try {
+        if (!resumeId || !resume) return;
+
+        const updatedResume = await resumeService.incrementDownloads(
+          resumeId,
+          resume.downloads || 0,
+        );
+
+        setResume(updatedResume);
+      } catch (error) {
+        console.log("Download count error:", error.message);
+      }
+    },
   });
 
   const [resume, setResume] = useState(null);

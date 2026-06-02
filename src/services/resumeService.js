@@ -87,6 +87,30 @@ const resumeService = {
 
     return data;
   },
+  async incrementDownloads(resumeId, currentDownloads = 0) {
+    const { data, error } = await supabase
+      .from("resumes")
+      .update({
+        downloads: currentDownloads + 1,
+        updated_at: new Date().toISOString(),
+      })
+      .eq("id", resumeId)
+      .select()
+      .single();
+
+    if (error) throw error;
+    return data;
+  },
+  async deleteResume(resumeId) {
+    const { error } = await supabase
+      .from("resumes")
+      .delete()
+      .eq("id", resumeId);
+
+    if (error) throw error;
+
+    return true;
+  },
 };
 
 export default resumeService;

@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import { supabase } from "../lib/supabaseClient";
+import { resumeTemplates } from "../data/resumesTemplates";
 
 const useDashboardStats = () => {
   const [stats, setStats] = useState({
     totalResumes: 0,
-    averageATS: 0,
-    totalTemplates: 12,
+    totalTemplates: resumeTemplates.length,
     totalDownloads: 0,
   });
 
@@ -37,15 +37,6 @@ const useDashboardStats = () => {
       // Total resumes
       const totalResumes = resumes.length;
 
-      // ATS Average
-      const totalATS = resumes.reduce(
-        (acc, resume) => acc + (resume.ats_score || 0),
-        0,
-      );
-
-      const averageATS =
-        totalResumes > 0 ? Math.round(totalATS / totalResumes) : 0;
-
       // Downloads count
       const totalDownloads = resumes.reduce(
         (acc, resume) => acc + (resume.downloads || 0),
@@ -54,8 +45,7 @@ const useDashboardStats = () => {
 
       setStats({
         totalResumes,
-        averageATS,
-        totalTemplates: 12,
+        totalTemplates: resumeTemplates.length,
         totalDownloads,
       });
     } catch (error) {
