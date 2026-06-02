@@ -9,7 +9,7 @@ import useDashboardStore from "../../store/dashboardStore";
 import useDashboardStats from "../../hooks/useDashboardStats";
 
 const Dashboard = () => {
-  const { resumes } = useResumes();
+  const { resumes, removeResumeFromState, updateResumeInState } = useResumes();
   const { sidebarOpen } = useDashboardStore();
   const { stats, loading } = useDashboardStats();
 
@@ -42,7 +42,11 @@ const Dashboard = () => {
             />
           </div>
           <div className="mt-10">
-            <ResumeSection resumes={resumes} />
+            <ResumeSection
+              resumes={resumes}
+              onDeleted={removeResumeFromState}
+              onDownloaded={updateResumeInState}
+            />
           </div>
         </div>
       </main>

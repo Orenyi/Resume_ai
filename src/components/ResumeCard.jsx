@@ -15,7 +15,7 @@ const ResumeCard = ({ resume, onDeleted, onDownloaded }) => {
   );
 
   const thumbnail =
-    resume.pdf_url ||
+    resume.templates?.thumbnail_url ||
     resume.thumbnail_url ||
     template?.thumbnail ||
     template?.image;
@@ -113,7 +113,7 @@ const ResumeCard = ({ resume, onDeleted, onDownloaded }) => {
         </h3>
 
         <p className="text-sm text-slate-500 mt-1 capitalize truncate">
-          {template?.name || resume.template || "Resume template"}
+          {resume.templates?.name || template?.name || "Resume template"}
         </p>
 
         <div className="flex items-center justify-between gap-3 mt-5">

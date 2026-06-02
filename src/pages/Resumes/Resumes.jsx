@@ -42,12 +42,10 @@ const Resumes = () => {
       <Sidebar />
 
       <main
-        className={`transition-all duration-300 px-4 md:px-6 lg:px-8 py-6
+        className={`transition-all duration-300 px-4 md:px-6 lg:px-8 py-12
         ${sidebarOpen ? "lg:ml-[260px]" : "lg:ml-[85px]"}`}
       >
         <div className="max-w-[85rem] mx-auto flex flex-col gap-8">
-          <Topbar />
-
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
             <div>
               <h1 className="text-3xl font-bold text-slate-900">My Resumes</h1>

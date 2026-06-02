@@ -18,11 +18,10 @@ const Template = () => {
     <section className="min-h-screen bg-[#f8fafc]">
       <Sidebar />
       <main
-        className={`transition-all duration-300 px-4 md:px-6 lg:px-8 py-6
+        className={`transition-all duration-300 px-4 md:px-6 lg:px-8 py-12
           ${sidebarOpen ? "lg:ml-[260px]" : "lg:ml-[85px]"}`}
       >
         <div className="max-w-[85rem] mx-auto flex flex-col gap-8">
-          <Topbar />
           <TemplateHeader onImport={() => setShowImportModal(true)} />
           <TemplateFilters
             filters={filters}

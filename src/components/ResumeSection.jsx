@@ -1,7 +1,7 @@
 import React from "react";
 import ResumeCard from "./ResumeCard";
 import TemplateCard from "./TemplateCard";
-const ResumeSection = ({ resumes }) => {
+const ResumeSection = ({ resumes, onDeleted, onDownloaded }) => {
   return (
     <section>
       <div className="flex items-center justify-between mb-8">
@@ -18,7 +18,12 @@ const ResumeSection = ({ resumes }) => {
           </>
         ) : (
           resumes.map((resume) => (
-            <ResumeCard key={resume.id} resume={resume} />
+            <ResumeCard
+              key={resume.id}
+              resume={resume}
+              onDeleted={onDeleted}
+              onDownloaded={onDownloaded}
+            />
           ))
         )}
       </div>

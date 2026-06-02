@@ -17,7 +17,20 @@ const useResumes = () => {
 
       const { data, error } = await supabase
         .from("resumes")
-        .select("*")
+        .select(
+          `*,
+            templates (
+              id,
+              name,
+              category,
+              career,
+              color,
+              thumbnail_url,
+              pdf_url,
+              layout_key
+            )
+          `,
+        )
         .eq("user_id", user.id)
         .order("updated_at", { ascending: false });
 
@@ -68,12 +81,25 @@ const useResumes = () => {
       console.log(error.message);
     }
   };
+  const removeResumeFromState = (resumeId) => {
+    setResumes((prev) => prev.filter((resume) => resume.id !== resumeId));
+  };
+
+  const updateResumeInState = (updatedResume) => {
+    setResumes((prev) =>
+      prev.map((resume) =>
+        resume.id === updatedResume.id ? updatedResume : resume,
+      ),
+    );
+  };
 
   return {
     resumes,
     loading,
     fetchResumes,
     uploadPdf,
+    removeResumeFromState,
+    updateResumeInState,
   };
 };
 
