@@ -9,6 +9,7 @@ import Templates from "./pages/Templates/Templates";
 import Resumes from "./pages/Resumes/Resumes";
 import Settings from "./pages/Settings/Settings";
 import ResumeBuilder from "./pages/ResumeBuilder/ResumeBuilder";
+import BuilderAI from "./pages/BuilderAI/BuilderAI";
 
 import ProtectedRoute from "./components/ProtectedRoute";
 import ScrollToTop from "./components/ScrollToTop";
@@ -74,6 +75,15 @@ const AppContent = () => {
           element={
             <ProtectedRoute>
               <ResumeBuilder />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/dashboard/builder-ai"
+          element={
+            <ProtectedRoute>
+              <BuilderAI />
             </ProtectedRoute>
           }
         />
