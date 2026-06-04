@@ -3,6 +3,7 @@ import {
   RiDashboardLine,
   RiFileList3Line,
   RiSettings3Line,
+  RiRobot2Line,
 } from "react-icons/ri";
 
 import { HiOutlineDocumentText } from "react-icons/hi";
@@ -18,23 +19,28 @@ import { NavLink, useNavigate } from "react-router-dom";
 const navItems = [
   {
     name: "Dashboard",
-    icon: <RiDashboardLine />,
     path: "/dashboard",
+    icon: <RiDashboardLine />,
+  },
+  {
+    name: "Builder AI",
+    path: "/dashboard/builder-ai",
+    icon: <RiRobot2Line />,
   },
   {
     name: "Templates",
-    icon: <HiOutlineDocumentText />,
     path: "/dashboard/templates",
+    icon: <HiOutlineDocumentText />,
   },
   {
     name: "Resumes",
-    icon: <RiFileList3Line />,
     path: "/dashboard/resumes",
+    icon: <RiFileList3Line />,
   },
   {
     name: "Settings",
-    icon: <RiSettings3Line />,
     path: "/dashboard/settings",
+    icon: <RiSettings3Line />,
   },
 ];
 

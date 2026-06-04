@@ -3,7 +3,11 @@ import { FiBell, FiMenu } from "react-icons/fi";
 import useDashboardStore from "../store/dashboardStore";
 import { supabase } from "../lib/supabaseClient";
 
-const Topbar = ({ downloads = 0 }) => {
+const Topbar = ({
+  downloads = 0,
+  title = "Dashboard",
+  description = "Manage your resumes and exports",
+}) => {
   const { openMobileSidebar } = useDashboardStore();
   const [initial, setInitial] = useState("U");
 
@@ -33,12 +37,10 @@ const Topbar = ({ downloads = 0 }) => {
         </button>
 
         <div>
-          <h2 className="text-lg sm:text-xl font-bold text-slate-900">
-            Dashboard
+          <h2 className="text-base sm:text-xl font-bold text-slate-900">
+            {title}
           </h2>
-          <p className="text-sm text-slate-500">
-            Manage your resumes and exports
-          </p>
+          <p className="text-sm text-slate-500">{description}</p>
         </div>
       </div>
 
