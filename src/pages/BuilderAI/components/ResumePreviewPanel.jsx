@@ -1,30 +1,70 @@
 import React, { useState } from "react";
 import { FiZoomIn, FiX } from "react-icons/fi";
+import useBuilderAiStore from "../../../store/builderAiStore";
 
 const ResumePreviewPanel = () => {
   const [isPreviewOpen, setIsPreviewOpen] = useState(false);
+  const { answers } = useBuilderAiStore();
 
   const ResumeContent = () => (
     <div className="bg-white max-w-[720px] mx-auto min-h-[900px] p-10">
-      <h1 className="text-4xl font-bold text-gray-900">LIVE RESUME PREVIEW</h1>
+      <div className="text-center">
+        <h1 className="text-3xl font-bold text-gray-900">
+          {answers.fullName || "Your Full Name"}
+        </h1>
 
-      <p className="text-[var(--color-primary)] mt-2 font-medium">
-        Generated resume will appear here
-      </p>
+        <p className="text-blue-600 mt-2 font-medium">
+          {answers.jobTitle || "Target Job Title"}
+        </p>
+
+        <p className="text-sm text-gray-500 mt-3">
+          {answers.email || "email@example.com"} •{" "}
+          {answers.phone || "Phone Number"} • {answers.location || "Location"}
+        </p>
+      </div>
 
       <div className="mt-8 border-t border-black pt-6">
-        <h3 className="text-xs tracking-[0.3em] text-[var(--color-primary)] font-bold">
+        <h3 className="text-xs tracking-[0.3em] text-blue-600 font-bold">
           PROFILE
         </h3>
 
-        <p className="mt-4 text-sm text-gray-600 leading-6">
-          Builder AI will generate a professional resume summary, experience,
-          education, skills, and other sections based on the user’s answers.
+        <p className="mt-4 text-sm text-gray-700 leading-6">
+          {answers.summary ||
+            "Your professional summary will appear here as Builder AI collects your details."}
+        </p>
+      </div>
+
+      <div className="mt-8">
+        <h3 className="text-xs tracking-[0.3em] text-blue-600 font-bold">
+          EXPERIENCE
+        </h3>
+
+        <p className="mt-4 text-sm text-gray-700 leading-6">
+          {answers.experience || "Your work experience will appear here."}
+        </p>
+      </div>
+
+      <div className="mt-8">
+        <h3 className="text-xs tracking-[0.3em] text-blue-600 font-bold">
+          EDUCATION
+        </h3>
+
+        <p className="mt-4 text-sm text-gray-700 leading-6">
+          {answers.education || "Your education details will appear here."}
+        </p>
+      </div>
+
+      <div className="mt-8">
+        <h3 className="text-xs tracking-[0.3em] text-blue-600 font-bold">
+          SKILLS
+        </h3>
+
+        <p className="mt-4 text-sm text-gray-700 leading-6">
+          {answers.skills || "Your skills will appear here."}
         </p>
       </div>
     </div>
   );
-
   return (
     <>
       <section className="bg-[#e5e7eb] rounded-2xl h-[700px] xl:h-[calc(100vh-140px)] overflow-hidden">
