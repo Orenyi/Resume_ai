@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 import Google from "../../images/logo/Google_logo.svg";
 import Meta from "../../images/logo/Meta_logo.svg";
 import Amazon from "../../images/logo/Amazon_logo.svg";
-import Airbnb from "../../images/logo/Airbnb_logo.svg";
+import Airbnb from "../../images/logo/Airbnblogo.svg";
 import Microsoft from "../../images/logo/Microsoft_logo.svg";
 import Spotify from "../../images/logo/Spotify_logo.svg";
 import Slack from "../../images/logo/Slack_logo.svg";

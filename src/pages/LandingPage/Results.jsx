@@ -5,9 +5,9 @@ import { FaCheckCircle } from "react-icons/fa";
 import { IoCheckboxOutline } from "react-icons/io5";
 import { GrDocumentPdf } from "react-icons/gr";
 import { LuEye } from "react-icons/lu";
-import Ai_rewrite from "../../images/ai_rewrite.webp";
-import Score_checker from "../../images/score_checker.webp";
-import live_preview from "../../images/live_preview.webp";
+import Airewrite from "../../images/airewrite.webp";
+import Scorechecker from "../../images/scorechecker.webp";
+import livepreview from "../../images/livepreview.webp";
 
 const Results = () => {
   const { t } = useTranslation();
@@ -52,7 +52,7 @@ const Results = () => {
               </div>
             </div>
             <div>
-              <img src={Ai_rewrite} alt="AI Rewrite" className="w-[400px]" />
+              <img src={Airewrite} alt="AI Rewrite" className="w-[400px]" />
             </div>
           </div>
 
@@ -69,7 +69,7 @@ const Results = () => {
                 {t("results.ats.desc")}
               </p>
               <img
-                src={Score_checker}
+                src={Scorechecker}
                 alt="ATS Score Checker"
                 className="w-[200px] mt-4 mx-auto"
               />
@@ -92,7 +92,7 @@ const Results = () => {
                 {t("results.preview.desc")}
               </p>
               <img
-                src={live_preview}
+                src={livepreview}
                 alt="Live Preview"
                 className="w-full mt-4 mx-auto"
               />
