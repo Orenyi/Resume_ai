@@ -4,6 +4,7 @@ import QuickActions from "./QuickActions";
 import ChatInput from "./ChatInput";
 import useBuilderAiStore from "../../../store/builderAiStore";
 import { resumeQuestions } from "../data/resumeQuestions";
+import GenerateResumeButton from "./GenerateResumeButton";
 
 const ChatPanel = () => {
   const { messages, currentQuestionIndex } = useBuilderAiStore();
@@ -45,7 +46,7 @@ const ChatPanel = () => {
           />
         </div>
       </div>
-      s{/* Messages */}
+      {/* Messages */}
       <div className="flex-1 p-5 space-y-4 overflow-y-auto">
         {messages.map((msg) => (
           <MessageBubble key={msg.id} type={msg.type} message={msg.message} />
@@ -53,6 +54,7 @@ const ChatPanel = () => {
         <div ref={messagesEndRef} />
       </div>
       <QuickActions />
+      <GenerateResumeButton />
       <ChatInput />
     </section>
   );

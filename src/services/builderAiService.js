@@ -1,11 +1,5 @@
-import { createResumePrompt } from "../pages/BuilderAI/data/builderAiPrompt";
-
 const builderAiService = {
   generateResumeDraft: async (answers) => {
-    const prompt = createResumePrompt(answers);
-
-    console.log("Prompt sent to Gemini:", prompt);
-
     const skillsArray = answers.skills
       ? answers.skills.split(",").map((skill) => skill.trim())
       : [];
@@ -16,9 +10,11 @@ const builderAiService = {
       phone: answers.phone || "",
       location: answers.location || "",
       jobTitle: answers.jobTitle || "",
+
       summary:
         answers.summary ||
         `Motivated ${answers.jobTitle} with a strong interest in building professional, user-focused solutions.`,
+
       experience: answers.experience || "",
       education: answers.education || "",
       skills: skillsArray,

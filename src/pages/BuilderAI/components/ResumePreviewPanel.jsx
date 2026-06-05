@@ -4,22 +4,26 @@ import useBuilderAiStore from "../../../store/builderAiStore";
 
 const ResumePreviewPanel = () => {
   const [isPreviewOpen, setIsPreviewOpen] = useState(false);
-  const { answers } = useBuilderAiStore();
+
+  const { answers, generatedResume } = useBuilderAiStore();
+
+  const resumeData = generatedResume || answers;
 
   const ResumeContent = () => (
     <div className="bg-white max-w-[720px] mx-auto min-h-[900px] p-10">
       <div className="text-center">
         <h1 className="text-3xl font-bold text-gray-900">
-          {answers.fullName || "Your Full Name"}
+          {resumeData.fullName || "Your Full Name"}
         </h1>
 
         <p className="text-blue-600 mt-2 font-medium">
-          {answers.jobTitle || "Target Job Title"}
+          {resumeData.jobTitle || "Target Job Title"}
         </p>
 
         <p className="text-sm text-gray-500 mt-3">
-          {answers.email || "email@example.com"} •{" "}
-          {answers.phone || "Phone Number"} • {answers.location || "Location"}
+          {resumeData.email || "email@example.com"} •{" "}
+          {resumeData.phone || "Phone Number"} •{" "}
+          {resumeData.location || "Location"}
         </p>
       </div>
 
@@ -29,7 +33,7 @@ const ResumePreviewPanel = () => {
         </h3>
 
         <p className="mt-4 text-sm text-gray-700 leading-6">
-          {answers.summary ||
+          {resumeData.summary ||
             "Your professional summary will appear here as Builder AI collects your details."}
         </p>
       </div>
@@ -40,7 +44,7 @@ const ResumePreviewPanel = () => {
         </h3>
 
         <p className="mt-4 text-sm text-gray-700 leading-6">
-          {answers.experience || "Your work experience will appear here."}
+          {resumeData.experience || "Your work experience will appear here."}
         </p>
       </div>
 
@@ -50,7 +54,7 @@ const ResumePreviewPanel = () => {
         </h3>
 
         <p className="mt-4 text-sm text-gray-700 leading-6">
-          {answers.education || "Your education details will appear here."}
+          {resumeData.education || "Your education details will appear here."}
         </p>
       </div>
 
@@ -59,9 +63,22 @@ const ResumePreviewPanel = () => {
           SKILLS
         </h3>
 
-        <p className="mt-4 text-sm text-gray-700 leading-6">
-          {answers.skills || "Your skills will appear here."}
-        </p>
+        {Array.isArray(resumeData.skills) ? (
+          <div className="mt-4 flex flex-wrap gap-2">
+            {resumeData.skills.map((skill, index) => (
+              <span
+                key={index}
+                className="text-xs bg-gray-100 text-gray-700 px-3 py-1 rounded-full"
+              >
+                {skill}
+              </span>
+            ))}
+          </div>
+        ) : (
+          <p className="mt-4 text-sm text-gray-700 leading-6">
+            {resumeData.skills || "Your skills will appear here."}
+          </p>
+        )}
       </div>
     </div>
   );
