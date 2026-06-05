@@ -7,38 +7,66 @@ import TypingBubble from "./TypingBubble";
 
 const ChatPanel = () => {
   const { messages, isGenerating } = useBuilderAiStore();
-
   const messagesEndRef = useRef(null);
+
+  const hasStartedChat = messages.length > 1;
 
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
-  }, [messages]);
+  }, [messages, isGenerating]);
+
   return (
-    <section className="bg-white border border-gray-200 rounded-3xl min-h-[calc(100vh-160px)] flex flex-col overflow-hidden shadow-sm">
-      {/* Header */}
-      <div className="border-b border-gray-200 px-5 py-4 flex items-center gap-3">
-        <div className="w-9 h-9 rounded-xl bg-[var(--color-primary)] text-white flex items-center justify-center font-bold">
-          ✦
-        </div>
+    <section className="h-screen w-full bg-white flex flex-col overflow-hidden">
+      {/* Messages Area */}
+      <div
+        className={`flex-1 overflow-y-auto px-4 md:px-8 ${
+          hasStartedChat ? "py-8" : "flex flex-col items-center justify-center"
+        }`}
+      >
+        {!hasStartedChat ? (
+          <div className="w-full max-w-4xl mx-auto text-center mt-[33rem] md:mt-[10rem] lg:mt-[2px]">
+            <div className="w-16 h-16 mx-auto rounded-full bg-[var(--color-primary)] text-white flex items-center justify-center text-2xl shadow-lg">
+              ✦
+            </div>
 
-        <div>
-          <h2 className="font-bold text-[var(--color-primary)]">Resume AI</h2>
-          <p className="text-xs text-gray-500">Real-time resume assistant</p>
-        </div>
+            <h1 className="mt-6 text-3xl md:text-4xl font-bold text-slate-900">
+              How can I help you today?
+            </h1>
+
+            <p className="mt-3 text-gray-500 max-w-xl mx-auto">
+              Ask me anything about your resume. I can help you build, improve,
+              optimize, and tailor it to any job.
+            </p>
+
+            <PromptSuggestions />
+          </div>
+        ) : (
+          <div className="max-w-4xl mx-auto w-full space-y-5">
+            {messages.map((msg) => (
+              <MessageBubble
+                key={msg.id}
+                type={msg.type}
+                message={msg.message}
+              />
+            ))}
+
+            {isGenerating && <TypingBubble />}
+
+            <div ref={messagesEndRef} />
+          </div>
+        )}
       </div>
 
-      {/* Messages */}
-      <div className="flex-1 px-4 md:px-8 py-6 space-y-5 overflow-y-auto">
-        {messages.map((msg) => (
-          <MessageBubble key={msg.id} type={msg.type} message={msg.message} />
-        ))}
+      {/* Input Area */}
+      <div className="w-full px-3 sm:px-4 md:px-8 pb-4 sm:pb-6">
+        <div className="max-w-4xl mx-auto">
+          <ChatInput />
 
-        {isGenerating && <TypingBubble />}
-
-        <div ref={messagesEndRef} />
+          <p className="text-center text-xs text-gray-400 mt-3">
+            Resume AI may make mistakes. Review important information.
+          </p>
+        </div>
       </div>
-      <PromptSuggestions />
-      <ChatInput />
     </section>
   );
 };

@@ -1,8 +1,8 @@
 import React from "react";
 import Sidebar from "../../components/Sidebar";
-import Topbar from "../../components/Topbar";
 import useDashboardStore from "../../store/dashboardStore";
 import ChatPanel from "./components/ChatPanel";
+import Topbar from "../../components/Topbar";
 
 const BuilderAI = () => {
   const { sidebarOpen } = useDashboardStore();
@@ -12,18 +12,14 @@ const BuilderAI = () => {
       <Sidebar />
 
       <main
-        className={`transition-all duration-300 px-4 md:px-6 lg:px-8 py-6
+        className={`transition-all duration-300
         ${sidebarOpen ? "lg:ml-[260px]" : "lg:ml-[85px]"}`}
       >
-        <div className="max-w-[85rem] mx-auto flex flex-col gap-8">
-          <Topbar
-            title="Builder AI"
-            description="Create your resume through a smart AI conversation"
-          />
-
-          <div className="max-w-5xl mx-auto w-full">
-            <ChatPanel />
-          </div>
+        <div className="lg:hidden">
+          <Topbar title="Builder AI" description="" />
+        </div>
+        <div className="h-screen w-full  ">
+          <ChatPanel />
         </div>
       </main>
     </section>

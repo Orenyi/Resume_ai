@@ -1,37 +1,47 @@
 import React from "react";
+import { FiPlus } from "react-icons/fi";
+import { RiSendPlaneFill } from "react-icons/ri";
 import useBuilderAiStore from "../../../store/builderAiStore";
 
 const ChatInput = () => {
   const { input, setInput, sendMessage, isGenerating } = useBuilderAiStore();
 
-  const handleSend = () => {
-    sendMessage();
-  };
+  const handleSend = () => sendMessage();
 
   const handleKeyDown = (e) => {
-    if (e.key === "Enter") {
+    if (e.key === "Enter" && !e.shiftKey) {
+      e.preventDefault();
       handleSend();
     }
   };
 
   return (
-    <div className="p-4">
-      <div className="flex items-center gap-2 bg-gray-100 rounded-2xl p-2">
+    <div className="w-full bg-white border border-gray-200 rounded-3xl p-2 shadow-sm">
+      <div className="flex items-center gap-2 min-w-0">
+        <button
+          type="button"
+          className="shrink-0 w-10 h-10 sm:w-11 sm:h-11 rounded-2xl bg-gray-100 hover:bg-gray-200 flex items-center justify-center transition"
+          title="Upload Resume (Coming Soon)"
+        >
+          <FiPlus className="text-xl text-gray-600" />
+        </button>
+
         <input
           type="text"
           value={input}
           onChange={(e) => setInput(e.target.value)}
           onKeyDown={handleKeyDown}
-          placeholder="Tell Builder AI what resume you want..."
-          className="flex-1 bg-transparent outline-none text-sm px-3"
+          placeholder="Ask anything..."
+          className="min-w-0 flex-1 bg-transparent outline-none text-sm sm:text-[15px] text-slate-700 placeholder:text-gray-400"
         />
 
         <button
+          type="button"
           onClick={handleSend}
           disabled={!input.trim() || isGenerating}
-          className="bg-[var(--color-primary)] disabled:bg-gray-300 disabled:cursor-not-allowed text-white text-xs px-5 py-3 rounded-xl font-semibold"
+          className="shrink-0 w-10 h-10 sm:w-11 sm:h-11 rounded-2xl bg-[var(--color-primary)] disabled:bg-gray-300 disabled:cursor-not-allowed flex items-center justify-center transition"
         >
-          {isGenerating ? "Thinking..." : "Send"}
+          <RiSendPlaneFill className="text-white text-lg" />
         </button>
       </div>
     </div>
