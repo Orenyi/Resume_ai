@@ -1,39 +1,26 @@
-export const createResumePrompt = (answers) => `
-You are Builder AI, a professional resume writing assistant.
+import { builderAiSystemPrompt } from "./builderAiSystemPrompt";
 
-Create an ATS-friendly resume draft using the user's details below.
+export const createBuilderAiPrompt = (messages) => {
+  const conversation = messages
+    .map(
+      (msg) => `${msg.type === "user" ? "User" : "Builder AI"}: ${msg.message}`,
+    )
+    .join("\n");
 
-User Details:
-Full Name: ${answers.fullName}
-Email: ${answers.email}
-Phone: ${answers.phone}
-Location: ${answers.location}
-Target Job Title: ${answers.jobTitle}
-Summary Info: ${answers.summary}
-Experience: ${answers.experience}
-Education: ${answers.education}
-Skills: ${answers.skills}
+  return `
+${builderAiSystemPrompt}
 
-Return ONLY valid JSON in this exact format:
+Conversation:
+${conversation}
 
-{
-  "fullName": "",
-  "email": "",
-  "phone": "",
-  "location": "",
-  "jobTitle": "",
-  "summary": "",
-  "experience": "",
-  "education": "",
-  "skills": []
-}
+Respond naturally as Builder AI.
 
 Rules:
-- Improve the summary professionally.
-- Rewrite experience to sound stronger and achievement-based.
-- Keep the content truthful based on the user's input.
-- Split skills into an array.
-- Do not add fake companies, schools, or certifications.
-- Do not include markdown.
-- Do not include explanations.
+- If the user asks for advice, answer normally.
+- If the user asks to improve text, rewrite it professionally.
+- If the user asks to build a resume, ask for missing details if needed.
+- If enough resume details are available, create a strong resume draft.
+- Keep the response clear and useful.
+- Do not use markdown tables.
 `;
+};

@@ -3,7 +3,6 @@ import Sidebar from "../../components/Sidebar";
 import Topbar from "../../components/Topbar";
 import useDashboardStore from "../../store/dashboardStore";
 import ChatPanel from "./components/ChatPanel";
-import ResumePreviewPanel from "./components/ResumePreviewPanel";
 
 const BuilderAI = () => {
   const { sidebarOpen } = useDashboardStore();
@@ -19,12 +18,11 @@ const BuilderAI = () => {
         <div className="max-w-[85rem] mx-auto flex flex-col gap-8">
           <Topbar
             title="Builder AI"
-            description="Create and improve your resume with AI assistance"
+            description="Create your resume through a smart AI conversation"
           />
 
-          <div className="grid grid-cols-1 xl:grid-cols-[420px_1fr] gap-6">
+          <div className="max-w-5xl mx-auto w-full">
             <ChatPanel />
-            <ResumePreviewPanel />
           </div>
         </div>
       </main>

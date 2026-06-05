@@ -4,14 +4,16 @@ const MessageBubble = ({ type, message }) => {
   const isUser = type === "user";
 
   return (
-    <div
-      className={`max-w-[85%] rounded-2xl p-4 text-sm leading-6 ${
-        isUser
-          ? "ml-auto bg-[#0f172a] text-white rounded-tr-sm"
-          : "bg-gray-100 text-gray-800 rounded-tl-sm"
-      }`}
-    >
-      {message}
+    <div className={`flex ${isUser ? "justify-end" : "justify-start"}`}>
+      <div
+        className={`max-w-[90%] md:max-w-[72%] px-5 py-4 text-sm leading-7 ${
+          isUser
+            ? "bg-[var(--color-primary)] text-white rounded-2xl rounded-tr-md"
+            : "bg-gray-100 text-slate-800 rounded-2xl rounded-tl-md"
+        }`}
+      >
+        <p className="whitespace-pre-wrap">{message}</p>
+      </div>
     </div>
   );
 };

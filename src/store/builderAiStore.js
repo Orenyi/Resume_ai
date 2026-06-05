@@ -1,34 +1,88 @@
-import { createResumePrompt } from "../pages/BuilderAI/data/builderAiPrompt";
+import { create } from "zustand";
+import builderAiService from "../services/builderAiService";
 
-const builderAiService = {
-  generateResumeDraft: async (answers) => {
-    const prompt = createResumePrompt(answers);
-
-    console.log("Prompt sent to Gemini:", prompt);
-
-    const skillsArray = answers.skills
-      ? answers.skills.split(",").map((skill) => skill.trim())
-      : [];
-
-    const generatedResume = {
-      fullName: answers.fullName || "",
-      email: answers.email || "",
-      phone: answers.phone || "",
-      location: answers.location || "",
-      jobTitle: answers.jobTitle || "",
-      summary:
-        answers.summary ||
-        `Motivated ${answers.jobTitle} with a strong interest in building professional, user-focused solutions.`,
-      experience: answers.experience || "",
-      education: answers.education || "",
-      skills: skillsArray,
-    };
-
-    return {
-      success: true,
-      data: generatedResume,
-    };
-  },
+const initialMessage = {
+  id: 1,
+  type: "ai",
+  message:
+    "Hi, I’m Builder AI. I can help you build, improve, review, or optimize anything related to your resume. What would you like to do?",
 };
 
-export default builderAiService;
+const useBuilderAiStore = create((set, get) => ({
+  messages: [initialMessage],
+  input: "",
+  isGenerating: false,
+
+  setInput: (value) => set({ input: value }),
+
+  addMessage: (message) =>
+    set((state) => ({
+      messages: [
+        ...state.messages,
+        {
+          id: Date.now(),
+          ...message,
+        },
+      ],
+    })),
+
+  sendMessage: async () => {
+    const { input, messages, isGenerating } = get();
+
+    if (!input.trim() || isGenerating) return;
+
+    const userMessage = {
+      id: Date.now(),
+      type: "user",
+      message: input,
+    };
+
+    const updatedMessages = [...messages, userMessage];
+
+    set({
+      messages: updatedMessages,
+      input: "",
+      isGenerating: true,
+    });
+
+    try {
+      const result = await builderAiService.sendChatMessage(updatedMessages);
+
+      set((state) => ({
+        messages: [
+          ...state.messages,
+          {
+            id: Date.now() + 1,
+            type: "ai",
+            message: result.text,
+          },
+        ],
+      }));
+    } catch (error) {
+      console.log("Builder AI chat error:", error.message);
+
+      set((state) => ({
+        messages: [
+          ...state.messages,
+          {
+            id: Date.now() + 1,
+            type: "ai",
+            message:
+              "Sorry, I couldn't process that request. Please try again.",
+          },
+        ],
+      }));
+    } finally {
+      set({ isGenerating: false });
+    }
+  },
+
+  clearChat: () =>
+    set({
+      messages: [initialMessage],
+      input: "",
+      isGenerating: false,
+    }),
+}));
+
+export default useBuilderAiStore;
