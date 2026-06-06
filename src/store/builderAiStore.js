@@ -1,107 +1,186 @@
 import { create } from "zustand";
+import { supabase } from "../lib/supabaseClient";
 import builderAiService from "../services/builderAiService";
-
-const STORAGE_KEY = "builder_ai_chat";
+import builderAiChatService from "../services/builderAiChatService";
 
 const initialMessage = {
-  id: 1,
+  id: "initial-message",
   type: "ai",
   message:
     "Hi, I’m Builder AI. I can help you build, improve, review, or optimize anything related to your resume. What would you like to do?",
 };
 
-const getSavedMessages = () => {
-  try {
-    const saved = localStorage.getItem(STORAGE_KEY);
-
-    if (!saved) return [initialMessage];
-
-    const parsed = JSON.parse(saved);
-
-    if (!Array.isArray(parsed) || parsed.length === 0) {
-      return [initialMessage];
-    }
-
-    return parsed;
-  } catch (error) {
-    console.log("Failed to load Builder AI chat:", error.message);
-    return [initialMessage];
-  }
-};
-
-const saveMessages = (messages) => {
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(messages));
-};
-
 const useBuilderAiStore = create((set, get) => ({
-  messages: getSavedMessages(),
+  chats: [],
+  activeChatId: null,
+  messages: [initialMessage],
   input: "",
   isGenerating: false,
+  loadingChats: false,
+  loadingMessages: false,
 
   setInput: (value) => set({ input: value }),
 
-  addMessage: (message) =>
-    set((state) => {
-      const updatedMessages = [
-        ...state.messages,
-        {
-          id: Date.now(),
-          ...message,
-        },
-      ];
+  loadChats: async () => {
+    try {
+      set({ loadingChats: true });
 
-      saveMessages(updatedMessages);
+      const {
+        data: { user },
+      } = await supabase.auth.getUser();
 
-      return {
-        messages: updatedMessages,
-      };
-    }),
+      if (!user) return;
+
+      const chats = await builderAiChatService.getUserChats(user.id);
+
+      set({ chats });
+
+      if (chats.length > 0 && !get().activeChatId) {
+        await get().loadChatMessages(chats[0].id);
+      }
+    } catch (error) {
+      console.log("Load Builder AI chats error:", error.message);
+    } finally {
+      set({ loadingChats: false });
+    }
+  },
+
+  createNewChat: async () => {
+    try {
+      const {
+        data: { user },
+      } = await supabase.auth.getUser();
+
+      if (!user) return;
+
+      const chat = await builderAiChatService.createChat(user.id, "New Chat");
+
+      set((state) => ({
+        chats: [chat, ...state.chats],
+        activeChatId: chat.id,
+        messages: [initialMessage],
+        input: "",
+      }));
+    } catch (error) {
+      console.log("Create Builder AI chat error:", error.message);
+    }
+  },
+
+  loadChatMessages: async (chatId) => {
+    try {
+      set({ loadingMessages: true, activeChatId: chatId });
+
+      const dbMessages = await builderAiChatService.getChatMessages(chatId);
+
+      const formattedMessages = dbMessages.map((msg) => ({
+        id: msg.id,
+        type: msg.type,
+        message: msg.message,
+      }));
+
+      set({
+        messages:
+          formattedMessages.length > 0 ? formattedMessages : [initialMessage],
+      });
+    } catch (error) {
+      console.log("Load Builder AI messages error:", error.message);
+    } finally {
+      set({ loadingMessages: false });
+    }
+  },
 
   sendMessage: async () => {
-    const { input, messages, isGenerating } = get();
+    const { input, messages, isGenerating, activeChatId } = get();
 
     if (!input.trim() || isGenerating) return;
 
-    const userMessage = {
-      id: Date.now(),
-      type: "user",
-      message: input,
-    };
-
-    const updatedMessages = [...messages, userMessage];
-
-    saveMessages(updatedMessages);
-
-    set({
-      messages: updatedMessages,
-      input: "",
-      isGenerating: true,
-    });
-
     try {
+      set({ isGenerating: true });
+
+      const {
+        data: { user },
+      } = await supabase.auth.getUser();
+
+      if (!user) return;
+
+      let chatId = activeChatId;
+
+      const chatTitle = input.length > 35 ? `${input.slice(0, 35)}...` : input;
+
+      if (!chatId) {
+        const newChat = await builderAiChatService.createChat(
+          user.id,
+          chatTitle,
+        );
+
+        chatId = newChat.id;
+
+        set((state) => ({
+          chats: [newChat, ...state.chats],
+          activeChatId: chatId,
+        }));
+      } else {
+        const currentChat = get().chats.find((chat) => chat.id === chatId);
+
+        if (currentChat?.title === "New Chat") {
+          const updatedChat = await builderAiChatService.updateChatTitle(
+            chatId,
+            chatTitle,
+          );
+
+          set((state) => ({
+            chats: state.chats.map((chat) =>
+              chat.id === chatId ? updatedChat : chat,
+            ),
+          }));
+        }
+      }
+
+      const userMessage = {
+        id: Date.now(),
+        type: "user",
+        message: input,
+      };
+
+      const updatedMessages = [...messages, userMessage];
+
+      set({
+        messages: updatedMessages,
+        input: "",
+      });
+
+      await builderAiChatService.addMessage({
+        chatId,
+        userId: user.id,
+        type: "user",
+        message: input,
+      });
+
       const result = await builderAiService.sendChatMessage(updatedMessages);
 
-      set((state) => {
-        const aiMessages = [
-          ...state.messages,
-          {
-            id: Date.now() + 1,
-            type: "ai",
-            message: result.text,
-          },
-        ];
+      const aiMessage = {
+        id: Date.now() + 1,
+        type: "ai",
+        message: result.text,
+      };
 
-        saveMessages(aiMessages);
+      set((state) => ({
+        messages: [...state.messages, aiMessage],
+      }));
 
-        return {
-          messages: aiMessages,
-        };
+      await builderAiChatService.addMessage({
+        chatId,
+        userId: user.id,
+        type: "ai",
+        message: result.text,
       });
+
+      await get().loadChats();
     } catch (error) {
       console.log("Builder AI chat error:", error.message);
 
-      set((state) => {
-        const errorMessages = [
+      set((state) => ({
+        messages: [
           ...state.messages,
           {
             id: Date.now() + 1,
@@ -109,27 +188,40 @@ const useBuilderAiStore = create((set, get) => ({
             message:
               "Sorry, I couldn't process that request. Please try again.",
           },
-        ];
-
-        saveMessages(errorMessages);
-
-        return {
-          messages: errorMessages,
-        };
-      });
+        ],
+      }));
     } finally {
       set({ isGenerating: false });
     }
   },
 
-  clearChat: () => {
-    localStorage.removeItem(STORAGE_KEY);
-
+  clearChat: async () => {
     set({
+      activeChatId: null,
       messages: [initialMessage],
       input: "",
       isGenerating: false,
     });
+  },
+
+  deleteChat: async (chatId) => {
+    try {
+      await builderAiChatService.deleteChat(chatId);
+
+      set((state) => {
+        const updatedChats = state.chats.filter((chat) => chat.id !== chatId);
+
+        return {
+          chats: updatedChats,
+          activeChatId:
+            state.activeChatId === chatId ? null : state.activeChatId,
+          messages:
+            state.activeChatId === chatId ? [initialMessage] : state.messages,
+        };
+      });
+    } catch (error) {
+      console.log("Delete Builder AI chat error:", error.message);
+    }
   },
 }));
 
