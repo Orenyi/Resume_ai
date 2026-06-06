@@ -1,4 +1,5 @@
 import React from "react";
+import ReactMarkdown from "react-markdown";
 
 const MessageBubble = ({ type, message }) => {
   const isUser = type === "user";
@@ -12,7 +13,13 @@ const MessageBubble = ({ type, message }) => {
             : "bg-gray-100 text-slate-800 rounded-2xl rounded-tl-md"
         }`}
       >
-        <p className="whitespace-pre-wrap">{message}</p>
+        {isUser ? (
+          <p className="whitespace-pre-wrap">{message}</p>
+        ) : (
+          <div className="prose prose-sm max-w-none prose-p:my-2 prose-ul:my-2 prose-ol:my-2 prose-li:my-1 prose-strong:text-slate-900">
+            <ReactMarkdown>{message}</ReactMarkdown>
+          </div>
+        )}
       </div>
     </div>
   );
