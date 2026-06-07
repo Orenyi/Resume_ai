@@ -37,7 +37,7 @@ const builderAiChatService = {
     return data || [];
   },
 
-  async addMessage({ chatId, userId, type, message }) {
+  async addMessage({ chatId, userId, type, message, category = "chat" }) {
     const { data, error } = await supabase
       .from("builder_ai_messages")
       .insert({
@@ -45,6 +45,7 @@ const builderAiChatService = {
         user_id: userId,
         type,
         message,
+        category,
       })
       .select()
       .single();

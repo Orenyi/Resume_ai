@@ -2,6 +2,7 @@ import { create } from "zustand";
 import { supabase } from "../lib/supabaseClient";
 import builderAiService from "../services/builderAiService";
 import builderAiChatService from "../services/builderAiChatService";
+import { createResumeAnalysisPrompt } from "../pages/BuilderAI/data/resumeAnalysisPrompt";
 
 const initialMessage = {
   id: "initial-message",
@@ -89,10 +90,13 @@ const useBuilderAiStore = create((set, get) => ({
     }
   },
 
-  sendMessage: async () => {
+  sendMessage: async (customPayload = null) => {
     const { input, messages, isGenerating, activeChatId } = get();
 
-    if (!input.trim() || isGenerating) return;
+    const isResumeAnalysis = customPayload?.type === "resume-analysis";
+    const userInput = isResumeAnalysis ? customPayload.content : input;
+
+    if (!userInput.trim() || isGenerating) return;
 
     try {
       set({ isGenerating: true });
@@ -105,7 +109,11 @@ const useBuilderAiStore = create((set, get) => ({
 
       let chatId = activeChatId;
 
-      const chatTitle = input.length > 35 ? `${input.slice(0, 35)}...` : input;
+      const chatTitle = isResumeAnalysis
+        ? "Resume Analysis"
+        : userInput.length > 35
+          ? `${userInput.slice(0, 35)}...`
+          : userInput;
 
       if (!chatId) {
         const newChat = await builderAiChatService.createChat(
@@ -136,16 +144,30 @@ const useBuilderAiStore = create((set, get) => ({
         }
       }
 
+      const displayMessage = isResumeAnalysis
+        ? `Please analyze this resume:\n\n${userInput}`
+        : userInput;
+
+      const aiPrompt = isResumeAnalysis
+        ? createResumeAnalysisPrompt(userInput)
+        : userInput;
+
       const userMessage = {
         id: Date.now(),
         type: "user",
-        message: input,
+        message: displayMessage,
       };
 
-      const updatedMessages = [...messages, userMessage];
+      const updatedMessages = [
+        ...messages,
+        {
+          ...userMessage,
+          message: aiPrompt,
+        },
+      ];
 
       set({
-        messages: updatedMessages,
+        messages: [...messages, userMessage],
         input: "",
       });
 
@@ -153,7 +175,8 @@ const useBuilderAiStore = create((set, get) => ({
         chatId,
         userId: user.id,
         type: "user",
-        message: input,
+        message: displayMessage,
+        category: isResumeAnalysis ? "resume-analysis" : "chat",
       });
 
       const result = await builderAiService.sendChatMessage(updatedMessages);
@@ -173,6 +196,7 @@ const useBuilderAiStore = create((set, get) => ({
         userId: user.id,
         type: "ai",
         message: result.text,
+        category: isResumeAnalysis ? "resume-analysis" : "chat",
       });
 
       await get().loadChats();
