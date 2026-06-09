@@ -42,13 +42,20 @@ const ChatPanel = () => {
           </div>
         ) : (
           <div className="max-w-4xl mx-auto w-full space-y-5">
-            {messages.map((msg) => (
-              <MessageBubble
-                key={msg.id}
-                type={msg.type}
-                message={msg.message}
-              />
-            ))}
+            {messages.map((msg, index) => {
+              const isLastMessage = index === messages.length - 1;
+              const showRegenerate =
+                msg.type === "ai" && isLastMessage && !isGenerating;
+
+              return (
+                <MessageBubble
+                  key={msg.id}
+                  type={msg.type}
+                  message={msg.message}
+                  showRegenerate={showRegenerate}
+                />
+              );
+            })}
 
             {isGenerating && <TypingBubble />}
 

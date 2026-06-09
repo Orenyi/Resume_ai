@@ -93,7 +93,13 @@ const useBuilderAiStore = create((set, get) => ({
   sendMessage: async (customPayload = null) => {
     const { input, messages, isGenerating, activeChatId } = get();
 
-    const isResumeAnalysis = customPayload?.type === "resume-analysis";
+    const isResumeAnalysis =
+      customPayload?.type === "resume-analysis" ||
+      customPayload?.type === "resume-upload-analysis";
+
+    const isResumeUploadAnalysis =
+      customPayload?.type === "resume-upload-analysis";
+
     const userInput = isResumeAnalysis ? customPayload.content : input;
 
     if (!userInput.trim() || isGenerating) return;
@@ -144,9 +150,11 @@ const useBuilderAiStore = create((set, get) => ({
         }
       }
 
-      const displayMessage = isResumeAnalysis
-        ? `Please analyze this resume:\n\n${userInput}`
-        : userInput;
+      const displayMessage = isResumeUploadAnalysis
+        ? `📄 ${customPayload.fileName}\n\nResume uploaded and ready for analysis.`
+        : isResumeAnalysis
+          ? `Please analyze this resume:\n\n${userInput}`
+          : userInput;
 
       const aiPrompt = isResumeAnalysis
         ? createResumeAnalysisPrompt(userInput)
@@ -176,7 +184,11 @@ const useBuilderAiStore = create((set, get) => ({
         userId: user.id,
         type: "user",
         message: displayMessage,
-        category: isResumeAnalysis ? "resume-analysis" : "chat",
+        category: isResumeUploadAnalysis
+          ? "resume-upload-analysis"
+          : isResumeAnalysis
+            ? "resume-analysis"
+            : "chat",
       });
 
       const result = await builderAiService.sendChatMessage(updatedMessages);
@@ -196,7 +208,11 @@ const useBuilderAiStore = create((set, get) => ({
         userId: user.id,
         type: "ai",
         message: result.text,
-        category: isResumeAnalysis ? "resume-analysis" : "chat",
+        category: isResumeUploadAnalysis
+          ? "resume-upload-analysis"
+          : isResumeAnalysis
+            ? "resume-analysis"
+            : "chat",
       });
 
       await get().loadChats();
@@ -211,6 +227,140 @@ const useBuilderAiStore = create((set, get) => ({
             type: "ai",
             message:
               "Sorry, I couldn't process that request. Please try again.",
+          },
+        ],
+      }));
+    } finally {
+      set({ isGenerating: false });
+    }
+  },
+
+  regenerateLastResponse: async () => {
+    const { messages, isGenerating, activeChatId } = get();
+
+    if (isGenerating || !activeChatId) return;
+
+    const lastUserMessage = [...messages]
+      .reverse()
+      .find((msg) => msg.type === "user");
+
+    if (!lastUserMessage) return;
+
+    try {
+      set({ isGenerating: true });
+
+      const {
+        data: { user },
+      } = await supabase.auth.getUser();
+
+      if (!user) return;
+
+      const messagesWithoutLastAi =
+        messages[messages.length - 1]?.type === "ai"
+          ? messages.slice(0, -1)
+          : messages;
+
+      set({ messages: messagesWithoutLastAi });
+
+      const result = await builderAiService.sendChatMessage(
+        messagesWithoutLastAi,
+      );
+
+      const aiMessage = {
+        id: Date.now() + 1,
+        type: "ai",
+        message: result.text,
+      };
+
+      set((state) => ({
+        messages: [...state.messages, aiMessage],
+      }));
+
+      await builderAiChatService.addMessage({
+        chatId: activeChatId,
+        userId: user.id,
+        type: "ai",
+        message: result.text,
+        category: "chat",
+      });
+    } catch (error) {
+      console.error("Regenerate error:", error);
+
+      set((state) => ({
+        messages: [
+          ...state.messages,
+          {
+            id: Date.now() + 1,
+            type: "ai",
+            message:
+              "Gemini is currently experiencing high demand. Please try again in a few minutes.",
+          },
+        ],
+      }));
+    } finally {
+      set({ isGenerating: false });
+    }
+  },
+
+  regenerateLastResponse: async () => {
+    const { messages, isGenerating, activeChatId } = get();
+
+    if (isGenerating || !activeChatId) return;
+
+    const lastUserMessage = [...messages]
+      .reverse()
+      .find((msg) => msg.type === "user");
+
+    if (!lastUserMessage) return;
+
+    try {
+      set({ isGenerating: true });
+
+      const {
+        data: { user },
+      } = await supabase.auth.getUser();
+
+      if (!user) return;
+
+      const messagesWithoutLastAi =
+        messages[messages.length - 1]?.type === "ai"
+          ? messages.slice(0, -1)
+          : messages;
+
+      set({ messages: messagesWithoutLastAi });
+
+      const result = await builderAiService.sendChatMessage(
+        messagesWithoutLastAi,
+      );
+
+      const aiMessage = {
+        id: Date.now() + 1,
+        type: "ai",
+        message: result.text,
+      };
+
+      set((state) => ({
+        messages: [...state.messages, aiMessage],
+      }));
+
+      await builderAiChatService.addMessage({
+        chatId: activeChatId,
+        userId: user.id,
+        type: "ai",
+        message: result.text,
+        category: "chat",
+      });
+    } catch (error) {
+      console.error("Regenerate error:", error);
+
+      set((state) => ({
+        messages: [
+          ...state.messages,
+          {
+            id: Date.now() + 1,
+            type: "ai",
+            message:
+              "Gemini is currently experiencing high demand. Please try again in a few minutes.",
           },
         ],
       }));

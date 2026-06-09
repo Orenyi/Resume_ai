@@ -1,7 +1,8 @@
 import React from "react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
-import { FiCopy } from "react-icons/fi";
+import { FiCopy, FiRefreshCcw } from "react-icons/fi";
+import useBuilderAiStore from "../../../store/builderAiStore";
 
 const extractScore = (message, labels) => {
   for (const label of labels) {
@@ -48,7 +49,7 @@ const formatAiMessage = (message) => {
     .replace(/^Refined Version:?$/gim, "## Refined Version");
 };
 
-const MessageBubble = ({ type, message }) => {
+const MessageBubble = ({ type, message, showRegenerate }) => {
   const isUser = type === "user";
 
   const formattedMessage = !isUser ? formatAiMessage(message) : message;
@@ -62,6 +63,8 @@ const MessageBubble = ({ type, message }) => {
   const copyToClipboard = async () => {
     await navigator.clipboard.writeText(message);
   };
+
+  const { regenerateLastResponse } = useBuilderAiStore();
 
   return (
     <div className={`flex ${isUser ? "justify-end" : "justify-start"}`}>
@@ -95,14 +98,24 @@ const MessageBubble = ({ type, message }) => {
         )}
 
         {!isUser && (
-          <div className="flex justify-end mb-3">
+          <div className="flex items-center justify-end gap-4 mb-4">
             <button
               onClick={copyToClipboard}
-              className="flex items-center gap-2 text-sm text-gray-500 hover:text-gray-700 transition"
+              className="flex items-center gap-2 text-sm text-gray-500 hover:text-gray-800"
             >
               <FiCopy />
               Copy
             </button>
+
+            {showRegenerate && (
+              <button
+                onClick={regenerateLastResponse}
+                className="flex items-center gap-2 text-sm text-gray-500 hover:text-gray-800"
+              >
+                <FiRefreshCcw />
+                Regenerate
+              </button>
+            )}
           </div>
         )}
 
