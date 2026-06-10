@@ -57,6 +57,8 @@ const useResumeBuilderStore = create((set) => ({
   resumeData: defaultResumeData,
   currentStep: 0,
   selectedTemplate: null,
+  importedResumeData: null,
+  hasImportedResume: false,
 
   setResumeData: (data) =>
     set({
@@ -102,11 +104,25 @@ const useResumeBuilderStore = create((set) => ({
       selectedTemplate: template,
     }),
 
+  setImportedResumeData: (data) =>
+    set({
+      importedResumeData: data,
+      hasImportedResume: true,
+    }),
+
+  clearImportedResumeData: () =>
+    set({
+      importedResumeData: null,
+      hasImportedResume: false,
+    }),
+
   resetBuilder: () =>
     set({
       resumeData: defaultResumeData,
       currentStep: 0,
       selectedTemplate: null,
+      importedResumeData: null,
+      hasImportedResume: false,
     }),
 }));
 

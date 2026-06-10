@@ -3,10 +3,18 @@ import { useNavigate } from "react-router-dom";
 import { FiStar } from "react-icons/fi";
 import { supabase } from "../../lib/supabaseClient";
 import resumeService from "../../services/resumeService";
+import useResumeBuilderStore from "../../store/resumeBuilderStore";
 
 const TemplateCard = ({ template }) => {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
+  const {
+    importedResumeData,
+    hasImportedResume,
+    setResumeData,
+    setSelectedTemplate,
+    clearImportedResumeData,
+  } = useResumeBuilderStore();
 
   const handleSelectTemplate = async () => {
     try {
@@ -25,7 +33,15 @@ const TemplateCard = ({ template }) => {
       const resume = await resumeService.createResumeFromTemplate(
         template.id,
         user.id,
+        hasImportedResume ? importedResumeData : null,
       );
+
+      setSelectedTemplate(template);
+
+      if (hasImportedResume && importedResumeData) {
+        setResumeData(importedResumeData);
+        clearImportedResumeData();
+      }
 
       navigate(`/dashboard/resumes/${resume.id}/edit`);
     } catch (error) {

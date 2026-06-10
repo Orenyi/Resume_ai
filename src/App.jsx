@@ -7,7 +7,7 @@ import AuthPage from "./pages/Auth/AuthPage";
 import Dashboard from "./pages/Dashboard/Dashboard";
 import Templates from "./pages/Templates/Templates";
 import Resumes from "./pages/Resumes/Resumes";
-import Settings from "./pages/Settings/Settings";
+
 import ResumeBuilder from "./pages/ResumeBuilder/ResumeBuilder";
 import BuilderAI from "./pages/BuilderAI/BuilderAI";
 
@@ -57,15 +57,6 @@ const AppContent = () => {
           element={
             <ProtectedRoute>
               <Resumes />
-            </ProtectedRoute>
-          }
-        />
-
-        <Route
-          path="/dashboard/settings"
-          element={
-            <ProtectedRoute>
-              <Settings />
             </ProtectedRoute>
           }
         />

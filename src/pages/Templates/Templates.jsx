@@ -7,12 +7,14 @@ import TemplateFilters from "../../components/Template/TemplateFilters";
 import TemplateGrid from "../../components/Template/TemplateGrid";
 import ImportResumeModal from "../../components/Template/ImportResumeModal";
 import useTemplates from "../../hooks/useTemplates";
+import useResumeBuilderStore from "../../store/resumeBuilderStore";
 
 const Template = () => {
   const { sidebarOpen } = useDashboardStore();
   const { templates, loading, filters, setFilters, search, setSearch } =
     useTemplates();
   const [showImportModal, setShowImportModal] = useState(false);
+  const { hasImportedResume } = useResumeBuilderStore();
 
   return (
     <section className="min-h-screen bg-[#f8fafc]">
@@ -27,6 +29,15 @@ const Template = () => {
             description="Choose from professional ATS-friendly templates"
           />
           <TemplateHeader onImport={() => setShowImportModal(true)} />
+          {hasImportedResume && (
+            <div className="bg-green-50 border border-green-200 text-green-700 rounded-2xl px-5 py-4">
+              <p className="font-semibold">Resume imported successfully.</p>
+              <p className="text-sm mt-1">
+                Choose any template below to create your resume with the
+                imported data.
+              </p>
+            </div>
+          )}
           <TemplateFilters
             filters={filters}
             setFilters={setFilters}

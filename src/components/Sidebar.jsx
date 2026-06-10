@@ -31,11 +31,6 @@ const navItems = [
     path: "/dashboard/resumes",
     icon: <RiFileList3Line />,
   },
-  {
-    name: "Settings",
-    path: "/dashboard/settings",
-    icon: <RiSettings3Line />,
-  },
 ];
 
 const Sidebar = () => {

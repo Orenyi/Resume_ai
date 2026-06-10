@@ -1,15 +1,19 @@
 import { supabase } from "../lib/supabaseClient";
 
 const resumeService = {
-  async createResumeFromTemplate(templateId, userId) {
+  async createResumeFromTemplate(templateId, userId, resumeData = {}) {
+    const title = resumeData?.personal?.fullName
+      ? `${resumeData.personal.fullName} Resume`
+      : "Untitled Resume";
+
     const { data, error } = await supabase
       .from("resumes")
       .insert([
         {
           user_id: userId,
-          title: "Untitled Resume",
+          title,
           template_id: templateId,
-          resume_data: {},
+          resume_data: resumeData || {},
           status: "draft",
         },
       ])
