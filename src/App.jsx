@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 
 import LandingPage from "./pages/LandingPage/LandingPage";
+import About from "./pages/About/About";
 import AuthPage from "./pages/Auth/AuthPage";
 
 import Dashboard from "./pages/Dashboard/Dashboard";
@@ -78,6 +79,8 @@ const AppContent = () => {
             </ProtectedRoute>
           }
         />
+
+        <Route path="/About" element={<About />} />
       </Routes>
 
       {!isDashboardPage && <Footer />}
