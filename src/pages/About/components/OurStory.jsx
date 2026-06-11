@@ -5,7 +5,7 @@ import about from "../../../images/about_img.webp";
 
 const OurStory = () => {
   return (
-    <section className="relative overflow-hidden bg-white py-16 lg:py-28">
+    <section className="relative overflow-hidden bg-white py-16 lg:py-24">
       {/* Blue Blur */}
       <div className="absolute top-20 left-0 w-[280px] md:w-[400px] h-[280px] md:h-[400px] bg-[#1E3A8A] opacity-15 blur-[120px] rounded-full" />
 
