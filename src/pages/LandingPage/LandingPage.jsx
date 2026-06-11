@@ -1,20 +1,24 @@
 import React from "react";
 import Hero from "./Hero";
-import Results from "./Results";
-import ResumeSamples from "./ResumeSamples";
 import Trusted from "./Trusted";
 import Testimonials from "./Testimonials";
 import Faq from "./Faq";
+import HowItWorks from "./HowItWorks";
+import ResultDriven from "./ResultDriven";
+import TemplateStyle from "./TemplateStyle";
+import CTA from "../About/components/CTA";
 
 const LandingPage = () => {
   return (
     <section>
       <Hero />
-      <Results />
+      <HowItWorks />
+      <ResultDriven />
       <Trusted />
-      <ResumeSamples />
+      <TemplateStyle />
       <Testimonials />
       <Faq />
+      <CTA />
     </section>
   );
 };

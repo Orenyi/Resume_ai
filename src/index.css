@@ -67,6 +67,15 @@ body {
   page-break-inside: avoid;
 }
 
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
 @media print {
   body {
     background: white !important;
