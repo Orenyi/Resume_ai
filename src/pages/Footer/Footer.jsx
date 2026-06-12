@@ -102,7 +102,7 @@ const Footer = () => {
               </NavLink>
 
               <NavLink
-                to="/terms"
+                to="/terms-of-service"
                 className="transition-colors duration-300 hover:text-white"
               >
                 {t("footer.terms")}

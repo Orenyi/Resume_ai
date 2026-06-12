@@ -3,6 +3,8 @@ import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 
 import LandingPage from "./pages/LandingPage/LandingPage";
 import About from "./pages/About/About";
+import PrivacyPolicy from "./pages/PrivacyPolicy/PrivacyPolicy";
+import TermsOfService from "./pages/TermsOfService/TermsOfService";
 import AuthPage from "./pages/Auth/AuthPage";
 
 import Dashboard from "./pages/Dashboard/Dashboard";
@@ -22,12 +24,14 @@ import Toast from "./components/Toast";
 const AppContent = () => {
   const location = useLocation();
 
-  const isDashboardPage = location.pathname.startsWith("/dashboard");
+  const hideLayout =
+    location.pathname.startsWith("/dashboard") ||
+    location.pathname.startsWith("/auth");
 
   return (
     <>
       <Toast />
-      {!isDashboardPage && <Navbar />}
+      {!hideLayout && <Navbar />}
 
       <Routes>
         {/* Public Routes */}
@@ -81,9 +85,11 @@ const AppContent = () => {
         />
 
         <Route path="/About" element={<About />} />
+        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+        <Route path="/terms-of-service" element={<TermsOfService />} />
       </Routes>
 
-      {!isDashboardPage && <Footer />}
+      {!hideLayout && <Footer />}
     </>
   );
 };
