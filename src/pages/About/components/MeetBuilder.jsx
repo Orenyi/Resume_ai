@@ -1,6 +1,7 @@
 import React from "react";
 import { RiRobot2Line, RiSendPlaneFill } from "react-icons/ri";
 import { FiCheck, FiMoreHorizontal } from "react-icons/fi";
+import { useNavigate } from "react-router-dom";
 
 const benefits = [
   "Analyze and review your resume",
@@ -11,6 +12,7 @@ const benefits = [
 ];
 
 const MeetBuilder = () => {
+  const navigate = useNavigate();
   return (
     <section className="relative overflow-hidden bg-white py-16 lg:py-24">
       {/* Blue Blur */}
@@ -93,7 +95,10 @@ const MeetBuilder = () => {
               ))}
             </div>
 
-            <button className="mt-8 bg-[var(--color-primary)] text-white px-6 py-3 rounded-lg hover:bg-[var(--color-secondary)] transition-colors duration-300">
+            <button
+              onClick={() => navigate("/dashboard/builder-ai")}
+              className="mt-8 bg-[var(--color-primary)] text-white px-6 py-3 rounded-lg hover:bg-[var(--color-secondary)] transition-colors duration-300"
+            >
               Try Builder AI
             </button>
           </div>

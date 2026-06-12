@@ -86,7 +86,7 @@ const Navbar = () => {
             </button>
 
             <NavLink
-              to="/get-started"
+              to="/auth"
               className="text-[14px]  bg-[var(--color-primary)] text-white py-2 px-4 rounded-lg hover:bg-[var(--color-secondary)]
                transition-colors duration-300"
             >

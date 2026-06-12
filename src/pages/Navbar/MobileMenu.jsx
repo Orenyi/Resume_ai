@@ -147,7 +147,7 @@ const MobileMenu = ({ isOpen, onClose, activeLang, setActiveLang }) => {
 
             {/* SIGN IN */}
             <NavLink
-              to="/signin"
+              to="/auth"
               onClick={onClose}
               className="
                 w-full rounded-2xl border border-black
@@ -168,7 +168,7 @@ const MobileMenu = ({ isOpen, onClose, activeLang, setActiveLang }) => {
 
             {/* GET STARTED */}
             <NavLink
-              to="/get-started"
+              to="/auth"
               onClick={onClose}
               className="
                 w-full rounded-2xl

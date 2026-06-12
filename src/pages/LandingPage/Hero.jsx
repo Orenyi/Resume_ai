@@ -3,9 +3,11 @@ import { useTranslation } from "react-i18next";
 import { TbTopologyStar3 } from "react-icons/tb";
 import hero_img from "../../images/hero_img.webp";
 import contributors from "../../images/contributors.webp";
+import { useNavigate } from "react-router-dom";
 
 const Hero = () => {
   const { t } = useTranslation();
+  const navigate = useNavigate();
 
   return (
     <section className="lg:-mt-16 relative overflow-hidden bg-[#f8fafc]">
@@ -43,7 +45,10 @@ const Hero = () => {
 
             {/* buttons */}
             <div className="mt-12 flex flex-col md:flex-row md:items-center gap-6">
-              <button className="text-[18px] bg-[var(--color-primary)] text-white py-3 px-6 rounded-lg hover:bg-[var(--color-secondary)] transition-colors duration-300">
+              <button
+                onClick={() => navigate("/auth")}
+                className="text-[18px] bg-[var(--color-primary)] text-white py-3 px-6 rounded-lg hover:bg-[var(--color-secondary)] transition-colors duration-300"
+              >
                 {t("hero.buildBtn")}
               </button>
               <button className="text-[18px] bg-transparent text-black py-3 px-6 rounded-lg border border-black hover:bg-[var(--color-secondary)] hover:text-white hover:border-none transition-colors duration-300">

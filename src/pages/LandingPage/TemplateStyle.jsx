@@ -11,6 +11,7 @@ import template5 from "../../images/template5.jpg";
 import template6 from "../../images/template6.jpg";
 import template7 from "../../images/template7.jpg";
 import template8 from "../../images/template8.jpg";
+import { useNavigate } from "react-router-dom";
 
 const templates = [
   { name: "Modern", image: template1, active: true },
@@ -24,6 +25,8 @@ const templates = [
 ];
 
 const TemplateStyle = () => {
+  const navigate = useNavigate();
+
   return (
     <section className="relative overflow-hidden bg-[#f8fafc] py-16 lg:py-28">
       {/* Blue Blur */}
@@ -126,7 +129,7 @@ const TemplateStyle = () => {
         {/* CTA */}
         <div className="mt-10 flex justify-center">
           <NavLink
-            to="/templates"
+            to="/dashboard/templates"
             className="bg-[var(--color-primary)] text-white py-3 px-8 rounded-xl hover:bg-[var(--color-secondary)] transition-colors duration-300 flex items-center gap-3"
           >
             View All Templates

@@ -51,7 +51,7 @@ const AboutCTA = () => {
               </NavLink>
 
               <NavLink
-                to="/templates"
+                to="/dashboard/templates"
                 className="w-full sm:w-auto text-center bg-white text-black py-3 px-7 rounded-lg border border-black hover:bg-[var(--color-secondary)] hover:text-white hover:border-transparent transition-colors duration-300"
               >
                 Browse Templates
