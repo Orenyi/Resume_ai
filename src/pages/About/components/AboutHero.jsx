@@ -11,7 +11,7 @@ const AboutHero = () => {
   const navigate = useNavigate();
 
   return (
-    <section className="relative overflow-hidden bg-[#f8fafc] py-16 lg:py-24 xl:py-28">
+    <section className="lg:-mt-16 relative overflow-hidden bg-[#f8fafc] py-16 lg:py-24 xl:py-28">
       {/* Blue Blur */}
       <div className="absolute top-10 left-10 w-[350px] h-[350px] bg-[#1E3A8A] opacity-30 blur-[120px] rounded-full" />
 
@@ -21,7 +21,7 @@ const AboutHero = () => {
       {/* Center Gradient Blur */}
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-gradient-to-r from-[#1E3A8A] to-[#0D9488] opacity-20 blur-[140px] rounded-full" />
 
-      <div className="relative z-10 px-4 md:px-6 lg:px-6 xl:px-10 max-w-[85rem] mx-auto">
+      <div className="relative z-10  lg:mt-32 xl:mt-16 px-4 md:px-6 lg:px-6 xl:px-10 max-w-[85rem] mx-auto">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-16 xl:gap-24">
           {/* Left Content */}
           <div className="flex flex-col flex-1">

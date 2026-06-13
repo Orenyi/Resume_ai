@@ -51,9 +51,14 @@ const Hero = () => {
               >
                 {t("hero.buildBtn")}
               </button>
-              <button className="text-[18px] bg-transparent text-black py-3 px-6 rounded-lg border border-black hover:bg-[var(--color-secondary)] hover:text-white hover:border-none transition-colors duration-300">
+              <a
+                href="https://www.youtube.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block text-[18px] text-center bg-transparent text-black py-3 px-6 rounded-lg border border-black hover:bg-[var(--color-secondary)] hover:text-white hover:border-none transition-colors duration-300"
+              >
                 {t("hero.watchBtn")}
-              </button>
+              </a>
             </div>
 
             {/* social proof */}
