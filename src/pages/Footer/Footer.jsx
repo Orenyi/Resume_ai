@@ -2,7 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { FaTwitter, FaLinkedinIn, FaInstagram } from "react-icons/fa";
-import logo from "../../images/logo.png";
+import logo_white from "../../images/logo_white.png";
 
 const Footer = () => {
   const { t } = useTranslation();
@@ -16,7 +16,11 @@ const Footer = () => {
           <div className="max-w-xl">
             {/* LOGO */}
             <NavLink to="/" className="inline-flex items-center">
-              <img src={logo} alt="Resume AI Logo" className="w-44 md:w-52" />
+              <img
+                src={logo_white}
+                alt="Resume AI Logo"
+                className="w-44 md:w-52"
+              />
             </NavLink>
 
             {/* WRITEUP */}
