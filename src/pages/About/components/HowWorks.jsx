@@ -1,4 +1,5 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import {
   RiUploadCloud2Line,
   RiSparkling2Line,
@@ -7,35 +8,37 @@ import {
   RiDownloadLine,
 } from "react-icons/ri";
 
-const steps = [
-  {
-    icon: <RiUploadCloud2Line />,
-    title: "Upload or Build",
-    text: "Upload your resume or start from scratch with our AI builder.",
-  },
-  {
-    icon: <RiSparkling2Line />,
-    title: "AI Analysis",
-    text: "Our AI analyzes your resume and provides actionable insights.",
-  },
-  {
-    icon: <RiLayoutGridLine />,
-    title: "Choose Template",
-    text: "Pick from 13+ professional templates that match your style.",
-  },
-  {
-    icon: <RiEdit2Line />,
-    title: "Customize",
-    text: "Edit, refine, and optimize your resume with AI suggestions.",
-  },
-  {
-    icon: <RiDownloadLine />,
-    title: "Download & Apply",
-    text: "Download your ATS-friendly resume and start applying.",
-  },
-];
-
 const HowWorks = () => {
+  const { t } = useTranslation();
+
+  const steps = [
+    {
+      icon: <RiUploadCloud2Line />,
+      title: t("howWorks.step1Title"),
+      text: t("howWorks.step1Text"),
+    },
+    {
+      icon: <RiSparkling2Line />,
+      title: t("howWorks.step2Title"),
+      text: t("howWorks.step2Text"),
+    },
+    {
+      icon: <RiLayoutGridLine />,
+      title: t("howWorks.step3Title"),
+      text: t("howWorks.step3Text"),
+    },
+    {
+      icon: <RiEdit2Line />,
+      title: t("howWorks.step4Title"),
+      text: t("howWorks.step4Text"),
+    },
+    {
+      icon: <RiDownloadLine />,
+      title: t("howWorks.step5Title"),
+      text: t("howWorks.step5Text"),
+    },
+  ];
+
   return (
     <section className="relative overflow-hidden bg-white py-16 lg:py-24">
       {/* Blue Blur */}
@@ -46,7 +49,7 @@ const HowWorks = () => {
 
       <div className="relative z-10 px-4 md:px-6 lg:px-6 xl:px-10 max-w-[85rem] mx-auto">
         <p className="uppercase tracking-[4px] text-[11px] md:text-[12px] font-semibold text-[var(--color-primary)] text-center">
-          How Resume AI Works
+          {t("howWorks.badge")}
         </p>
 
         {/* Desktop */}

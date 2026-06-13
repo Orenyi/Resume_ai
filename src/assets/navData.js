@@ -5,10 +5,24 @@ export const navLinks = [
 ];
 
 export const languages = [
-  { code: "en", label: "English", flag: "🇬🇧" },
-  { code: "fr", label: "Français", flag: "🇫🇷" },
-  { code: "es", label: "Español", flag: "🇪🇸" },
-  { code: "de", label: "Deutsch", flag: "🇩🇪" },
-  { code: "pt", label: "Português", flag: "🇧🇷" },
-  { code: "ar", label: "العربية", flag: "🇸🇦" },
+  {
+    code: "en",
+    label: "English",
+    flag: { img: "https://flagcdn.com/40x30/gb.png", alt: "United Kingdom" },
+  },
+  {
+    code: "fr",
+    label: "Français",
+    flag: { img: "https://flagcdn.com/40x30/fr.png", alt: "France" },
+  },
+  {
+    code: "es",
+    label: "Español",
+    flag: { img: "https://flagcdn.com/40x30/es.png", alt: "Spain" },
+  },
+  {
+    code: "de",
+    label: "Deutsch",
+    flag: { img: "https://flagcdn.com/40x30/de.png", alt: "Germany" },
+  },
 ];

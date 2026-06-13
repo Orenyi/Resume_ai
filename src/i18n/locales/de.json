@@ -9,26 +9,74 @@
     "social": "Fachleute diesen Monat eingestellt",
     "socialCount": "10.000+"
   },
+  "howItWorks": {
+    "badge": "So funktioniert es",
+    "title": "Einfache Schritte zum Erfolg",
+    "subtitle": "Erstellen Sie in nur wenigen Schritten einen professionellen Lebenslauf.",
+
+    "step1Title": "Hochladen oder erstellen",
+    "step1Text": "Laden Sie Ihren bestehenden Lebenslauf hoch oder beginnen Sie von Grund auf. Unsere KI begleitet Sie dabei.",
+
+    "step2Title": "KI-Analyse",
+    "step2Text": "Unsere KI analysiert Ihren Lebenslauf und gibt personalisierte Empfehlungen.",
+
+    "step3Title": "Vorlage auswählen",
+    "step3Text": "Wählen Sie aus unserer Sammlung professioneller Vorlagen, die zu Ihrem Stil passen.",
+
+    "step4Title": "Anpassen & herunterladen",
+    "step4Text": "Bearbeiten, optimieren und laden Sie Ihren ATS-freundlichen Lebenslauf herunter und beginnen Sie mit Ihren Bewerbungen.",
+
+    "stat1": "Erstellte Lebensläufe",
+    "stat2": "ATS-Erfolgsquote",
+    "stat3": "Professionelle Vorlagen",
+    "stat4": "KI-Unterstützung"
+  },
+  "resultDriven": {
+    "badge": "KI-gestützt. Ergebnisorientiert",
+    "title": "Lebenslaufbewertung und Tipps für mehr Vorstellungsgespräche",
+
+    "benefit1": "Erhalten Sie Ihren ATS-Score in Sekunden",
+    "benefit2": "Personalisierte Verbesserungsvorschläge",
+    "benefit3": "Keyword-Optimierung für Ihre Zielposition",
+
+    "atsScore": "Ihr ATS-Score",
+
+    "content": "Inhalt",
+    "structure": "Struktur",
+    "keywords": "Schlüsselwörter",
+
+    "viewTips": "Verbesserungstipps anzeigen",
+
+    "improvementTips": "Verbesserungstipps",
+    "overallImpact": "Hohe Gesamtwirkung",
+
+    "tip1": "Fügen Sie mehr messbare Erfolge hinzu",
+    "tip2": "Relevante Schlüsselwörter einfügen",
+    "tip3": "Abschnittsformatierung verbessern",
+    "tip4": "Mehr Fähigkeiten hinzufügen",
+
+    "applyAll": "Alle Vorschläge anwenden"
+  },
+  "templateStyle": {
+    "badge": "Wählen Sie Ihren Stil",
+    "title": "Wählen Sie eine Vorlage, die zu Ihnen passt",
+    "subtitle": "Professionelle Vorlagen, die Ihnen helfen, in jeder Branche hervorzustechen.",
+    "templateModern": "Modern",
+    "templateProfessional": "Professionell",
+    "templateCreative": "Kreativ",
+    "templateMinimal": "Minimalistisch",
+    "templateExecutive": "Executive",
+    "templateSimple": "Einfach",
+    "templateClassic": "Klassisch",
+    "templateElegant": "Elegant",
+    "cta": "Alle Vorlagen ansehen"
+  },
   "testimonials": {
     "badge": "Bewertet mit 4/5 von über 1.000 Nutzern",
     "heading": "Lobende Worte von anderen über unsere Präsenz.",
     "subtitle": "Entdecke, warum Teams, Gründer und Fachleute unserer kreativen Expertise vertrauen, um ihre Marken zu stärken."
   },
-  "samples": {
-    "heading": "Lebenslauf-Beispiele für deinen Beruf und deine Erfahrung",
-    "subtitle": "Unsere Experten haben über 1.200 detaillierte Ressourcen erstellt und 9.000+ Bewerbungen analysiert — jede auf den aktuellen Arbeitsmarkt zugeschnitten.",
-    "browse": "Beispiele ansehen",
-    "jobs": {
-      "businessAnalyst": "Business Analyst",
-      "dataScientist": "Data Scientist",
-      "productManager": "Produktmanager",
-      "softwareEngineer": "Software-Ingenieur",
-      "sales": "Vertrieb",
-      "teacher": "Lehrer",
-      "engineer": "Ingenieur",
-      "accounting": "Buchhaltung"
-    }
-  },
+
   "trusted": {
     "label": "Vertraut von Mitarbeitern bei"
   },
@@ -96,6 +144,80 @@
         "answer": "Ja. Jeder Nutzer erhält einen öffentlichen Link zum Teilen seines Portfolios."
       }
     }
+  },
+  "aboutHero": {
+    "badge": "Über Resume AI",
+    "title": "Wir helfen Jobsuchenden, bessere Karrieren aufzubauen",
+    "titleHighlight": "mit KI",
+    "description": "Resume AI kombiniert intelligente Lebenslauferstellung, ATS-Optimierung und KI-gestützte Karrieretools, damit Fachkräfte mehr Vorstellungsgespräche erhalten und schneller eingestellt werden.",
+    "getStarted": "Loslegen",
+    "browseTemplates": "Vorlagen durchsuchen",
+    "professionals": "Fachkräfte",
+    "aboutImage": "Über Resume AI"
+  },
+  "ourStory": {
+    "imageAlt": "Resume AI Team",
+    "badge": "Unsere Geschichte",
+    "title": "Warum wir Resume AI entwickelt haben",
+    "paragraph1": "Wir haben festgestellt, dass talentierte Menschen Chancen verpassen, weil ihre Lebensläufe schwach formatiert sind oder von ATS-Systemen abgelehnt werden.",
+    "paragraph2": "Resume AI wurde entwickelt, um jedem Zugang zu professionellen, KI-gestützten Lebenslauf-Tools zu ermöglichen.",
+    "mission": "Unsere Mission",
+    "missionCard": "Jeden Berufstätigen dabei unterstützen, sein bestes Selbst zu präsentieren und neue Chancen zu eröffnen.",
+    "missionText": "Fachkräften dabei helfen, Lebensläufe zu erstellen, die Aufmerksamkeit erregen und Türen öffnen.",
+    "vision": "Unsere Vision",
+    "visionText": "Eine Welt, in der jeder die Werkzeuge hat, um eine Karriere aufzubauen, die er liebt."
+  },
+  "whatMakes": {
+    "badge": "Was Resume AI besonders macht",
+
+    "feature1Title": "KI-Lebenslauf-Builder",
+    "feature1Text": "Erstellen Sie leistungsstarke, rollenbezogene Lebensläufe mit KI-Vorschlägen, die Ihre Stärken und Erfolge hervorheben.",
+
+    "feature2Title": "ATS-Optimierung",
+    "feature2Text": "Erhalten Sie ATS-Bewertungen, Keyword-Vorschläge und Formatierungstipps, um Bewerbermanagementsysteme erfolgreich zu durchlaufen.",
+
+    "feature3Title": "Intelligenter Lebenslauf-Import",
+    "feature3Text": "Laden Sie Ihren bestehenden Lebenslauf hoch und lassen Sie die KI Ihre Informationen in Sekunden extrahieren und strukturieren.",
+
+    "stat1": "Erstellte Lebensläufe",
+    "stat2": "ATS-Erfolgsquote",
+    "stat3": "Professionelle Vorlagen",
+    "stat4": "KI-Unterstützung"
+  },
+  "howWorks": {
+    "badge": "So funktioniert Resume AI",
+    "step1Title": "Hochladen oder erstellen",
+    "step1Text": "Laden Sie Ihren Lebenslauf hoch oder beginnen Sie mit unserem KI-Builder von Grund auf.",
+    "step2Title": "KI-Analyse",
+    "step2Text": "Unsere KI analysiert Ihren Lebenslauf und liefert umsetzbare Einblicke.",
+    "step3Title": "Vorlage auswählen",
+    "step3Text": "Wählen Sie aus über 13 professionellen Vorlagen, die zu Ihrem Stil passen.",
+    "step4Title": "Anpassen",
+    "step4Text": "Bearbeiten, verfeinern und optimieren Sie Ihren Lebenslauf mit KI-Vorschlägen.",
+    "step5Title": "Herunterladen & bewerben",
+    "step5Text": "Laden Sie Ihren ATS-freundlichen Lebenslauf herunter und beginnen Sie mit Ihren Bewerbungen."
+  },
+  "meetBuilder": {
+    "chatTitle": "Builder AI",
+    "chatQuestion": "Wie kann ich meine berufliche Zusammenfassung verbessern?",
+    "chatReply": "Hier ist eine verbesserte Zusammenfassung, die Ihre Fähigkeiten und Erfahrungen hervorhebt:",
+    "chatSummary": "Ergebnisorientierter Produktdesigner mit über 5 Jahren Erfahrung in der Erstellung nutzerzentrierter digitaler Produkte, die Engagement und Geschäftswachstum fördern.",
+    "placeholder": "Fragen Sie Builder AI alles...",
+    "badge": "Lernen Sie Builder AI kennen",
+    "title1": "Ihr persönlicher",
+    "title2": "Lebenslauf-Assistent",
+    "benefit1": "Ihren Lebenslauf analysieren und überprüfen",
+    "benefit2": "Zusammenfassungen und Stichpunkte neu formulieren",
+    "benefit3": "Fähigkeiten und Erfolge verbessern",
+    "benefit4": "ATS- und Keyword-Vorschläge erhalten",
+    "benefit5": "Fragen zu Karriere und Lebenslauf beantworten",
+    "button": "Builder AI testen"
+  },
+  "aboutCTA": {
+    "title": "Bereit, einen Lebenslauf zu erstellen, der Vorstellungsgespräche bringt?",
+    "description": "Schließen Sie sich Tausenden von Fachkräften an, die mit Resume AI ihre Traumkarriere aufgebaut haben.",
+    "primaryButton": "Kostenlos starten",
+    "secondaryButton": "Vorlagen durchsuchen"
   },
   "navbar": {
     "dashboard": "Dashboard",

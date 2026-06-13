@@ -9,25 +9,72 @@
     "social": "professionnels recrutés ce mois-ci",
     "socialCount": "10 000+"
   },
+  "howItWorks": {
+    "badge": "Comment ça marche",
+    "title": "Des étapes simples vers le succès",
+    "subtitle": "Créez un CV professionnel en quelques étapes simples.",
+
+    "step1Title": "Télécharger ou créer",
+    "step1Text": "Téléchargez votre CV existant ou commencez de zéro. Notre IA vous guidera.",
+
+    "step2Title": "Analyse par IA",
+    "step2Text": "Notre IA analyse votre CV et fournit des recommandations personnalisées.",
+
+    "step3Title": "Choisir un modèle",
+    "step3Text": "Choisissez parmi notre collection de modèles professionnels adaptés à votre style.",
+
+    "step4Title": "Personnaliser et télécharger",
+    "step4Text": "Modifiez, optimisez et téléchargez votre CV compatible ATS puis commencez à postuler.",
+
+    "stat1": "CV créés",
+    "stat2": "Taux de réussite ATS",
+    "stat3": "Modèles professionnels",
+    "stat4": "Assistance IA"
+  },
+  "resultDriven": {
+    "badge": "Propulsé par l'IA. Axé sur les résultats",
+    "title": "Analyse du CV et conseils pour obtenir plus d'entretiens",
+
+    "benefit1": "Obtenez votre score ATS en quelques secondes",
+    "benefit2": "Recevez des recommandations personnalisées",
+    "benefit3": "Optimisation des mots-clés pour votre poste cible",
+
+    "atsScore": "Votre score ATS",
+
+    "content": "Contenu",
+    "structure": "Structure",
+    "keywords": "Mots-clés",
+
+    "viewTips": "Voir les conseils d'amélioration",
+
+    "improvementTips": "Conseils d'amélioration",
+    "overallImpact": "Impact global élevé",
+
+    "tip1": "Ajoutez davantage de réalisations mesurables",
+    "tip2": "Incluez des mots-clés pertinents",
+    "tip3": "Améliorez la mise en forme des sections",
+    "tip4": "Ajoutez davantage de compétences",
+
+    "applyAll": "Appliquer toutes les suggestions"
+  },
+  "templateStyle": {
+    "badge": "Choisissez votre style",
+    "title": "Choisissez un modèle qui vous correspond",
+    "subtitle": "Des modèles professionnels conçus pour vous aider à vous démarquer dans tous les secteurs.",
+    "templateModern": "Moderne",
+    "templateProfessional": "Professionnel",
+    "templateCreative": "Créatif",
+    "templateMinimal": "Minimaliste",
+    "templateExecutive": "Exécutif",
+    "templateSimple": "Simple",
+    "templateClassic": "Classique",
+    "templateElegant": "Élégant",
+    "cta": "Voir tous les modèles"
+  },
   "testimonials": {
     "badge": "Noté 4/5 par plus de 1 000 utilisateurs",
     "heading": "Des mots d'éloge de la part de nos utilisateurs.",
     "subtitle": "Découvrez pourquoi des équipes, fondateurs et professionnels font confiance à notre expertise créative pour valoriser leurs marques."
-  },
-  "samples": {
-    "heading": "Exemples de CV adaptés à votre métier et expérience",
-    "subtitle": "Nos spécialistes ont créé plus de 1 200 ressources détaillées et analysé 9 000+ candidatures dans plusieurs secteurs — chacune adaptée au marché actuel.",
-    "browse": "Voir les exemples",
-    "jobs": {
-      "businessAnalyst": "Analyste d'affaires",
-      "dataScientist": "Data Scientist",
-      "productManager": "Chef de produit",
-      "softwareEngineer": "Ingénieur logiciel",
-      "sales": "Ventes",
-      "teacher": "Enseignant",
-      "engineer": "Ingénieur",
-      "accounting": "Comptabilité"
-    }
   },
   "trusted": {
     "label": "Approuvé par les employés de"
@@ -96,6 +143,80 @@
         "answer": "Oui. Chaque utilisateur reçoit un lien public partageable pour présenter ses projets, compétences et CV."
       }
     }
+  },
+  "aboutHero": {
+    "badge": "À propos de Resume AI",
+    "title": "Aider les chercheurs d'emploi à construire de meilleures carrières",
+    "titleHighlight": "avec l'IA",
+    "description": "Resume AI combine la création intelligente de CV, l'optimisation ATS et des outils de carrière alimentés par l'IA pour aider les professionnels à obtenir plus d'entretiens et à être recrutés plus rapidement.",
+    "getStarted": "Commencer",
+    "browseTemplates": "Parcourir les modèles",
+    "professionals": "Professionnels",
+    "aboutImage": "À propos de Resume AI"
+  },
+  "ourStory": {
+    "imageAlt": "Équipe Resume AI",
+    "badge": "Notre histoire",
+    "title": "Pourquoi nous avons créé Resume AI",
+    "paragraph1": "Nous avons constaté que des personnes talentueuses manquaient des opportunités à cause de CV faibles, d'une mauvaise mise en forme et des rejets ATS.",
+    "paragraph2": "Resume AI a été créé pour donner à chacun accès à des outils professionnels de CV alimentés par l'intelligence artificielle.",
+    "mission": "Notre mission",
+    "missionCard": "Permettre à chaque professionnel de présenter le meilleur de lui-même et de saisir de nouvelles opportunités.",
+    "missionText": "Aider les professionnels à créer des CV qui attirent l'attention et ouvrent des portes.",
+    "vision": "Notre vision",
+    "visionText": "Un monde où chacun dispose des outils nécessaires pour construire une carrière qu'il aime."
+  },
+  "whatMakes": {
+    "badge": "Ce qui rend Resume AI différent",
+
+    "feature1Title": "Créateur de CV IA",
+    "feature1Text": "Créez des CV puissants et adaptés à votre poste grâce à des suggestions IA mettant en valeur vos compétences et réalisations.",
+
+    "feature2Title": "Optimisation ATS",
+    "feature2Text": "Obtenez un score ATS, des suggestions de mots-clés et des conseils de mise en forme pour réussir les systèmes ATS.",
+
+    "feature3Title": "Importation intelligente de CV",
+    "feature3Text": "Téléchargez votre CV existant et laissez l'IA extraire et organiser vos informations en quelques secondes.",
+
+    "stat1": "CV créés",
+    "stat2": "Taux de réussite ATS",
+    "stat3": "Modèles professionnels",
+    "stat4": "Assistance IA"
+  },
+  "howWorks": {
+    "badge": "Comment fonctionne Resume AI",
+    "step1Title": "Télécharger ou créer",
+    "step1Text": "Téléchargez votre CV ou commencez de zéro avec notre créateur IA.",
+    "step2Title": "Analyse par IA",
+    "step2Text": "Notre IA analyse votre CV et fournit des conseils pratiques.",
+    "step3Title": "Choisir un modèle",
+    "step3Text": "Choisissez parmi plus de 13 modèles professionnels adaptés à votre style.",
+    "step4Title": "Personnaliser",
+    "step4Text": "Modifiez, améliorez et optimisez votre CV avec des suggestions IA.",
+    "step5Title": "Télécharger et postuler",
+    "step5Text": "Téléchargez votre CV compatible ATS et commencez à postuler."
+  },
+  "meetBuilder": {
+    "chatTitle": "Builder AI",
+    "chatQuestion": "Comment puis-je améliorer mon résumé professionnel ?",
+    "chatReply": "Voici un résumé amélioré qui met en valeur vos compétences et votre expérience :",
+    "chatSummary": "Product Designer orienté résultats avec plus de 5 ans d'expérience dans la création de produits numériques centrés sur l'utilisateur qui stimulent l'engagement et la croissance de l'entreprise.",
+    "placeholder": "Posez une question à Builder AI...",
+    "badge": "Découvrez Builder AI",
+    "title1": "Votre assistant",
+    "title2": "personnel de CV",
+    "benefit1": "Analyser et examiner votre CV",
+    "benefit2": "Réécrire les résumés et les points clés",
+    "benefit3": "Améliorer les compétences et les réalisations",
+    "benefit4": "Obtenir des suggestions ATS et de mots-clés",
+    "benefit5": "Répondre aux questions sur la carrière et le CV",
+    "button": "Essayer Builder AI"
+  },
+  "aboutCTA": {
+    "title": "Prêt à créer un CV qui décroche des entretiens ?",
+    "description": "Rejoignez des milliers de professionnels qui ont construit leur carrière de rêve avec Resume AI.",
+    "primaryButton": "Commencer gratuitement",
+    "secondaryButton": "Parcourir les modèles"
   },
   "navbar": {
     "dashboard": "tableau de bord",

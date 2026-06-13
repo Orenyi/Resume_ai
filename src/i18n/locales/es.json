@@ -9,26 +9,74 @@
     "social": "profesionales contratados este mes",
     "socialCount": "10.000+"
   },
+  "howItWorks": {
+    "badge": "Cómo funciona",
+    "title": "Pasos simples hacia el éxito",
+    "subtitle": "Crea un currículum profesional en solo unos pocos pasos sencillos.",
+
+    "step1Title": "Subir o crear",
+    "step1Text": "Sube tu currículum actual o empieza desde cero. Nuestra IA te guiará.",
+
+    "step2Title": "Análisis con IA",
+    "step2Text": "Nuestra IA analiza tu currículum y ofrece recomendaciones personalizadas.",
+
+    "step3Title": "Elegir plantilla",
+    "step3Text": "Elige entre nuestra colección de plantillas profesionales que se adapten a tu estilo.",
+
+    "step4Title": "Personalizar y descargar",
+    "step4Text": "Edita, optimiza y descarga tu currículum compatible con ATS y comienza a postularte.",
+
+    "stat1": "Currículums creados",
+    "stat2": "Tasa de éxito ATS",
+    "stat3": "Plantillas profesionales",
+    "stat4": "Asistencia de IA"
+  },
+  "resultDriven": {
+    "badge": "Impulsado por IA. Orientado a resultados",
+    "title": "Evaluación del currículum y consejos para conseguir más entrevistas",
+
+    "benefit1": "Obtén tu puntuación ATS en segundos",
+    "benefit2": "Recibe sugerencias personalizadas para mejorar",
+    "benefit3": "Optimización de palabras clave para tu puesto objetivo",
+
+    "atsScore": "Tu puntuación ATS",
+
+    "content": "Contenido",
+    "structure": "Estructura",
+    "keywords": "Palabras clave",
+
+    "viewTips": "Ver consejos de mejora",
+
+    "improvementTips": "Consejos de mejora",
+    "overallImpact": "Impacto general alto",
+
+    "tip1": "Añade más logros cuantificables",
+    "tip2": "Incluye palabras clave relevantes",
+    "tip3": "Mejora el formato de las secciones",
+    "tip4": "Añade más habilidades",
+
+    "applyAll": "Aplicar todas las sugerencias"
+  },
+  "templateStyle": {
+    "badge": "Elige tu estilo",
+    "title": "Elige una plantilla que se adapte a ti",
+    "subtitle": "Plantillas profesionales diseñadas para ayudarte a destacar en cualquier industria.",
+    "templateModern": "Moderno",
+    "templateProfessional": "Profesional",
+    "templateCreative": "Creativo",
+    "templateMinimal": "Minimalista",
+    "templateExecutive": "Ejecutivo",
+    "templateSimple": "Simple",
+    "templateClassic": "Clásico",
+    "templateElegant": "Elegante",
+    "cta": "Ver todas las plantillas"
+  },
   "testimonials": {
     "badge": "Valorado 4/5 por más de 1.000 usuarios",
     "heading": "Palabras de elogio de otros sobre nuestra presencia.",
     "subtitle": "Descubre por qué equipos, fundadores y profesionales confían en nuestra experiencia creativa para elevar sus marcas."
   },
-  "samples": {
-    "heading": "Ejemplos de currículum adaptados a tu trabajo y experiencia",
-    "subtitle": "Nuestros especialistas han creado más de 1.200 recursos detallados y analizado 9.000+ solicitudes en múltiples sectores — cada uno adaptado al mercado laboral actual.",
-    "browse": "Ver ejemplos",
-    "jobs": {
-      "businessAnalyst": "Analista de negocio",
-      "dataScientist": "Científico de datos",
-      "productManager": "Gerente de producto",
-      "softwareEngineer": "Ingeniero de software",
-      "sales": "Ventas",
-      "teacher": "Profesor",
-      "engineer": "Ingeniero",
-      "accounting": "Contabilidad"
-    }
-  },
+
   "trusted": {
     "label": "Con la confianza de empleados en"
   },
@@ -96,6 +144,80 @@
         "answer": "Sí. Cada usuario recibe un enlace público compartible para mostrar proyectos y habilidades."
       }
     }
+  },
+  "aboutHero": {
+    "badge": "Acerca de Resume AI",
+    "title": "Ayudando a quienes buscan empleo a construir mejores carreras",
+    "titleHighlight": "con IA",
+    "description": "Resume AI combina la creación inteligente de currículums, la optimización ATS y herramientas profesionales impulsadas por IA para ayudar a los profesionales a conseguir más entrevistas y ser contratados más rápido.",
+    "getStarted": "Comenzar",
+    "browseTemplates": "Explorar plantillas",
+    "professionals": "Profesionales",
+    "aboutImage": "Acerca de Resume AI"
+  },
+  "ourStory": {
+    "imageAlt": "Equipo de Resume AI",
+    "badge": "Nuestra historia",
+    "title": "Por qué creamos Resume AI",
+    "paragraph1": "Nos dimos cuenta de que personas talentosas estaban perdiendo oportunidades debido a currículums débiles, mal formato y rechazos ATS.",
+    "paragraph2": "Resume AI fue creado para brindar a todos acceso a herramientas profesionales de currículum impulsadas por inteligencia artificial.",
+    "mission": "Nuestra misión",
+    "missionCard": "Empoderar a cada profesional para mostrar su mejor versión y desbloquear nuevas oportunidades.",
+    "missionText": "Ayudar a los profesionales a crear currículums que llamen la atención y abran puertas.",
+    "vision": "Nuestra visión",
+    "visionText": "Un mundo donde todos tengan las herramientas para construir una carrera que amen."
+  },
+  "whatMakes": {
+    "badge": "Qué hace diferente a Resume AI",
+
+    "feature1Title": "Constructor de currículums con IA",
+    "feature1Text": "Crea currículums potentes y específicos para cada puesto con sugerencias de IA que destacan tus fortalezas y logros.",
+
+    "feature2Title": "Optimización ATS",
+    "feature2Text": "Obtén una puntuación ATS, sugerencias de palabras clave y consejos de formato para superar los sistemas ATS.",
+
+    "feature3Title": "Importación inteligente de currículums",
+    "feature3Text": "Sube tu currículum actual y deja que la IA extraiga y organice tu información en segundos.",
+
+    "stat1": "Currículums creados",
+    "stat2": "Tasa de éxito ATS",
+    "stat3": "Plantillas profesionales",
+    "stat4": "Asistencia de IA"
+  },
+  "howWorks": {
+    "badge": "Cómo funciona Resume AI",
+    "step1Title": "Subir o crear",
+    "step1Text": "Sube tu currículum o empieza desde cero con nuestro creador con IA.",
+    "step2Title": "Análisis con IA",
+    "step2Text": "Nuestra IA analiza tu currículum y ofrece consejos prácticos.",
+    "step3Title": "Elegir plantilla",
+    "step3Text": "Elige entre más de 13 plantillas profesionales que se adapten a tu estilo.",
+    "step4Title": "Personalizar",
+    "step4Text": "Edita, mejora y optimiza tu currículum con sugerencias de IA.",
+    "step5Title": "Descargar y postular",
+    "step5Text": "Descarga tu currículum compatible con ATS y comienza a postularte."
+  },
+  "meetBuilder": {
+    "chatTitle": "Builder AI",
+    "chatQuestion": "¿Cómo puedo mejorar mi resumen profesional?",
+    "chatReply": "Aquí tienes un resumen mejorado que destaca tus habilidades y experiencia:",
+    "chatSummary": "Diseñador de producto orientado a resultados con más de 5 años de experiencia creando productos digitales centrados en el usuario que impulsan la participación y el crecimiento empresarial.",
+    "placeholder": "Pregunta lo que quieras a Builder AI...",
+    "badge": "Conoce Builder AI",
+    "title1": "Tu asistente personal",
+    "title2": "de currículum",
+    "benefit1": "Analizar y revisar tu currículum",
+    "benefit2": "Reescribir resúmenes y viñetas",
+    "benefit3": "Mejorar habilidades y logros",
+    "benefit4": "Obtener sugerencias ATS y palabras clave",
+    "benefit5": "Responder preguntas sobre carrera y currículum",
+    "button": "Probar Builder AI"
+  },
+  "aboutCTA": {
+    "title": "¿Listo para crear un currículum que consiga entrevistas?",
+    "description": "Únete a miles de profesionales que construyeron la carrera de sus sueños con Resume AI.",
+    "primaryButton": "Comenzar gratis",
+    "secondaryButton": "Explorar plantillas"
   },
   "navbar": {
     "dashboard": "Panel de control",

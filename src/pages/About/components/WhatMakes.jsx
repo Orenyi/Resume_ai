@@ -1,4 +1,5 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import {
   RiRobot2Line,
   RiShieldCheckLine,
@@ -8,54 +9,56 @@ import {
 } from "react-icons/ri";
 import { FiUsers } from "react-icons/fi";
 
-const features = [
-  {
-    icon: <RiRobot2Line />,
-    title: "AI Resume Builder",
-    text: "Create powerful, role-specific resumes with AI suggestions that highlight your strengths and achievements.",
-    bg: "bg-blue-50",
-    color: "text-[var(--color-primary)]",
-  },
-  {
-    icon: <RiShieldCheckLine />,
-    title: "ATS Optimization",
-    text: "Get ATS score, keyword suggestions, and formatting tips to pass applicant tracking systems.",
-    bg: "bg-emerald-50",
-    color: "text-emerald-600",
-  },
-  {
-    icon: <RiFileUploadLine />,
-    title: "Smart Resume Import",
-    text: "Upload your existing resume and let AI extract and structure your information in seconds.",
-    bg: "bg-purple-50",
-    color: "text-purple-600",
-  },
-];
-
-const stats = [
-  {
-    icon: <FiUsers />,
-    value: "10,000+",
-    label: "Resumes Created",
-  },
-  {
-    icon: <RiShieldCheckLine />,
-    value: "95%",
-    label: "ATS Success Rate",
-  },
-  {
-    icon: <RiFileList3Line />,
-    value: "13+",
-    label: "Professional Templates",
-  },
-  {
-    icon: <RiTimeLine />,
-    value: "24/7",
-    label: "AI Assistance",
-  },
-];
-
 const WhatMakes = () => {
+  const { t } = useTranslation();
+
+  const features = [
+    {
+      icon: <RiRobot2Line />,
+      title: t("whatMakes.feature1Title"),
+      text: t("whatMakes.feature1Text"),
+      bg: "bg-blue-50",
+      color: "text-[var(--color-primary)]",
+    },
+    {
+      icon: <RiShieldCheckLine />,
+      title: t("whatMakes.feature2Title"),
+      text: t("whatMakes.feature2Text"),
+      bg: "bg-emerald-50",
+      color: "text-emerald-600",
+    },
+    {
+      icon: <RiFileUploadLine />,
+      title: t("whatMakes.feature3Title"),
+      text: t("whatMakes.feature3Text"),
+      bg: "bg-purple-50",
+      color: "text-purple-600",
+    },
+  ];
+
+  const stats = [
+    {
+      icon: <FiUsers />,
+      value: "10,000+",
+      label: t("whatMakes.stat1"),
+    },
+    {
+      icon: <RiShieldCheckLine />,
+      value: "95%",
+      label: t("whatMakes.stat2"),
+    },
+    {
+      icon: <RiFileList3Line />,
+      value: "13+",
+      label: t("whatMakes.stat3"),
+    },
+    {
+      icon: <RiTimeLine />,
+      value: "24/7",
+      label: t("whatMakes.stat4"),
+    },
+  ];
+
   return (
     <section className="relative overflow-hidden bg-white py-16 lg:py-24">
       {/* Blue Blur */}
@@ -66,7 +69,7 @@ const WhatMakes = () => {
 
       <div className="relative z-10 px-4 md:px-6 lg:px-6 xl:px-10 max-w-[85rem] mx-auto">
         <p className="uppercase tracking-[4px] text-[11px] md:text-[12px] font-semibold text-[var(--color-primary)] text-center">
-          What Makes Resume AI Different
+          {t("whatMakes.badge")}
         </p>
 
         {/* Feature Cards */}

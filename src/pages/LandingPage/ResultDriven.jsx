@@ -1,33 +1,51 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import { FiCheckCircle } from "react-icons/fi";
 import { RiArrowRightLine } from "react-icons/ri";
 
-const benefits = [
-  "Get your ATS score in seconds",
-  "Personalized suggestions to improve",
-  "Keyword optimization for your target role",
-];
-
-const tips = [
-  {
-    text: "Add more quantifiable achievements",
-    impact: "+24% impact",
-  },
-  {
-    text: "Include relevant keywords",
-    impact: "+18% impact",
-  },
-  {
-    text: "Improve section formatting",
-    impact: "+12% impact",
-  },
-  {
-    text: "Add more skills",
-    impact: "+8% impact",
-  },
-];
-
 const ResultDriven = () => {
+  const { t } = useTranslation();
+
+  const benefits = [
+    t("resultDriven.benefit1"),
+    t("resultDriven.benefit2"),
+    t("resultDriven.benefit3"),
+  ];
+
+  const tips = [
+    {
+      text: t("resultDriven.tip1"),
+      impact: "+24% impact",
+    },
+    {
+      text: t("resultDriven.tip2"),
+      impact: "+18% impact",
+    },
+    {
+      text: t("resultDriven.tip3"),
+      impact: "+12% impact",
+    },
+    {
+      text: t("resultDriven.tip4"),
+      impact: "+8% impact",
+    },
+  ];
+
+  const scoreBars = [
+    {
+      name: t("resultDriven.content"),
+      score: 92,
+    },
+    {
+      name: t("resultDriven.structure"),
+      score: 85,
+    },
+    {
+      name: t("resultDriven.keywords"),
+      score: 80,
+    },
+  ];
+
   return (
     <section className="relative overflow-hidden bg-[#f8fafc] py-16 lg:py-28">
       {/* Blue Blur */}
@@ -44,11 +62,11 @@ const ResultDriven = () => {
           {/* Left */}
           <div>
             <p className="uppercase tracking-[4px] text-[11px] md:text-[12px] font-semibold text-[var(--color-primary)]">
-              AI-powered. Results driven
+              {t("resultDriven.badge")}
             </p>
 
             <h2 className="text-[25px] md:text-[30px] lg:text-[40px] font-semibold leading-snug mt-3 max-w-xl">
-              Resume scoring & tips to help you get more interviews
+              {t("resultDriven.title")}
             </h2>
 
             <div className="mt-8 space-y-4">
@@ -65,11 +83,10 @@ const ResultDriven = () => {
             {/* ATS Score Card */}
             <div className="mt-10 bg-white border border-gray-200 rounded-3xl p-6 shadow-[0_20px_60px_rgba(15,23,42,0.08)] max-w-xl">
               <p className="text-sm font-semibold text-[#0f172a]">
-                Your ATS Score
+                {t("resultDriven.atsScore")}
               </p>
 
               <div className="mt-6 grid sm:grid-cols-[160px_1fr] gap-8 items-center">
-                {/* Score circle */}
                 <div className="relative w-32 h-32 mx-auto sm:mx-0">
                   <div className="absolute inset-0 rounded-full border-[12px] border-gray-100" />
                   <div className="absolute inset-0 rounded-full border-[12px] border-transparent border-l-emerald-400 border-t-emerald-400 border-b-emerald-400 rotate-45" />
@@ -82,13 +99,8 @@ const ResultDriven = () => {
                   </div>
                 </div>
 
-                {/* Score bars */}
                 <div className="space-y-5">
-                  {[
-                    { name: "Content", score: 92 },
-                    { name: "Structure", score: 85 },
-                    { name: "Keywords", score: 80 },
-                  ].map((item, index) => (
+                  {scoreBars.map((item, index) => (
                     <div key={index}>
                       <div className="flex items-center justify-between mb-2">
                         <p className="text-sm text-gray-500">{item.name}</p>
@@ -108,9 +120,8 @@ const ResultDriven = () => {
                 </div>
               </div>
 
-              {/* Mobile button */}
               <button className="mt-6 lg:hidden w-full bg-[var(--color-primary)] text-white py-3 px-5 rounded-xl flex items-center justify-center gap-2">
-                View Improvement Tips
+                {t("resultDriven.viewTips")}
                 <RiArrowRightLine />
               </button>
             </div>
@@ -121,11 +132,11 @@ const ResultDriven = () => {
             <div className="bg-white border border-gray-200 rounded-3xl p-8 shadow-[0_20px_60px_rgba(15,23,42,0.08)]">
               <div className="flex items-center justify-between">
                 <h4 className="text-xl font-semibold text-[#0f172a]">
-                  Improvement Tips
+                  {t("resultDriven.improvementTips")}
                 </h4>
 
                 <span className="bg-emerald-50 text-emerald-600 text-sm font-semibold px-4 py-2 rounded-full">
-                  Overall Impact&nbsp;&nbsp; High
+                  {t("resultDriven.overallImpact")}
                 </span>
               </div>
 
@@ -151,7 +162,7 @@ const ResultDriven = () => {
 
               <button className="mt-8 flex items-center gap-3 text-[var(--color-primary)] font-semibold">
                 <FiCheckCircle />
-                Apply All Suggestions
+                {t("resultDriven.applyAll")}
               </button>
             </div>
           </div>

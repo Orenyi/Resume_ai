@@ -23,7 +23,11 @@ const LanguageSwitcher = ({ activeLang, setActiveLang }) => {
         onClick={() => setOpen((p) => !p)}
         className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-gray-200 bg-white text-sm font-medium text-gray-700 hover:border-gray-300 transition-colors"
       >
-        <span>{current.flag}</span>
+        <img
+          src={current.flag.img}
+          alt={current.flag.alt}
+          className="w-5 h-4 object-cover rounded-sm"
+        />
         <span className="hidden sm:inline">{current.label}</span>
         <svg
           className={`w-3.5 h-3.5 text-gray-400 transition-transform duration-200 ${open ? "rotate-180" : ""}`}
@@ -57,7 +61,11 @@ const LanguageSwitcher = ({ activeLang, setActiveLang }) => {
                     : "text-gray-700 hover:bg-gray-50"
                 }`}
             >
-              <span className="text-base">{lang.flag}</span>
+              <img
+                src={lang.flag.img}
+                alt={lang.flag.alt}
+                className="w-5 h-4 object-cover rounded-sm"
+              />
               {lang.label}
               {activeLang === lang.code && (
                 <svg

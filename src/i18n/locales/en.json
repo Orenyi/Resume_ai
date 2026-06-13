@@ -9,25 +9,72 @@
     "social": "professionals hired this month",
     "socialCount": "10,000+"
   },
+  "howItWorks": {
+    "badge": "How It Works",
+    "title": "Simple Steps to Success",
+    "subtitle": "Create a professional resume in just a few easy steps.",
+
+    "step1Title": "Upload or Build",
+    "step1Text": "Upload your existing resume or start from scratch. Our AI will guide you.",
+
+    "step2Title": "AI Analysis",
+    "step2Text": "Our AI analyzes your resume and provides personalized recommendations.",
+
+    "step3Title": "Choose Template",
+    "step3Text": "Pick from our collection of professional templates that match your style.",
+
+    "step4Title": "Customize & Download",
+    "step4Text": "Edit, optimize and download your ATS-friendly resume and start applying.",
+
+    "stat1": "Resumes Created",
+    "stat2": "ATS Success Rate",
+    "stat3": "Professional Templates",
+    "stat4": "AI Assistance"
+  },
+  "resultDriven": {
+    "badge": "AI-powered. Results driven",
+    "title": "Resume scoring & tips to help you get more interviews",
+
+    "benefit1": "Get your ATS score in seconds",
+    "benefit2": "Personalized suggestions to improve",
+    "benefit3": "Keyword optimization for your target role",
+
+    "atsScore": "Your ATS Score",
+
+    "content": "Content",
+    "structure": "Structure",
+    "keywords": "Keywords",
+
+    "viewTips": "View Improvement Tips",
+
+    "improvementTips": "Improvement Tips",
+    "overallImpact": "Overall Impact High",
+
+    "tip1": "Add more quantifiable achievements",
+    "tip2": "Include relevant keywords",
+    "tip3": "Improve section formatting",
+    "tip4": "Add more skills",
+
+    "applyAll": "Apply All Suggestions"
+  },
+  "templateStyle": {
+    "badge": "Choose Your Style",
+    "title": "Pick a Template That Fits You",
+    "subtitle": "Professional templates designed to help you stand out in any industry.",
+    "templateModern": "Modern",
+    "templateProfessional": "Professional",
+    "templateCreative": "Creative",
+    "templateMinimal": "Minimal",
+    "templateExecutive": "Executive",
+    "templateSimple": "Simple",
+    "templateClassic": "Classic",
+    "templateElegant": "Elegant",
+    "cta": "View All Templates"
+  },
   "testimonials": {
     "badge": "Rated 4/5 by over 1k+ users",
     "heading": "Words of praise from others about our presence.",
     "subtitle": "Discover why teams, founders, and professionals trust our creative expertise to elevate their brands and digital experiences."
-  },
-  "samples": {
-    "heading": "Resume examples tailored for your job and experience",
-    "subtitle": "Our expert career specialists have crafted over 1,200 detailed resume resources and analyzed 9,000+ applications across multiple industries and experience levels — each tailored to meet today's competitive job market.",
-    "browse": "Browse Examples",
-    "jobs": {
-      "businessAnalyst": "Business Analyst",
-      "dataScientist": "Data Scientist",
-      "productManager": "Product Manager",
-      "softwareEngineer": "Software Engineer",
-      "sales": "Sales",
-      "teacher": "Teacher",
-      "engineer": "Engineer",
-      "accounting": "Accounting"
-    }
   },
   "trusted": {
     "label": "Trusted by employees at"
@@ -55,6 +102,7 @@
       "btn": "Try Export Now"
     }
   },
+
   "faq": {
     "heading": "Frequently Asked Questions",
     "subtitle": "Everything you need to know about building professional, ATS-friendly resumes with our AI-powered platform.",
@@ -96,6 +144,80 @@
         "answer": "Yes. Every user gets a shareable public portfolio link at a unique URL. You can include your projects, skills, and resume in one place and share it directly with recruiters or add it to your LinkedIn profile."
       }
     }
+  },
+  "aboutHero": {
+    "badge": "About Resume AI",
+    "title": "Helping Job Seekers Build Better Careers",
+    "titleHighlight": "with AI",
+    "description": "Resume AI combines intelligent resume building, ATS optimization, and AI-powered career tools to help professionals land more interviews and get hired faster.",
+    "getStarted": "Get Started",
+    "browseTemplates": "Browse Templates",
+    "professionals": "Professionals",
+    "aboutImage": "Resume AI About"
+  },
+  "ourStory": {
+    "imageAlt": "Resume AI team",
+    "badge": "Our Story",
+    "title": "Why We Built Resume AI",
+    "paragraph1": "We noticed talented people were missing opportunities because of weak resumes, poor formatting, and ATS rejections.",
+    "paragraph2": "Resume AI was created to give everyone access to professional resume tools powered by artificial intelligence.",
+    "mission": "Our Mission",
+    "missionCard": "Empower every professional to present their best self and unlock new opportunities.",
+    "missionText": "To help professionals create resumes that get noticed and open doors.",
+    "vision": "Our Vision",
+    "visionText": "A world where everyone has the tools to build a career they love."
+  },
+  "whatMakes": {
+    "badge": "What Makes Resume AI Different",
+
+    "feature1Title": "AI Resume Builder",
+    "feature1Text": "Create powerful, role-specific resumes with AI suggestions that highlight your strengths and achievements.",
+
+    "feature2Title": "ATS Optimization",
+    "feature2Text": "Get ATS score, keyword suggestions, and formatting tips to pass applicant tracking systems.",
+
+    "feature3Title": "Smart Resume Import",
+    "feature3Text": "Upload your existing resume and let AI extract and structure your information in seconds.",
+
+    "stat1": "Resumes Created",
+    "stat2": "ATS Success Rate",
+    "stat3": "Professional Templates",
+    "stat4": "AI Assistance"
+  },
+  "howWorks": {
+    "badge": "How Resume AI Works",
+    "step1Title": "Upload or Build",
+    "step1Text": "Upload your resume or start from scratch with our AI builder.",
+    "step2Title": "AI Analysis",
+    "step2Text": "Our AI analyzes your resume and provides actionable insights.",
+    "step3Title": "Choose Template",
+    "step3Text": "Pick from 13+ professional templates that match your style.",
+    "step4Title": "Customize",
+    "step4Text": "Edit, refine, and optimize your resume with AI suggestions.",
+    "step5Title": "Download & Apply",
+    "step5Text": "Download your ATS-friendly resume and start applying."
+  },
+  "meetBuilder": {
+    "chatTitle": "Builder AI",
+    "chatQuestion": "How can I improve my professional summary?",
+    "chatReply": "Here's an improved summary that highlights your skills and experience:",
+    "chatSummary": "Results-driven Product Designer with 5+ years of experience creating user-centered digital products that drive engagement and business growth.",
+    "placeholder": "Ask Builder AI anything...",
+    "badge": "Meet Builder AI",
+    "title1": "Your Personal",
+    "title2": "Resume Assistant",
+    "benefit1": "Analyze and review your resume",
+    "benefit2": "Rewrite summaries and bullet points",
+    "benefit3": "Improve skills and achievements",
+    "benefit4": "Get ATS and keyword suggestions",
+    "benefit5": "Answer career and resume questions",
+    "button": "Try Builder AI"
+  },
+  "aboutCTA": {
+    "title": "Ready to Build a Resume That Gets Interviews?",
+    "description": "Join thousands of professionals who built their dream careers with Resume AI.",
+    "primaryButton": "Get Started for Free",
+    "secondaryButton": "Browse Templates"
   },
   "navbar": {
     "dashboard": "Dashboard",

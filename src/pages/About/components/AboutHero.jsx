@@ -28,20 +28,20 @@ const AboutHero = () => {
             {/* Badge */}
             <div className="flex items-center gap-2 bg-[#b5d9cd] py-2 px-4 rounded-full text-[11px] md:text-[12px] w-fit">
               <TbTopologyStar3 />
-              <p className="font-light">About Resume AI</p>
+              <p className="font-light">{t("aboutHero.badge")}</p>
             </div>
 
             {/* Heading */}
             <div className="mt-1">
               <h2 className="text-[35px] md:text-[48px] lg:[60px] font-semibold leading-snug">
-                Helping Job Seekers Build Better Careers{" "}
-                <span className="text-[var(--color-primary)]">with AI</span>
+                {t("aboutHero.title")}{" "}
+                <span className="text-[var(--color-primary)]">
+                  {t("aboutHero.titleHighlight")}
+                </span>
               </h2>
 
               <p className="text-[16px] md:text-[18px] font-light text-muted-foreground mt-5 max-w-3xl leading-relaxed">
-                Resume AI combines intelligent resume building, ATS
-                optimization, and AI-powered career tools to help professionals
-                land more interviews and get hired faster.
+                {t("aboutHero.description")}
               </p>
             </div>
 
@@ -51,14 +51,14 @@ const AboutHero = () => {
                 onClick={() => navigate("/auth")}
                 className="text-[18px] bg-[var(--color-primary)] text-white py-3.5 px-8 rounded-xl hover:bg-[var(--color-secondary)] transition-colors duration-300"
               >
-                Get Started
+                {t("aboutHero.getStarted")}
               </button>
 
               <button
                 onClick={() => navigate("/templates")}
                 className="text-[18px] bg-transparent text-black py-3.5 px-8 rounded-xl border border-black hover:bg-[var(--color-secondary)] hover:text-white hover:border-transparent transition-colors duration-300"
               >
-                Browse Templates
+                {t("aboutHero.browseTemplates")}
               </button>
             </div>
 
@@ -66,7 +66,7 @@ const AboutHero = () => {
             <div className="flex items-center gap-x-4 mt-5 mb-6 lg:mb-0">
               <img
                 src={contributors}
-                alt="Professionals"
+                alt={t("aboutHero.professionals")}
                 className="w-16 md:w-20"
               />
 
@@ -83,7 +83,7 @@ const AboutHero = () => {
           <div className="flex-1 flex justify-center">
             <img
               src={hero_about_img}
-              alt="Resume AI About"
+              alt={t("aboutHero.aboutImage")}
               className="w-full max-w-[800px] xl:max-w-[800px] "
             />
           </div>

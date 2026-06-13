@@ -1,4 +1,5 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import {
   RiUploadCloud2Line,
   RiSparkling2Line,
@@ -10,53 +11,55 @@ import {
   RiTimeLine,
 } from "react-icons/ri";
 
-const steps = [
-  {
-    icon: <RiUploadCloud2Line />,
-    title: "Upload or Build",
-    text: "Upload your existing resume or start from scratch. Our AI will guide you.",
-  },
-  {
-    icon: <RiSparkling2Line />,
-    title: "AI Analysis",
-    text: "Our AI analyzes your resume and provides personalized recommendations.",
-  },
-  {
-    icon: <RiLayoutGridLine />,
-    title: "Choose Template",
-    text: "Pick from our collection of professional templates that match your style.",
-  },
-  {
-    icon: <RiEdit2Line />,
-    title: "Customize & Download",
-    text: "Edit, optimize and download your ATS-friendly resume and start applying.",
-  },
-];
-
-const stats = [
-  {
-    icon: <RiTeamLine />,
-    value: "10,000+",
-    label: "Resumes Created",
-  },
-  {
-    icon: <RiShieldCheckLine />,
-    value: "95%",
-    label: "ATS Success Rate",
-  },
-  {
-    icon: <RiFileList3Line />,
-    value: "13+",
-    label: "Professional Templates",
-  },
-  {
-    icon: <RiTimeLine />,
-    value: "24/7",
-    label: "AI Assistance",
-  },
-];
-
 const HowItWorks = () => {
+  const { t } = useTranslation();
+
+  const steps = [
+    {
+      icon: <RiUploadCloud2Line />,
+      title: t("howItWorks.step1Title"),
+      text: t("howItWorks.step1Text"),
+    },
+    {
+      icon: <RiSparkling2Line />,
+      title: t("howItWorks.step2Title"),
+      text: t("howItWorks.step2Text"),
+    },
+    {
+      icon: <RiLayoutGridLine />,
+      title: t("howItWorks.step3Title"),
+      text: t("howItWorks.step3Text"),
+    },
+    {
+      icon: <RiEdit2Line />,
+      title: t("howItWorks.step4Title"),
+      text: t("howItWorks.step4Text"),
+    },
+  ];
+
+  const stats = [
+    {
+      icon: <RiTeamLine />,
+      value: "10,000+",
+      label: t("howItWorks.stat1"),
+    },
+    {
+      icon: <RiShieldCheckLine />,
+      value: "95%",
+      label: t("howItWorks.stat2"),
+    },
+    {
+      icon: <RiFileList3Line />,
+      value: "13+",
+      label: t("howItWorks.stat3"),
+    },
+    {
+      icon: <RiTimeLine />,
+      value: "24/7",
+      label: t("howItWorks.stat4"),
+    },
+  ];
+
   return (
     <section className="relative overflow-hidden bg-[#f8fafc] py-16 lg:py-20">
       {/* Blue Blur */}
@@ -69,15 +72,15 @@ const HowItWorks = () => {
         {/* Heading */}
         <div className="text-center">
           <p className="uppercase tracking-[4px] text-[11px] md:text-[12px] font-semibold text-[var(--color-primary)]">
-            How It Works
+            {t("howItWorks.badge")}
           </p>
 
           <h2 className="text-[25px] md:text-[30px] lg:text-[40px] font-semibold leading-snug mt-3">
-            Simple Steps to Success
+            {t("howItWorks.title")}
           </h2>
 
           <p className="text-[16px] md:text-[18px] font-light text-muted-foreground mt-4 text-center max-w-2xl mx-auto">
-            Create a professional resume in just a few easy steps.
+            {t("howItWorks.subtitle")}
           </p>
         </div>
 

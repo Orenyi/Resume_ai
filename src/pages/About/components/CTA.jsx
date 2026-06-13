@@ -1,7 +1,10 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import { NavLink } from "react-router-dom";
 
 const AboutCTA = () => {
+  const { t } = useTranslation();
+
   return (
     <section className="bg-white py-12 lg:py-20">
       <div className="px-4 md:px-6 lg:px-6 xl:px-10 max-w-[85rem] mx-auto">
@@ -34,12 +37,11 @@ const AboutCTA = () => {
 
           <div className="relative z-10 max-w-3xl mx-auto">
             <h2 className="text-[24px] md:text-[30px] lg:text-[36px] font-semibold leading-snug text-[#0f172a]">
-              Ready to Build a Resume That Gets Interviews?
+              {t("aboutCTA.title")}
             </h2>
 
             <p className="text-[15px] md:text-[17px] font-light text-muted-foreground mt-3">
-              Join thousands of professionals who built their dream careers with
-              Resume AI.
+              {t("aboutCTA.description")}
             </p>
 
             <div className="mt-6 flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -47,14 +49,14 @@ const AboutCTA = () => {
                 to="/auth"
                 className="w-full sm:w-auto text-center bg-[var(--color-primary)] text-white py-3 px-7 rounded-lg hover:bg-[var(--color-secondary)] transition-colors duration-300"
               >
-                Get Started for Free
+                {t("aboutCTA.primaryButton")}
               </NavLink>
 
               <NavLink
                 to="/dashboard/templates"
                 className="w-full sm:w-auto text-center bg-white text-black py-3 px-7 rounded-lg border border-black hover:bg-[var(--color-secondary)] hover:text-white hover:border-transparent transition-colors duration-300"
               >
-                Browse Templates
+                {t("aboutCTA.secondaryButton")}
               </NavLink>
             </div>
           </div>

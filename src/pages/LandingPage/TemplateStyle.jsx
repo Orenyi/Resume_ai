@@ -1,5 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { FiCheckCircle } from "react-icons/fi";
 import { RiArrowRightLine } from "react-icons/ri";
 
@@ -11,21 +12,20 @@ import template5 from "../../images/template5.jpg";
 import template6 from "../../images/template6.jpg";
 import template7 from "../../images/template7.jpg";
 import template8 from "../../images/template8.jpg";
-import { useNavigate } from "react-router-dom";
-
-const templates = [
-  { name: "Modern", image: template1, active: true },
-  { name: "Professional", image: template2 },
-  { name: "Creative", image: template3 },
-  { name: "Minimal", image: template4 },
-  { name: "Executive", image: template5 },
-  { name: "Simple", image: template6 },
-  { name: "Classic", image: template7 },
-  { name: "Elegant", image: template8 },
-];
 
 const TemplateStyle = () => {
-  const navigate = useNavigate();
+  const { t } = useTranslation();
+
+  const templates = [
+    { name: t("templateStyle.templateModern"), image: template1, active: true },
+    { name: t("templateStyle.templateProfessional"), image: template2 },
+    { name: t("templateStyle.templateCreative"), image: template3 },
+    { name: t("templateStyle.templateMinimal"), image: template4 },
+    { name: t("templateStyle.templateExecutive"), image: template5 },
+    { name: t("templateStyle.templateSimple"), image: template6 },
+    { name: t("templateStyle.templateClassic"), image: template7 },
+    { name: t("templateStyle.templateElegant"), image: template8 },
+  ];
 
   return (
     <section className="relative overflow-hidden bg-[#f8fafc] py-16 lg:py-28">
@@ -42,16 +42,15 @@ const TemplateStyle = () => {
         {/* Heading */}
         <div className="text-center">
           <p className="uppercase tracking-[4px] text-[11px] md:text-[12px] font-semibold text-[var(--color-primary)]">
-            Choose Your Style
+            {t("templateStyle.badge")}
           </p>
 
           <h2 className="text-[25px] md:text-[30px] lg:text-[40px] font-semibold leading-snug mt-3">
-            Pick a Template That Fits You
+            {t("templateStyle.title")}
           </h2>
 
           <p className="text-[16px] md:text-[18px] font-light text-muted-foreground mt-4 text-center max-w-2xl mx-auto">
-            Professional templates designed to help you stand out in any
-            industry.
+            {t("templateStyle.subtitle")}
           </p>
         </div>
 
@@ -88,12 +87,8 @@ const TemplateStyle = () => {
         </div>
 
         {/* Mobile Scroll */}
-        {/* Mobile Scroll */}
         <div className="relative z-20 md:hidden mt-10 -mx-4 overflow-hidden">
-          {/* Left Fade */}
           <div className="absolute left-0 top-0 h-full w-10 bg-gradient-to-r from-white to-transparent z-20 pointer-events-none" />
-
-          {/* Right Fade */}
           <div className="absolute right-0 top-0 h-full w-10 bg-gradient-to-l from-white to-transparent z-20 pointer-events-none" />
 
           <div className="overflow-x-auto scrollbar-hide">
@@ -132,7 +127,7 @@ const TemplateStyle = () => {
             to="/dashboard/templates"
             className="bg-[var(--color-primary)] text-white py-3 px-8 rounded-xl hover:bg-[var(--color-secondary)] transition-colors duration-300 flex items-center gap-3"
           >
-            View All Templates
+            {t("templateStyle.cta")}
             <RiArrowRightLine />
           </NavLink>
         </div>
