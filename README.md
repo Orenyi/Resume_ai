@@ -212,4 +212,4 @@ This project is licensed under the MIT License.
 
 ---
 
-### Built with ❤️ using React, Tailwind CSS, Supabase, and AI.
+### Built with ❤️ using React, Tailwind CSS and Supabase
